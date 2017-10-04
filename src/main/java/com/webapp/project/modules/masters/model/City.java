@@ -38,6 +38,8 @@ public class City implements java.io.Serializable {
 	private Set<AirAgent> airAgents = new HashSet<AirAgent>(0);
 	private Set<Vendor> vendors = new HashSet<Vendor>(0);
 	private Set<Customer> customers = new HashSet<Customer>(0);
+	private Set<Consignee> consignees = new HashSet<Consignee>(0);
+	private Integer active;
 
 	public City() {
 	}
@@ -186,6 +188,24 @@ public class City implements java.io.Serializable {
 
 	public void setCustomers(Set<Customer> customers) {
 		this.customers = customers;
+	}
+	
+	@Column(name = "active")
+	public Integer getActive() {
+		return this.active;
+	}
+
+	public void setActive(Integer active) {
+		this.active = active;
+	}
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
+	public Set<Consignee> getConsignees() {
+		return this.consignees;
+	}
+
+	public void setConsignees(Set<Consignee> consignees) {
+		this.consignees = consignees;
 	}
 
 }

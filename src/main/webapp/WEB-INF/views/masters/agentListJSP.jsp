@@ -24,16 +24,17 @@
     <!--toastr-->
     <link href="<c:url value='/static/assets/toastr-master/toastr.css" rel="stylesheet" type="text/css'/>"/>
     
+    <!-- Yamm styles-->
+    <link href="<c:url value='/static/css/yamm.css'/>" rel="stylesheet">
 	</head>
 	
-	 <body>
+	 <body class="mega-nav">
 
   <section id="container">
       <!--header start-->
-      <%@include file="../pagetemplate/topPanelJSP.jsp" %>
+      <%@include file="../pagetemplate/topPanelMegaMenuJSP.jsp" %>
       <!--header end-->
       <!--sidebar start-->
-      <%@include file="../pagetemplate/sidePanelJSP.jsp" %>
       <!--sidebar end-->
        <!--main content start-->
       <section id="main-content">

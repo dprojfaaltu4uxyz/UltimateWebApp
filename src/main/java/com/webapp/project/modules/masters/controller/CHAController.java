@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.webapp.project.modules.classes.model.Classes;
 import com.webapp.project.modules.invoice.model.Invoice;
 import com.webapp.project.modules.invoice.service.InvoiceService;
+import com.webapp.project.modules.masters.model.Cha;
 import com.webapp.project.modules.teacher.model.Teacher;
 import com.webapp.project.modules.teacher.model.modeleditor.TeacherEditor;
 
@@ -26,13 +27,9 @@ import com.webapp.project.modules.teacher.model.modeleditor.TeacherEditor;
 public class CHAController {
 
 	
-	@Autowired
-	InvoiceService invoiceService;
-	
-	@InitBinder
-    public void initBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(Teacher.class, new TeacherEditor());
-    }
+//	@Autowired
+//	CHAService chaService;
+
 
 	/**
 	 * This method will list all existing classes.
@@ -40,8 +37,8 @@ public class CHAController {
 	@RequestMapping(value = {"/chalist" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
-		List<Invoice> invoices = invoiceService.findAllInvoice();
-		model.addAttribute("invoices", invoices);
+//		List<Cha> chas = chaService.findAllChas();
+//		model.addAttribute("chas", chas);
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "invoice/classesListJSP";
 	}

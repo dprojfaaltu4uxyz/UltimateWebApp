@@ -3,6 +3,7 @@ package com.webapp.project.modules.invoice.dao;
 import java.util.List;
 
 import com.webapp.project.modules.invoice.model.Invoice;
+import com.webapp.project.modules.invoice.model.InvoiceVoucher;
 
 
 
@@ -12,9 +13,9 @@ public interface InvoiceDao {
 	
 	//Teacher findBySSO(String sso);
 	
-	void save(Invoice invoice);
+	Long save(InvoiceVoucher invoice);
+	void updateInv(InvoiceVoucher invoice);
+	void deleteInv(InvoiceVoucher[] invoice);
 	
-	//void deleteBySSO(String sso);
-	
-	List<Invoice> findAllInvoice();
+	List<InvoiceVoucher> findAllInvoice();
 }

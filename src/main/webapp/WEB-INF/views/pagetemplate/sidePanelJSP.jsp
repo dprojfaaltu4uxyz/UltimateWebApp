@@ -15,7 +15,8 @@
                           <span>Masters</span>
                       </a>
                       <ul class="sub">
-						 <li><a  href="${pageContext.request.contextPath}/newagent">Agent Master</a></li>	
+                      	  <li><a  href="${pageContext.request.contextPath}/newparty">Party Master</a></li>
+						  <li><a  href="${pageContext.request.contextPath}/newagent">Agent Master</a></li>	
                           <li><a  href="${pageContext.request.contextPath}/newdepositbank">Deposit Bank Master</a></li>
                           <li><a  href="${pageContext.request.contextPath}/newairagent">Air Agent Master</a></li>
                           <li><a  href="${pageContext.request.contextPath}/newcha">CHA Master</a></li>

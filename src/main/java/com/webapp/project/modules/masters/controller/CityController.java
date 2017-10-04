@@ -1,5 +1,6 @@
 package com.webapp.project.modules.masters.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapp.project.modules.masters.model.City;
 import com.webapp.project.modules.masters.model.CityDTO;
+import com.webapp.project.modules.masters.model.Country;
 import com.webapp.project.modules.masters.model.Port;
 import com.webapp.project.modules.masters.model.State;
+import com.webapp.project.modules.masters.model.StateDTO;
 import com.webapp.project.modules.masters.service.CityService;
 import com.webapp.project.modules.masters.service.StateService;
 
@@ -48,8 +51,13 @@ public class CityController {
 	
 	@RequestMapping(value = {"/newcity" }, method = RequestMethod.GET)
 	public String loadCity(ModelMap model) {
+		CityDTO cityDTO = new CityDTO();
+		List<State> stateList = new ArrayList<>();
+		stateList = stateService.findAllStates();
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "masters/cityJSP";
+		model.addAttribute("city", cityDTO);
+		model.addAttribute("stateList", stateList);
+		return "masters/stateJSP";
 	}
 	
 	/**
@@ -202,6 +210,23 @@ public class CityController {
 		city.setCreateUserId(cityDTO.getCreateUserId()); 
 		city.setCreateUsername(cityDTO.getCreateUsername());
 		city.setCreateUsertype(cityDTO.getCreateUsertype());
+		
+	}
+	
+	public void setEntityToDTO(CityDTO cityDTO,City city){
+		cityDTO.setCityId(city.getCityId());
+		cityDTO.setAppUser(city.getAppUser()); 
+		cityDTO.setState(city.getState()); 
+		cityDTO.setCityName(city.getCityName()); 
+		cityDTO.setCityCode(city.getCityCode()); 
+		cityDTO.setAirAgents(city.getAirAgents());
+		cityDTO.setVendors(city.getVendors());
+		cityDTO.setCustomers(city.getCustomers());
+		cityDTO.setCreateDate(city.getCreateDate()); 
+		cityDTO.setModifiedDate(city.getModifiedDate()); 
+		cityDTO.setCreateUserId(city.getCreateUserId()); 
+		cityDTO.setCreateUsername(city.getCreateUsername());
+		cityDTO.setCreateUsertype(city.getCreateUsertype());
 		
 	}
 	

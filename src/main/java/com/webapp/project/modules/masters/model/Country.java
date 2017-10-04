@@ -35,6 +35,8 @@ public class Country implements java.io.Serializable {
 	private AppUser appUser;
 	private Set<Customer> customers = new HashSet<Customer>(0);
 	private Set<State> states = new HashSet<State>(0);
+	private Set<Consignee> consignees = new HashSet<Consignee>(0);
+	
 
 	public Country() {
 	}
@@ -164,4 +166,12 @@ public class Country implements java.io.Serializable {
 		this.states = states;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
+	public Set<Consignee> getConsignees() {
+		return this.consignees;
+	}
+
+	public void setConsignees(Set<Consignee> consignees) {
+		this.consignees = consignees;
+	}
 }

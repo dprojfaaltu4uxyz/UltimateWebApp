@@ -42,10 +42,10 @@ public class AirAgentController {
 	@RequestMapping(value = {"/airagentlist" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
-		List<Invoice> invoices = invoiceService.findAllInvoice();
-		model.addAttribute("invoices", invoices);
-		model.addAttribute("loggedinuser", getPrincipal());
-		return "invoice/classesListJSP";
+//		List<Invoice> invoices = invoiceService.findAllInvoice();
+//		model.addAttribute("invoices", invoices);
+//		model.addAttribute("loggedinuser", getPrincipal());
+		return "invoice/airAgentListJSP";
 	}
 
 	

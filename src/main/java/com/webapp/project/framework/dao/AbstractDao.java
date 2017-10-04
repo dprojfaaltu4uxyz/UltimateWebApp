@@ -62,6 +62,10 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 		return "SUCCESS";
 	}
 	
+	public Long saveAndReturn(T entity) {
+		return 	(Long) getSession().save(entity);		
+	}
+	
 	
 	protected Criteria createEntityCriteria(){
 		return getSession().createCriteria(persistentClass);

@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.webapp.project.modules.classes.model.Classes;
 import com.webapp.project.modules.invoice.model.Invoice;
 import com.webapp.project.modules.invoice.service.InvoiceService;
+import com.webapp.project.modules.masters.model.Location;
 import com.webapp.project.modules.teacher.model.Teacher;
 import com.webapp.project.modules.teacher.model.modeleditor.TeacherEditor;
 
 @Controller
 public class LocationController {
 
-	
-	@Autowired
-	InvoiceService invoiceService;
+//	@Autowired
+//	InvoiceService invoiceService;
 	
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -40,8 +40,8 @@ public class LocationController {
 	@RequestMapping(value = {"/locationlist" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
-		List<Invoice> invoices = invoiceService.findAllInvoice();
-		model.addAttribute("invoices", invoices);
+//		List<Location> locations = locationService.findAllLocations();
+//		model.addAttribute("locations", locations);
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "invoice/classesListJSP";
 	}

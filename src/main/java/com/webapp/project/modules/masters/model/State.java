@@ -36,6 +36,8 @@ public class State implements java.io.Serializable {
 	private String createUsername;
 	private String createUsertype;
 	private Set<City> cities = new HashSet<City>(0);
+	private Integer active;
+
 
 	public State() {
 	}
@@ -164,5 +166,14 @@ public class State implements java.io.Serializable {
 
 	public void setCountry(Country country) {
 		this.country = country;
+	}
+	
+	@Column(name = "active")
+	public Integer getActive() {
+		return active;
+	}
+
+	public void setActive(Integer active) {
+		this.active = active;
 	}
 }

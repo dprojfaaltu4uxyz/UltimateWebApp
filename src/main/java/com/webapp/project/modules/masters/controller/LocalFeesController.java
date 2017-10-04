@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.webapp.project.modules.classes.model.Classes;
 import com.webapp.project.modules.invoice.model.Invoice;
 import com.webapp.project.modules.invoice.service.InvoiceService;
+import com.webapp.project.modules.masters.model.LocalFees;
 import com.webapp.project.modules.teacher.model.Teacher;
 import com.webapp.project.modules.teacher.model.modeleditor.TeacherEditor;
 
@@ -26,8 +27,8 @@ import com.webapp.project.modules.teacher.model.modeleditor.TeacherEditor;
 public class LocalFeesController {
 
 	
-	@Autowired
-	InvoiceService invoiceService;
+//	@Autowired
+//	LocalFeesService localFeesService;
 	
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -40,8 +41,8 @@ public class LocalFeesController {
 	@RequestMapping(value = {"/localfeeslist" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
-		List<Invoice> invoices = invoiceService.findAllInvoice();
-		model.addAttribute("invoices", invoices);
+//		List<LocalFees> localFees = localFeesService.findAllLocalFees();
+//		model.addAttribute("localFees", localFees);
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "invoice/classesListJSP";
 	}

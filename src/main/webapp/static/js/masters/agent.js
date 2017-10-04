@@ -36,8 +36,10 @@ Agent.validation = function(){
 
     $().ready(function() {
         // validate the comment form when it is submitted
+    	
     	$("#commentForm").validate();
     	$("#port").val($("#selectedPortId").val());
+    	$("#port").select2();
     	//$("#active").val($('input[name="active"]').val());
 
         // validate signup form on keyup and submit

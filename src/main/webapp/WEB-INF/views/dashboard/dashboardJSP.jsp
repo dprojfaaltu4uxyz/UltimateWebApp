@@ -28,7 +28,9 @@
     <link href="<c:url value='/static/css/style.css' />" rel="stylesheet">
     <link href="<c:url value='/static/css/style-responsive.css' />" rel="stylesheet" />
 		
-		
+	
+	 <!-- Yamm styles-->
+    <link href="<c:url value='/static/css/yamm.css'/>" rel="stylesheet">	
 	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
@@ -37,19 +39,27 @@
     <![endif]-->	
 	</head>
 	
-	 <body>
+	 <body class="mega-nav">
 
   <section id="container">
       <!--header start-->
-      <%@include file="../pagetemplate/topPanelJSP.jsp" %>
+      <%@include file="../pagetemplate/topPanelMegaMenuJSP.jsp" %>
       <!--header end-->
       <!--sidebar start-->
-      <%@include file="../pagetemplate/sidePanelJSP.jsp" %>
       <!--sidebar end-->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">
+          <section class="wrapper site-min-height">
+          
+
+<div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Dashboard
+                          </header>
               <!--state overview start-->
+              <div class="panel-body">
               <div class="row state-overview">
                   <div class="col-lg-3 col-sm-6">
                       <section class="panel">
@@ -723,8 +733,13 @@
                       <!--weather statement end-->
                   </div>
               </div>
-
-          </section>
+              </div>
+              </section>
+               </div>
+     </div>
+</section>
+    
+     
       </section>
       <!--main content end-->
 
@@ -772,6 +787,9 @@
       //owl carousel
 
       $(document).ready(function() {
+    	  $(document).on('click', '.yamm .dropdown-menu', function(e) {
+              e.stopPropagation()
+          })
           $("#owl-demo").owlCarousel({
               navigation : true,
               slideSpeed : 300,

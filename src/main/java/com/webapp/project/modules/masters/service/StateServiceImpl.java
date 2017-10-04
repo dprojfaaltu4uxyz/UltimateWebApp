@@ -30,7 +30,12 @@ public class StateServiceImpl implements StateService{
 	}
 
 	public String updateState(State state) {
-		return updateState(state);
+		return dao.updateState(state);
+	}
+
+	@Override
+	public String deleteState(State state) {
+		return dao.deleteState(state);
 	}
 
 }

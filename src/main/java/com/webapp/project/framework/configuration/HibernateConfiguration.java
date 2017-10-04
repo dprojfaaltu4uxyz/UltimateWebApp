@@ -29,13 +29,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.webapp.project.framework.model","com.webapp.project.modules.classes.model",
-        		"com.webapp.project.modules.dashboard.model","com.webapp.project.modules.expense.model",
-        		"com.webapp.project.modules.feetype.model","com.webapp.project.modules.grade.model",
-        		"com.webapp.project.modules.invoice.model","com.webapp.project.modules.parent.model",
-        		"com.webapp.project.modules.paymenthistory.model","com.webapp.project.modules.section.model",
-        		"com.webapp.project.modules.student.model","com.webapp.project.modules.subject.model",
-        		"com.webapp.project.modules.teacher.model","com.webapp.project.modules.masters.model"});
+        sessionFactory.setPackagesToScan("com.webapp.project.*");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
      }

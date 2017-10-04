@@ -13,6 +13,8 @@ public interface StateService {
 	String updateState(State state);
 
 	List<State> findAllStates(); 
+	
+	String deleteState(State state);
 }
 
 

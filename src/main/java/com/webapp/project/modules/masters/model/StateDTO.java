@@ -16,8 +16,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.webapp.project.framework.model.AppUser;
+import com.webapp.project.framework.model.BaseDTO;
 
-public class StateDTO {
+public class StateDTO extends BaseDTO{
 
 	private long stateId;
 	private AppUser appUser;
@@ -30,6 +31,8 @@ public class StateDTO {
 	private String createUsername;
 	private String createUsertype;
 	private Set<City> cities = new HashSet<City>(0);
+	private Integer active;
+	private Long selectedCountryId;
 
 	public StateDTO() {
 	}
@@ -142,4 +145,22 @@ public class StateDTO {
 	public void setCountry(Country country) {
 		this.country = country;
 	}
+
+	public Integer getActive() {
+		return active;
+	}
+
+	public void setActive(Integer active) {
+		this.active = active;
+	}
+
+	public Long getSelectedCountryId() {
+		return selectedCountryId;
+	}
+
+	public void setSelectedCountryId(Long selectedCountryId) {
+		this.selectedCountryId = selectedCountryId;
+	}
+
+	
 }

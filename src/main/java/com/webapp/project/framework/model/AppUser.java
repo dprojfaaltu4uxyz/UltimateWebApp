@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.webapp.project.modules.jobcard.model.Jobcard;
 import com.webapp.project.modules.masters.model.AccountHead;
 import com.webapp.project.modules.masters.model.Agent;
 import com.webapp.project.modules.masters.model.AirAgent;
@@ -32,7 +33,6 @@ import com.webapp.project.modules.masters.model.Country;
 import com.webapp.project.modules.masters.model.Currency;
 import com.webapp.project.modules.masters.model.Customer;
 import com.webapp.project.modules.masters.model.DepositBank;
-import com.webapp.project.modules.masters.model.Jobcard;
 import com.webapp.project.modules.masters.model.LocalFeeDetails;
 import com.webapp.project.modules.masters.model.LocalFees;
 import com.webapp.project.modules.masters.model.Location;

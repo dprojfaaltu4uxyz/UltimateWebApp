@@ -20,6 +20,7 @@ import com.webapp.project.modules.classes.model.Classes;
 import com.webapp.project.modules.invoice.model.Invoice;
 import com.webapp.project.modules.invoice.service.InvoiceService;
 import com.webapp.project.modules.masters.model.AirAgent;
+import com.webapp.project.modules.masters.model.Carrier;
 import com.webapp.project.modules.teacher.model.Teacher;
 import com.webapp.project.modules.teacher.model.modeleditor.TeacherEditor;
 
@@ -27,9 +28,9 @@ import com.webapp.project.modules.teacher.model.modeleditor.TeacherEditor;
 public class CarrierController {
 
 	
-	@Autowired
-	InvoiceService invoiceService;
-	
+//	@Autowired
+//	CarrierService carrierService;
+
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Teacher.class, new TeacherEditor());
@@ -41,8 +42,8 @@ public class CarrierController {
 	@RequestMapping(value = {"/carrierlist" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
-		List<Invoice> invoices = invoiceService.findAllInvoice();
-		model.addAttribute("invoices", invoices);
+		//List<Carrier> carriers = carrierService.findAllCarriers;
+		//model.addAttribute("carriers", carriers);
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "invoice/classesListJSP";
 	}

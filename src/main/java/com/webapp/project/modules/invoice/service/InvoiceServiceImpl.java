@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.webapp.project.modules.invoice.dao.InvoiceDao;
 import com.webapp.project.modules.invoice.model.Invoice;
+import com.webapp.project.modules.invoice.model.InvoiceVoucher;
 
 
 @Service("invoiceService")
@@ -22,21 +23,23 @@ public class InvoiceServiceImpl implements InvoiceService{
 		return dao.findById(id);
 	}
 
-	public void saveInvoice(Invoice invoice) {
+	public Long saveInvoice(InvoiceVoucher invoice) {
 		invoice.setCreateDate(new Date());
-		invoice.setModifyDate(new Date());
-		dao.save(invoice);
+		invoice.setModifyDate(new Date());				
+		return dao.save(invoice);
 	}
 
 	
 
-	public List<Invoice> findAllInvoice() {
+	public List<InvoiceVoucher> findAllInvoice() {
 		return dao.findAllInvoice();
 	}
 
-	public void updateInvoice(Invoice invoice) {
-		
+	public void updateInvoice(InvoiceVoucher invoice) {
+		dao.updateInv(invoice);
 	}
-
+	public void deleteInv(InvoiceVoucher[] invoice) {
+		dao.deleteInv(invoice);
+	}
 	
 }

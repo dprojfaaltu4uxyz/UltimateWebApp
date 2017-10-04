@@ -56,13 +56,20 @@ public class AppController {
 	/**
 	 * This method will list all existing users.
 	 */
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
 		List<AppUser> users = userService.findAllUsers();
 		model.addAttribute("users", users);
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "userListJSP";
+	}
+	
+	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	public String redirectToParty(ModelMap model) {
+
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "dashboard/dashboardJSP";
 	}
 
 	/**
@@ -188,7 +195,7 @@ public class AppController {
 		if (isCurrentAuthenticationAnonymous()) {
 			return "loginJSP";
 	    } else {
-	    	return "redirect:/list";  
+	    	return "redirect:/newParty";  
 	    }
 	}
 

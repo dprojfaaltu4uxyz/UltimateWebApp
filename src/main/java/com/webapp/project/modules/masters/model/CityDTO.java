@@ -34,6 +34,7 @@ public class CityDTO extends BaseDTO{
 	private Set<Vendor> vendors = new HashSet<Vendor>(0);
 	private Set<Customer> customers = new HashSet<Customer>(0);
 	private Long selectedStateId;
+	private Integer active;
 
 	public CityDTO() {
 	}
@@ -173,5 +174,12 @@ public class CityDTO extends BaseDTO{
 		this.selectedStateId = selectedStateId;
 	}
 	
+	public Integer getActive() {
+		return this.active;
+	}
+
+	public void setActive(Integer active) {
+		this.active = active;
+	}
 
 }

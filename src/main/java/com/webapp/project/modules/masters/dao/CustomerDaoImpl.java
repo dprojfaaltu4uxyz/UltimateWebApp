@@ -25,7 +25,7 @@ public class CustomerDaoImpl extends AbstractDao<Integer, Customer> implements C
 	}
 
 	public List<Customer> findAllCustomers() {
-		Criteria criteria = createEntityCriteria().addOrder(Order.asc("name"));
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("customerName"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
 		List<Customer> customers = (List<Customer>) criteria.list();
 		return customers;

@@ -40,9 +40,9 @@ public class VoyageController {
 	@RequestMapping(value = {"/voyagelist" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
-		List<Invoice> invoices = invoiceService.findAllInvoice();
-		model.addAttribute("invoices", invoices);
-		model.addAttribute("loggedinuser", getPrincipal());
+//		List<Invoice> invoices = invoiceService.findAllInvoice();
+//		model.addAttribute("invoices", invoices);
+//		model.addAttribute("loggedinuser", getPrincipal());
 		return "invoice/classesListJSP";
 	}
 

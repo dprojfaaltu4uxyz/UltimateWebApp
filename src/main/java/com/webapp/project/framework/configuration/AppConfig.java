@@ -9,6 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -100,6 +102,28 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers){
     	argumentResolvers.add(atmosphereResolver);
     }
+    
+    /* @Override
+    public void configureMessageConverters( List<HttpMessageConverter<?>> converters ) {
+        GsonHttpMessageConverter gsonHttpMessageConverter = new GsonHttpMessageConverter();
+        converters.add(gsonHttpMessageConverter);
+    }
+
+
+    @Bean
+    public MappingJackson2HttpMessageConverter converter() {
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        return converter;
+    }
+    
+    
+     * Provides the Jackson ObjectMapper with custom configuration for our JSON serialization.
+     * @return The Jackson object mapper with non-null serialization configured
+    
+     @Bean
+     public JacksonObjectMapper mapper() {
+         return new JacksonObjectMapper();
+     } */
     
 }
 

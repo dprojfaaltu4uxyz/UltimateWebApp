@@ -31,8 +31,6 @@ public class AgentServiceImpl implements AgentService{
 		return dao.save(agent);
 	}
 
-	
-
 	public List<Agent> findAllAgent() {
 		return dao.findAllAgents();
 	}

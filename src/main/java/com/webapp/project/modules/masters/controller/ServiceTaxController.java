@@ -29,10 +29,7 @@ public class ServiceTaxController {
 	@Autowired
 	InvoiceService invoiceService;
 	
-	@InitBinder
-    public void initBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(Teacher.class, new TeacherEditor());
-    }
+	
 
 	/**
 	 * This method will list all existing classes.
@@ -40,9 +37,9 @@ public class ServiceTaxController {
 	@RequestMapping(value = {"/servicetaxcodelist" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
-		List<Invoice> invoices = invoiceService.findAllInvoice();
-		model.addAttribute("invoices", invoices);
-		model.addAttribute("loggedinuser", getPrincipal());
+//		List<Invoice> invoices = invoiceService.findAllInvoice();
+//		model.addAttribute("invoices", invoices);
+//		model.addAttribute("loggedinuser", getPrincipal());
 		return "invoice/classesListJSP";
 	}
 
