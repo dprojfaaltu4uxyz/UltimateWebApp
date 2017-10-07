@@ -286,9 +286,6 @@ c/o Steve Widget</textarea>
 		<!-- END MAIN PANEL -->
 
 		<!-- PAGE FOOTER -->
-		<div class="page-footer">
-		<%@include file="../pagetemplate/footerJSP.jsp" %>
-		</div>
 		<!-- END PAGE FOOTER -->
 
 		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
