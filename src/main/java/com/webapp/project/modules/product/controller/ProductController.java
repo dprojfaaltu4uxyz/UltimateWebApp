@@ -53,27 +53,25 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/saveProductDetails", method = RequestMethod.POST)	
-	public @ResponseBody Long saveProductDetails(@Valid  ProductDetails productDetails,BindingResult result,
-			ModelMap model) {
+	public @ResponseBody Long saveProductDetails(@RequestBody  ProductDetails productDetails) {
 		//System.out.println(data);
-		model.addAttribute("productDetails", productDetails);
 		productDetails.setPdtId(0);
 		Long productDetailsId = productService.saveProductDetails(productDetails);
 		return productDetailsId;
 	}
 	
 	@RequestMapping(value = "/updateProductDetails")	
-	public @ResponseBody String updateProductDetails(@RequestBody ProductDetails ProductDetails) {
+	public @ResponseBody long updateProductDetails(@RequestBody ProductDetails productDetails) {
 		//System.out.println(data);
-		productService.updateProductDetails(ProductDetails);
-		return "Success";
+		productService.updateProductDetails(productDetails);
+		return productDetails.getPdtId();
 	}
 	
 	@RequestMapping(value = "/deleteProductDetails")	
-	public @ResponseBody String deleteProductDetails(@RequestBody ProductDetails[] ProductDetails) {
+	public @ResponseBody long deleteProductDetails(@RequestBody ProductDetails[] ProductDetails) {
 		//System.out.println(data);
 		productService.deleteProductDetails(ProductDetails);
-		return "success";
+		return 0;
 	}
 	
 	

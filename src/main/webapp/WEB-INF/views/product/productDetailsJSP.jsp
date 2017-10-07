@@ -995,161 +995,26 @@
 	$(".form-control").css({'height': '21px!important' });
 	$(".form-control").css({'width': '23%!important' });
 
-$('.invDate').datepicker({
-    autoclose: true
-});
-var token = $("meta[name='_csrf']").attr("content");
-var rowNo = 0;
-$(document).ready(function(){
-	$.ajax({	
-		type: 'GET',
-		dataType: 'json',
-		contentType:'application/json',
-		url: "${pageContext.request.contextPath}/productlist",
-		data:{},
-		headers: {
-	        'X-CSRF-Token': token
-	    },
-		success :function(rows){
-			var i;
-			for (i in rows) {
-				createRows(rows[i],i);
-	            }
-		},
-		error : function(e) {
-			console.log("ERROR: ", e);				
-		},
-		done : function(e) {
-			console.log("DONE");
-		}
-	}); 
-});
-
-function createRows(itemBean,rowNo){
-	var text = {'id':rowNo,'pdtId': itemBean.pdtId,'productName':itemBean.productName,'desc':itemBean.desc,'accessories': itemBean.accessories,'pkgDetails': itemBean.pkgDetails,'ritcNo': itemBean.ritcNo,'schemeCode': itemBean.schemeCode,'category': itemBean.category,'invoiceNo': itemBean.invoiceNo,'invDate': itemBean.invDate,'qty': itemBean.qty,'unit': itemBean.unit,'itemRate': itemBean.itemRate,'per': itemBean.per,'goodsValue': itemBean.goodsValue,'pmvUnit': itemBean.pmvUnit,'pmvValue':itemBean.pmvValue,'grossWeight': itemBean.grossWeight,'netWeight': itemBean.netWeight,'perUnit':itemBean.perUnit,'noOfPackages': itemBean.noOfPackages,'noOfPackPerUnit': itemBean.noOfPackPerUnit,'fobValue':itemBean.fobValue,'dbkSrNo': itemBean.dbkSrNo,'onWt': itemBean.onWt,'dbkPerUnit': itemBean.dbkPerUnit,'onFOB': itemBean.onFOB,'dbkQuantity': itemBean.dbkQuantity,'dbkQtyPerUnit': itemBean.dbkQtyPerUnit,'stateFOB': itemBean.stateFOB,'statePerQty': itemBean.statePerQty,'stateWt': itemBean.stateWt,'stateAmt': itemBean.stateAmt,'jobNotificationNo': itemBean.jobNotificationNo,'itemCodeStr': itemBean.itemCodeStr,'itemCodeReward': itemBean.itemCodeReward,'stateFOBWt': itemBean.stateFOBWt,'endUse': itemBean.endUse,'accessoryState': itemBean.accessoryState,'hawbNo': itemBean.hawbNo,'totalPackage': itemBean.totalPackage,'igstPaymentStatus': itemBean.igstPaymentStatus,'taxableValue': itemBean.taxableValue,'igstAmount': itemBean.igstAmount};
-	
-	var checkbox = "<td><input type='checkbox' id='"+rowNo+"_check' value='"+rowNo+"'/></td>";
-	var cell02 = "<td id='"+rowNo+"_productName' column ='productName'>"+ itemBean.productName +"</td>";
-	var cell01 = "<td id='"+rowNo+"_desc' column='description'><a href='#' onclick='editData("+rowNo+");'>"+itemBean.desc+"</td> ";
-  	var cell02 = "<td id='"+rowNo+"_productName' column ='productName'>"+ itemBean.productName +"</td>";
-  	var cell03 = "<td id='"+rowNo+"_accessories'   column ='accessories'>"+ itemBean.accessories +"</td>";
-  	var cell04 = "<td id='"+rowNo+"_pkgDetails'  column ='pkgDetails'>"+ itemBean.pkgDetails +"</td>";
-  	var cell05 = "<td id='"+rowNo+"_ritcNo'   column ='ritcNo'>"+ itemBean.ritcNo +"</td>";
-  	var cell06 = "<td id='"+rowNo+"_schemeCode'   column ='schemeCode'>"+ itemBean.schemeCode +"</td>";
-  	var cell07 = "<td id='"+rowNo+"_category'  column ='category'>"+ itemBean.category +"</td>";
-  	var cell08 = "<td id='"+rowNo+"_invoiceNo'  column ='invoiceNo'>"+ itemBean.invoiceNo +"</td>";
-  	var cell09 = "<td id='"+rowNo+"_invDate'  column ='invDate'>"+ itemBean.invDate +"</td>";
-  	var cell10 = "<td id='"+rowNo+"_qty'  column ='qty'>"+ itemBean.qty +"</td>";
-  	var cell11 = "<td id='"+rowNo+"_unit'  column ='unit'>"+ itemBean.unit +"</td>";
-  	var cell12 = "<td id='"+rowNo+"_itemRate'  column ='itemRate'>"+ itemBean.itemRate +"</td>";
-  	var cell13 = "<td id='"+rowNo+"_per'  column ='per'>"+ itemBean.per +"</td>";
-  	var cell14 = "<td id='"+rowNo+"_goodsValue'  column ='goodsValue'>"+ itemBean.goodsValue +"</td>";
-  	var cell15 = "<td id='"+rowNo+"_pmvUnit'  column ='pmvUnit'>"+ itemBean.pmvUnit +"</td>";
-  	var cell16 = "<td id='"+rowNo+"_pmvValue'  column ='pmvValue'>"+ itemBean.pmvValue +"</td>";
-  	var cell17 = "<td id='"+rowNo+"_grossWeight'  column ='grossWeight'>"+ itemBean.grossWeight +"</td>";
-  	var cell18 = "<td id='"+rowNo+"_netWeight'  column ='netWeight'>"+ itemBean.netWeight +"</td>";
-  	var cell19 = "<td id='"+rowNo+"_perUnit'  column ='perUnit'>"+ itemBean.perUnit +"</td>";
-  	var cell20 = "<td id='"+rowNo+"_pmUnit'  column ='pmUnit'>"+ itemBean.pmUnit +"</td>";
-  	var cell21 = "<td id='"+rowNo+"_noOfPackages'  column ='noOfPackages'>"+itemBean.noOfPackages +"</td>";
-  	var cell22 = "<td id='"+rowNo+"_noOfPackPerUnit'  column ='noOfPackPerUnit'>"+ itemBean.noOfPackPerUnit +"</td>";
-  	var cell23 = "<td id='"+rowNo+"_fobValue'  column ='fobValue'>"+ itemBean.fobValue +"</td>";
-  	var cell24 = "<td id='"+rowNo+"_dbkSrNo'  column ='dbkSrNo'>"+ itemBean.dbkSrNo +"</td>";
-  	var cell25 = "<td id='"+rowNo+"_onWt'  column ='onWt'>"+ itemBean.onWt +"</td>";
-  	var cell26 = "<td id='"+rowNo+"_dbkPerUnit'  column ='dbkPerUnit'>"+ itemBean.dbkPerUnit +"</td>";
-  	var cell27 = "<td id='"+rowNo+"_onFOB'  column ='onFOB'>"+ itemBean.onFOB +"</td>";
-  	var cell28 = "<td id='"+rowNo+"_dbkQuantity'  column ='dbkQuantity'>"+ itemBean.dbkQuantity +"</td>";
-  	var cell29 = "<td id='"+rowNo+"_dbkQtyPerUnit'  column ='dbkQtyPerUnit'>"+ itemBean.dbkQtyPerUnit +"</td>";
-  	var cell30 = "<td id='"+rowNo+"_stateFOB'  column ='stateFOB'>"+ itemBean.stateFOB +"</td>";
-  	var cell31 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ itemBean.statePerQty +"</td>";
-  	var cell32 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ itemBean.statePerQty +"</td>";
-  	var cell33 = "<td id='"+rowNo+"_stateWt'  column ='stateWt'>"+ itemBean.stateWt +"</td>";
-  	var cell34 = "<td id='"+rowNo+"_stateAmt'  column ='stateAmt'>"+ itemBean.stateAmt +"</td>";
-  	var cell35 = "<td id='"+rowNo+"_jobNotificationNo'  column ='jobNotificationNo'>"+ itemBean.jobNotificationNo +"</td>";
-  	var cell36 = "<td id='"+rowNo+"_itemCodeStr'  column ='itemCodeStr'>"+ itemBean.itemCodeStr +"</td>";
-	var cell37 = "<td id='"+rowNo+"_itemCodeReward'  column ='itemCodeReward'>"+ itemBean.itemCodeReward +"</td>";
-	var cell38 = "<td id='"+rowNo+"_stateFOBWt'  column ='stateFOBWt'>"+ itemBean.stateFOBWt +"</td>";
-	var cell39 = "<td id='"+rowNo+"_endUse'  column ='endUse'>"+ itemBean.endUse +"</td>";
-	var cell40 = "<td id='"+rowNo+"_accessoryState'  column ='accessoryState'>"+ itemBean.accessoryState +"</td>";
-	var cell41 = "<td id='"+rowNo+"_hawbNo'  column ='hawbNo'>"+ itemBean.hawbNo +"</td>";
-	var cell42 = "<td id='"+rowNo+"_totalPackage'  column ='totalPackage'>"+ itemBean.totalPackage +"</td>";
-	var cell43 = "<td id='"+rowNo+"_igstPaymentStatus'  column ='igstPaymentStatus'>"+ itemBean.igstPaymentStatus +"</td>";
-	var cell44 = "<td id='"+rowNo+"_taxableValue'  column ='taxableValue'>"+ itemBean.taxableValue +"</td>";
-	var cell45 = "<td id='"+rowNo+"_igstAmount'  column ='igstAmount'>"+ itemBean.igstAmount +"</td>";
-	var deleteRow = "<button id='delButton' class='btn default' onclick='deleteRow($(this));'>delete</button>"
-	  	var row = "<tr  data-row='data-bean' item-bean ="+JSON.stringify(text)+" id='"+rowNo+"'>"+checkbox+cell01+cell02+cell03+cell04+cell05+cell06+cell07+cell08+cell09+cell10+cell11+cell12+cell13+cell14+cell15+cell16+cell17+cell18+cell19+cell20+cell21+cell22+cell23+cell24+cell25+cell26+cell27+cell28+cell29+cell30+cell31+cell32+cell33+cell34+cell35+cell36+cell37+cell38+cell39+cell40+cell41+cell42+cell43+cell44+cell45+"</tr>";
-	      $("#productDetailTable tbody").after(row);
-		 
-}
-function addRows() {
-	//$('#editBttn').hide();
-	  rowNo++;
-	  var text = {'id':rowNo,'pdtId': null,'productName':$('#productName').val(),'desc':$('#desc').val().trim(),'accessories': $("#accessories").val(),'pkgDetails': $("#pkgDetails").val(),'ritcNo': $("#ritcNo").val(),'schemeCode': $("#schemeCode").val(),'category': $("#category").val(),'invoiceNo': $("#invoiceNo").val(),'invDate': $("#invDate").val(),'qty': $("#qty").val(),'unit': $("#unit").val(),'itemRate': $("#itemRate").val(),'per': $("#per").val(),'goodsValue': $("#goodsValue").val(),'pmvUnit': $("#pmvUnit").val(),'pmvValue':$("#pmvValue").val(),'grossWeight': $("#grossWeight").val(),'netWeight': $("#netWeight").val(),'perUnit':$("#perUnit").val(),'noOfPackages': $("#noOfPackages").val(),'noOfPackPerUnit': $("#noOfPackPerUnit").val(),'fobValue':$("#fobValue").val(),'dbkSrNo': $("#dbkSrNo").val(),'onWt': $("#onWt").val(),'dbkPerUnit': $("#dbkPerUnit").val(),'onFOB': $("#onFOB").val(),'dbkQuantity': $("#dbkQuantity").val(),'dbkQtyPerUnit': $("#dbkQtyPerUnit").val(),'stateFOB': $("#stateFOB").val(),'statePerQty': $("#statePerQty").val(),'stateWt': $("#stateWt").val(),'stateAmt': $("#stateAmt").val(),'jobNotificationNo': $("#jobNotificationNo").val(),'itemCodeStr': $("#itemCodeStr").val(),'itemCodeReward': $("#itemCodeReward").val(),'stateFOBWt': $("#stateFOBWt").val(),'endUse': $("#endUse").val(),'accessoryState': $("#accessoryState").val(),'hawbNo': $("#hawbNo").val(),'totalPackage': $("#totalPackage").val(),'igstPaymentStatus': $("#igstPaymentStatus").val(),'taxableValue': $("#taxableValue").val(),'igstAmount': $("#igstAmount").val()};
-	 
-	  var itemBean = JSON.stringify(text);
-	  
-	  $.ajax({	
-			type: 'POST',
+	$('.invDate').datepicker({
+	    autoclose: true
+	});
+	var token = $("meta[name='_csrf']").attr("content");
+	var rowNo = 0;
+	$(document).ready(function(){
+		$.ajax({	
+			type: 'GET',
 			dataType: 'json',
 			contentType:'application/json',
-			url: "${pageContext.request.contextPath}/saveProductDetails",
-			data:itemBean,
+			url: "${pageContext.request.contextPath}/productlist",
+			data:{},
 			headers: {
 		        'X-CSRF-Token': token
 		    },
-			success :function(pdtId){
-				text.pdtId = pdtId;
-				var checkbox = "<td><input type='checkbox' id='"+rowNo+"_check' value='"+rowNo+"'/></td>";
-				var cell01 = "<td id='"+rowNo+"_desc' column='description'><a href='#' onclick='editData("+rowNo+");'>"+$('#desc').val() +"</td> ";
-			  	var cell02 = "<td id='"+rowNo+"_productName' column ='productName'>"+ $("#productName").val(); +"</td>";
-			  	var cell03 = "<td id='"+rowNo+"_accessories'   column ='accessories'>"+ $("#accessories").val(); +"</td>";
-			  	var cell04 = "<td id='"+rowNo+"_pkgDetails'  column ='pkgDetails'>"+ $("#pkgDetails").val(); +"</td>";
-			  	var cell05 = "<td id='"+rowNo+"_ritcNo'   column ='ritcNo'>"+ $("#ritcNo").val(); +"</td>";
-			  	var cell06 = "<td id='"+rowNo+"_schemeCode'   column ='schemeCode'>"+ $("#schemeCode").val(); +"</td>";
-			  	var cell07 = "<td id='"+rowNo+"_category'  column ='category'>"+ $("#category").val(); +"</td>";
-			  	var cell08 = "<td id='"+rowNo+"_invoiceNo'  column ='invoiceNo'>"+ $("#invoiceNo").val(); +"</td>";
-			  	var cell09 = "<td id='"+rowNo+"_invDate'  column ='invDate'>"+ $("#invDate").val(); +"</td>";
-			  	var cell10 = "<td id='"+rowNo+"_qty'  column ='qty'>"+ $("#qty").val(); +"</td>";
-			  	var cell11 = "<td id='"+rowNo+"_unit'  column ='unit'>"+ $("#unit").val(); +"</td>";
-			  	var cell12 = "<td id='"+rowNo+"_itemRate'  column ='itemRate'>"+ $("#itemRate").val(); +"</td>";
-			  	var cell13 = "<td id='"+rowNo+"_per'  column ='per'>"+ $("#per").val(); +"</td>";
-			  	var cell14 = "<td id='"+rowNo+"_goodsValue'  column ='goodsValue'>"+ $("#goodsValue").val(); +"</td>";
-			  	var cell15 = "<td id='"+rowNo+"_pmvUnit'  column ='pmvUnit'>"+ $("#pmvUnit").val(); +"</td>";
-			  	var cell16 = "<td id='"+rowNo+"_pmvValue'  column ='pmvValue'>"+ $("#pmvValue").val(); +"</td>";
-			  	var cell17 = "<td id='"+rowNo+"_grossWeight'  column ='grossWeight'>"+ $("#grossWeight").val(); +"</td>";
-			  	var cell18 = "<td id='"+rowNo+"_netWeight'  column ='netWeight'>"+ $("#netWeight").val(); +"</td>";
-			  	var cell19 = "<td id='"+rowNo+"_perUnit'  column ='perUnit'>"+ $("#perUnit").val(); +"</td>";
-			  	var cell20 = "<td id='"+rowNo+"_pmUnit'  column ='pmUnit'>"+ $("#pmUnit").val(); +"</td>";
-			  	var cell21 = "<td id='"+rowNo+"_noOfPackages'  column ='noOfPackages'>"+$("#noOfPackages").val(); +"</td>";
-			  	var cell22 = "<td id='"+rowNo+"_noOfPackPerUnit'  column ='noOfPackPerUnit'>"+ $("#noOfPackPerUnit").val(); +"</td>";
-			  	var cell23 = "<td id='"+rowNo+"_fobValue'  column ='fobValue'>"+ $("#fobValue").val(); +"</td>";
-			  	var cell24 = "<td id='"+rowNo+"_dbkSrNo'  column ='dbkSrNo'>"+ $("#dbkSrNo").val(); +"</td>";
-			  	var cell25 = "<td id='"+rowNo+"_onWt'  column ='onWt'>"+ $("#onWt").val(); +"</td>";
-			  	var cell26 = "<td id='"+rowNo+"_dbkPerUnit'  column ='dbkPerUnit'>"+ $("#dbkPerUnit").val(); +"</td>";
-			  	var cell27 = "<td id='"+rowNo+"_onFOB'  column ='onFOB'>"+ $("#onFOB").val(); +"</td>";
-			  	var cell28 = "<td id='"+rowNo+"_dbkQuantity'  column ='dbkQuantity'>"+ $("#dbkQuantity").val(); +"</td>";
-			  	var cell29 = "<td id='"+rowNo+"_dbkQtyPerUnit'  column ='dbkQtyPerUnit'>"+ $("#dbkQtyPerUnit").val(); +"</td>";
-			  	var cell30 = "<td id='"+rowNo+"_stateFOB'  column ='stateFOB'>"+ $("#stateFOB").val(); +"</td>";
-			  	var cell31 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ $("#statePerQty").val(); +"</td>";
-			  	var cell32 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ $("#statePerQty").val(); +"</td>";
-			  	var cell33 = "<td id='"+rowNo+"_stateWt'  column ='stateWt'>"+ $("#stateWt").val(); +"</td>";
-			  	var cell34 = "<td id='"+rowNo+"_stateAmt'  column ='stateAmt'>"+ $("#stateAmt").val(); +"</td>";
-			  	var cell35 = "<td id='"+rowNo+"_jobNotificationNo'  column ='jobNotificationNo'>"+ $("#jobNotificationNo").val(); +"</td>";
-			  	var cell36 = "<td id='"+rowNo+"_itemCodeStr'  column ='itemCodeStr'>"+ $("#itemCodeStr").val(); +"</td>";
-				var cell37 = "<td id='"+rowNo+"_itemCodeReward'  column ='itemCodeReward'>"+ $("#itemCodeReward").val(); +"</td>";
-				var cell38 = "<td id='"+rowNo+"_stateFOBWt'  column ='stateFOBWt'>"+ $("#stateFOBWt").val(); +"</td>";
-				var cell39 = "<td id='"+rowNo+"_endUse'  column ='endUse'>"+ $("#endUse").val(); +"</td>";
-				var cell40 = "<td id='"+rowNo+"_accessoryState'  column ='accessoryState'>"+ $("#accessoryState").val(); +"</td>";
-				var cell41 = "<td id='"+rowNo+"_hawbNo'  column ='hawbNo'>"+ $("#hawbNo").val(); +"</td>";
-				var cell42 = "<td id='"+rowNo+"_totalPackage'  column ='totalPackage'>"+ $("#totalPackage").val(); +"</td>";
-				var cell43 = "<td id='"+rowNo+"_igstPaymentStatus'  column ='igstPaymentStatus'>"+ $("#igstPaymentStatus").val(); +"</td>";
-				var cell44 = "<td id='"+rowNo+"_taxableValue'  column ='taxableValue'>"+ $("#taxableValue").val(); +"</td>";
-				var cell45 = "<td id='"+rowNo+"_igstAmount'  column ='igstAmount'>"+ $("#igstAmount").val(); +"</td>";
-				
-			  	var deleteRow = "<button id='delButton' class='btn default' onclick='deleteRow($(this));'>delete</button>"
-			  	var row = "<tr  data-row='data-bean' item-bean ="+JSON.stringify(text)+" id='"+rowNo+"'>"+checkbox+cell01+cell02+cell03+cell04+cell05+cell06+cell07+cell08+cell09+cell10+cell11+cell12+cell13+cell14+cell15+cell16+cell17+cell18+cell19+cell20+cell21+cell22+cell23+cell24+cell25+cell26+cell27+cell28+cell29+cell30+cell31+cell32+cell33+cell34+cell35+cell36+cell37+cell38+cell39+cell40+cell41+cell42+cell43+cell44+cell45+"</tr>";
-			      $("#productDetailTable tbody").after(row);
-				console.log("SUCCESS: ", pdtId);
-				
+			success :function(rows){
+				var i;
+				for (i in rows) {
+					createRows(rows[i],i);
+		            }
 			},
 			error : function(e) {
 				console.log("ERROR: ", e);				
@@ -1157,173 +1022,399 @@ function addRows() {
 			done : function(e) {
 				console.log("DONE");
 			}
-		});             
-		
-}
-function editData(rowNo){
-	var  rowId ="#"+rowNo; 
-	var tr = $("#"+rowNo);
-	var itemBn = tr.attr("item-bean");
-	var itemBean = JSON.parse(itemBn);
-	//var item-bean = $("#w3s").attr("href");
-	$("#rowId").val(rowNo);
-	$("#desc").val(itemBean.desc);
-	$("#pdtId").val(itemBean.pdtId); 
-	$("#productName").val(itemBean.productName); 
-	$("#desc").val(itemBean.desc); 
-	$("#accessories").val( itemBean.accessories); 
-	$("#pkgDetails").val( itemBean.pkgDetails);
-	$("#ritcNo").val( itemBean.ritcNo);
-	$("#schemeCode").val( itemBean.schemeCode); 
-	$("#category").val( itemBean.category); 
-	$("#invoiceNo").val( itemBean.invoiceNo);
-	$("#invDate").val( itemBean.invDate);
-	$("#qty").val( itemBean.qty); 
-	$("#unit").val( itemBean.unit);
-	$("#itemRate").val( itemBean.itemRate); 
-	$("#per").val( itemBean.per);
-	$("#goodsValue").val( itemBean.goodsValue); 
-	$("#pmvUnit").val( itemBean.pmvUnit);
-	$("#pmvValue").val(itemBean.pmvValue); 
-	$("#grossWeight").val( itemBean.grossWeight); 
-	$("#netWeight").val( itemBean.netWeight); 
-	$("#perUnit").val(itemBean.perUnit); 
-	$("#noOfPackages").val( itemBean.noOfPackages); 
-	$("#noOfPackPerUnit").val( itemBean.noOfPackPerUnit);
-	$("#fobValue").val(itemBean.fobValue); 
-	$("#dbkSrNo").val( itemBean.dbkSrNo);
-	$("#onWt").val( itemBean.onWt);
-	$("#dbkPerUnit").val( itemBean.dbkPerUnit);
-	$("#onFOB").val( itemBean.onFOB);
-	$("#dbkQuantity").val( itemBean.dbkQuantity); 
-	$("#dbkQtyPerUnit").val( itemBean.dbkQtyPerUnit);
-	$("#stateFOB").val( itemBean.stateFOB); 
-	$("#statePerQty").val( itemBean.statePerQty);
-	$("#stateWt").val( itemBean.stateWt); 
-	$("#stateAmt").val( itemBean.stateAmt); 
-	$("#jobNotificationNo").val( itemBean.jobNotificationNo);
-	$("#itemCodeStr").val( itemBean.itemCodeStr);
-	$("#itemCodeReward").val( itemBean.itemCodeReward); 
-	$("#stateFOBWt").val( itemBean.stateFOBWt); 
-	$("#endUse").val( itemBean.endUse); 
-	$("#accessoryState").val( itemBean.accessoryState);
-	$("#hawbNo").val( itemBean.hawbNo); 
-	$("#totalPackage").val( itemBean.totalPackage); 
-	$("#igstPaymentStatus").val( itemBean.igstPaymentStatus); 
-	$("#taxableValue").val( itemBean.taxableValue);
-	$("#igstAmount").val( itemBean.igstAmount);
-	$('#addBttn').hide();
-	$('#editBttn').show();		
-	
-}
+		}); 
+	});
 
-function editRows(){
-    var rowNo = $("#rowId").val();
-	var tr = $("#"+rowNo);
-	var itemBn = tr.attr("item-bean");
-	var itemBean = JSON.parse(itemBn);
-	//var item-bean = $("#w3s").attr("href");
-	 
-	 
-	itemBean.productName =$("#productName").val(); 
-	itemBean.desc =$("#desc").val(); 
-	itemBean.accessories =$("#accessories").val(); 
-	 itemBean.pkgDetails = $("#pkgDetails").val();
-	 itemBean.ritcNo = $("#ritcNo").val();
-	 itemBean.schemeCode = $("#schemeCode").val(); 
-	 itemBean.category = $("#category").val(); 
-	 itemBean.invoiceNo = $("#invoiceNo").val();
-	 itemBean.invDate =$("#invDate").val();
-	 itemBean.qty = $("#qty").val(); 
-	 itemBean.unit = $("#unit").val();
-	 itemBean.itemRate = $("#itemRate").val(); 
-	 itemBean.per = $("#per").val();
-	 itemBean.goodsValue = $("#goodsValue").val(); 
-	 itemBean.pmvUnit = $("#pmvUnit").val();
-	 itemBean.pmvValue = $("#pmvValue").val(); 
-	 itemBean.grossWeight = $("#grossWeight").val(); 
-	 itemBean.netWeight = $("#netWeight").val(); 
-	 itemBean.perUnit = $("#perUnit").val(); 
-	 itemBean.noOfPackages = $("#noOfPackages").val(); 
-	 itemBean.noOfPackPerUnit = $("#noOfPackPerUnit").val();
-	 itemBean.fobValue = $("#fobValue").val(); 
-	 itemBean.dbkSrNo = $("#dbkSrNo").val();
-	 itemBean.onWt = $("#onWt").val();
-	 itemBean.dbkPerUnit = $("#dbkPerUnit").val();
-	 itemBean.onFOB = $("#onFOB").val();
-	 itemBean.dbkQuantity = $("#dbkQuantity").val(); 
-	 itemBean.dbkQtyPerUnit = $("#dbkQtyPerUnit").val();
-	 itemBean.stateFOB = $("#stateFOB").val(); 
-	 itemBean.statePerQty =   $("#statePerQty").val();
-	 itemBean.stateWt =  $("#stateWt").val(); 
-	 itemBean.stateAmt = $("#stateAmt").val(); 
-	 itemBean.jobNotificationNo = $("#jobNotificationNo").val();
-	 itemBean.itemCodeStr = $("#itemCodeStr").val();
-	 itemBean.itemCodeReward = $("#itemCodeReward").val(); 
-	 itemBean.stateFOBWt = $("#stateFOBWt").val(); 
-	 itemBean.endUse = $("#endUse").val(); 
-	 itemBean.accessoryState = $("#accessoryState").val();
-	 itemBean.hawbNo = $("#hawbNo").val(); 
-	 itemBean.totalPackage = $("#totalPackage").val(); 
-	 itemBean.igstPaymentStatus = $("#igstPaymentStatus").val(); 
-	 itemBean.taxableValue = $("#taxableValue").val();
-	 itemBean.igstAmount = $("#igstAmount").val();
-	  $.ajax({
+	function createRows(itemBean,rowNo){
+		var text = {'id':rowNo,'pdtId': itemBean.pdtId,'productName':itemBean.productName,'desc':itemBean.desc,'accessories': itemBean.accessories,'pkgDetails': itemBean.pkgDetails,'ritcNo': itemBean.ritcNo,'schemeCode': itemBean.schemeCode,'category': itemBean.category,'invoiceNo': itemBean.invoiceNo,'invDate': itemBean.invDate,'qty': itemBean.qty,'unit': itemBean.unit,'itemRate': itemBean.itemRate,'per': itemBean.per,'goodsValue': itemBean.goodsValue,'pmvUnit': itemBean.pmvUnit,'pmvValue':itemBean.pmvValue,'grossWeight': itemBean.grossWeight,'netWeight': itemBean.netWeight,'perUnit':itemBean.perUnit,'noOfPackages': itemBean.noOfPackages,'noOfPackPerUnit': itemBean.noOfPackPerUnit,'fobValue':itemBean.fobValue,'dbkSrNo': itemBean.dbkSrNo,'onWt': itemBean.onWt,'dbkPerUnit': itemBean.dbkPerUnit,'onFOB': itemBean.onFOB,'dbkQuantity': itemBean.dbkQuantity,'dbkQtyPerUnit': itemBean.dbkQtyPerUnit,'stateFOB': itemBean.stateFOB,'statePerQty': itemBean.statePerQty,'stateWt': itemBean.stateWt,'stateAmt': itemBean.stateAmt,'jobNotificationNo': itemBean.jobNotificationNo,'itemCodeStr': itemBean.itemCodeStr,'itemCodeReward': itemBean.itemCodeReward,'stateFOBWt': itemBean.stateFOBWt,'endUse': itemBean.endUse,'accessoryState': itemBean.accessoryState,'hawbNo': itemBean.hawbNo,'totalPackage': itemBean.totalPackage,'igstPaymentStatus': itemBean.igstPaymentStatus,'taxableValue': itemBean.taxableValue,'igstAmount': itemBean.igstAmount};
+		
+		var checkbox = "<td><input type='checkbox' id='"+rowNo+"_check' value='"+rowNo+"'/></td>";
+		var cell01 = "<td id='"+rowNo+"_productName' column ='productName'>"+ itemBean.productName +"</td>";
+		var cell02 = "<td id='"+rowNo+"_desc' column='description'><a href='#' onclick='editData("+rowNo+");'>"+itemBean.desc+"</td> ";
+	  	//var cell02 = "<td id='"+rowNo+"_productName' column ='productName'>"+ itemBean.productName +"</td>";
+	  	var cell03 = "<td id='"+rowNo+"_accessories'   column ='accessories'>"+ itemBean.accessories +"</td>";
+	  	var cell04 = "<td id='"+rowNo+"_pkgDetails'  column ='pkgDetails'>"+ itemBean.pkgDetails +"</td>";
+	  	var cell05 = "<td id='"+rowNo+"_ritcNo'   column ='ritcNo'>"+ itemBean.ritcNo +"</td>";
+	  	var cell06 = "<td id='"+rowNo+"_schemeCode'   column ='schemeCode'>"+ itemBean.schemeCode +"</td>";
+	  	var cell07 = "<td id='"+rowNo+"_category'  column ='category'>"+ itemBean.category +"</td>";
+	  	var cell08 = "<td id='"+rowNo+"_invoiceNo'  column ='invoiceNo'>"+ itemBean.invoiceNo +"</td>";
+	  	var cell09 = "<td id='"+rowNo+"_invDate'  column ='invDate'>"+ itemBean.invDate +"</td>";
+	  	var cell10 = "<td id='"+rowNo+"_qty'  column ='qty'>"+ itemBean.qty +"</td>";
+	  	var cell11 = "<td id='"+rowNo+"_unit'  column ='unit'>"+ itemBean.unit +"</td>";
+	  	var cell12 = "<td id='"+rowNo+"_itemRate'  column ='itemRate'>"+ itemBean.itemRate +"</td>";
+	  	var cell13 = "<td id='"+rowNo+"_per'  column ='per'>"+ itemBean.per +"</td>";
+	  	var cell14 = "<td id='"+rowNo+"_goodsValue'  column ='goodsValue'>"+ itemBean.goodsValue +"</td>";
+	  	var cell15 = "<td id='"+rowNo+"_pmvUnit'  column ='pmvUnit'>"+ itemBean.pmvUnit +"</td>";
+	  	var cell16 = "<td id='"+rowNo+"_pmvValue'  column ='pmvValue'>"+ itemBean.pmvValue +"</td>";
+	  	var cell17 = "<td id='"+rowNo+"_grossWeight'  column ='grossWeight'>"+ itemBean.grossWeight +"</td>";
+	  	var cell18 = "<td id='"+rowNo+"_netWeight'  column ='netWeight'>"+ itemBean.netWeight +"</td>";
+	  	var cell19 = "<td id='"+rowNo+"_perUnit'  column ='perUnit'>"+ itemBean.perUnit +"</td>";
+	  	//var cell20 = "<td id='"+rowNo+"_pmUnit'  column ='pmUnit'>"+ itemBean.pmUnit +"</td>";
+	  	var cell21 = "<td id='"+rowNo+"_noOfPackages'  column ='noOfPackages'>"+itemBean.noOfPackages +"</td>";
+	  	var cell22 = "<td id='"+rowNo+"_noOfPackPerUnit'  column ='noOfPackPerUnit'>"+ itemBean.noOfPackPerUnit +"</td>";
+	  	var cell23 = "<td id='"+rowNo+"_fobValue'  column ='fobValue'>"+ itemBean.fobValue +"</td>";
+	  	var cell24 = "<td id='"+rowNo+"_dbkSrNo'  column ='dbkSrNo'>"+ itemBean.dbkSrNo +"</td>";
+	  	var cell25 = "<td id='"+rowNo+"_onWt'  column ='onWt'>"+ itemBean.onWt +"</td>";
+	  	var cell26 = "<td id='"+rowNo+"_dbkPerUnit'  column ='dbkPerUnit'>"+ itemBean.dbkPerUnit +"</td>";
+	  	var cell27 = "<td id='"+rowNo+"_onFOB'  column ='onFOB'>"+ itemBean.onFOB +"</td>";
+	  	var cell28 = "<td id='"+rowNo+"_dbkQuantity'  column ='dbkQuantity'>"+ itemBean.dbkQuantity +"</td>";
+	  	var cell29 = "<td id='"+rowNo+"_dbkQtyPerUnit'  column ='dbkQtyPerUnit'>"+ itemBean.dbkQtyPerUnit +"</td>";
+	  	var cell30 = "<td id='"+rowNo+"_stateFOB'  column ='stateFOB'>"+ itemBean.stateFOB +"</td>";
+	  	var cell31 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ itemBean.statePerQty +"</td>";
+	  	var cell32 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ itemBean.statePerQty +"</td>";
+	  	var cell33 = "<td id='"+rowNo+"_stateWt'  column ='stateWt'>"+ itemBean.stateWt +"</td>";
+	  	var cell34 = "<td id='"+rowNo+"_stateAmt'  column ='stateAmt'>"+ itemBean.stateAmt +"</td>";
+	  	var cell35 = "<td id='"+rowNo+"_jobNotificationNo'  column ='jobNotificationNo'>"+ itemBean.jobNotificationNo +"</td>";
+	  	var cell36 = "<td id='"+rowNo+"_itemCodeStr'  column ='itemCodeStr'>"+ itemBean.itemCodeStr +"</td>";
+		var cell37 = "<td id='"+rowNo+"_itemCodeReward'  column ='itemCodeReward'>"+ itemBean.itemCodeReward +"</td>";
+		var cell38 = "<td id='"+rowNo+"_stateFOBWt'  column ='stateFOBWt'>"+ itemBean.stateFOBWt +"</td>";
+		var cell39 = "<td id='"+rowNo+"_endUse'  column ='endUse'>"+ itemBean.endUse +"</td>";
+		var cell40 = "<td id='"+rowNo+"_accessoryState'  column ='accessoryState'>"+ itemBean.accessoryState +"</td>";
+		var cell41 = "<td id='"+rowNo+"_hawbNo'  column ='hawbNo'>"+ itemBean.hawbNo +"</td>";
+		var cell42 = "<td id='"+rowNo+"_totalPackage'  column ='totalPackage'>"+ itemBean.totalPackage +"</td>";
+		var cell43 = "<td id='"+rowNo+"_igstPaymentStatus'  column ='igstPaymentStatus'>"+ itemBean.igstPaymentStatus +"</td>";
+		var cell44 = "<td id='"+rowNo+"_taxableValue'  column ='taxableValue'>"+ itemBean.taxableValue +"</td>";
+		var cell45 = "<td id='"+rowNo+"_igstAmount'  column ='igstAmount'>"+ itemBean.igstAmount +"</td>";
+		var deleteRow = "<button id='delButton' class='btn default' onclick='deleteRow($(this));'>delete</button>"
+		  	var row = "<tr  data-row='data-bean' item-bean ="+JSON.stringify(text)+" id='"+rowNo+"'>"+checkbox+cell01+cell02+cell03+cell04+cell05+cell06+cell07+cell08+cell09+cell10+cell11+cell12+cell13+cell14+cell15+cell16+cell17+cell18+cell19+cell21+cell22+cell23+cell24+cell25+cell26+cell27+cell28+cell29+cell30+cell31+cell32+cell33+cell34+cell35+cell36+cell37+cell38+cell39+cell40+cell41+cell42+cell43+cell44+cell45+"</tr>";
+		      $("#productDetailTable tbody").after(row);
+			 
+	}
+	function addRows() {
+		//$('#editBttn').hide();
+		  rowNo++;
+		  var text = {'id':rowNo,'pdtId': null,'productName':$('#productName').val(),'desc':$('#desc').val().trim(),'accessories': $("#accessories").val(),'pkgDetails': $("#pkgDetails").val(),'ritcNo': $("#ritcNo").val(),'schemeCode': $("#schemeCode").val(),'category': $("#category").val(),'invoiceNo': $("#invoiceNo").val(),'invDate': $("#invDate").val(),'qty': $("#qty").val(),'unit': $("#unit").val(),'itemRate': $("#itemRate").val(),'per': $("#per").val(),'goodsValue': $("#goodsValue").val(),'pmvUnit': $("#pmvUnit").val(),'pmvValue':$("#pmvValue").val(),'grossWeight': $("#grossWeight").val(),'netWeight': $("#netWeight").val(),'perUnit':$("#perUnit").val(),'noOfPackages': $("#noOfPackages").val(),'noOfPackPerUnit': $("#noOfPackPerUnit").val(),'fobValue':$("#fobValue").val(),'dbkSrNo': $("#dbkSrNo").val(),'onWt': $("#onWt").val(),'dbkPerUnit': $("#dbkPerUnit").val(),'onFOB': $("#onFOB").val(),'dbkQuantity': $("#dbkQuantity").val(),'dbkQtyPerUnit': $("#dbkQtyPerUnit").val(),'stateFOB': $("#stateFOB").val(),'statePerQty': $("#statePerQty").val(),'stateWt': $("#stateWt").val(),'stateAmt': $("#stateAmt").val(),'jobNotificationNo': $("#jobNotificationNo").val(),'itemCodeStr': $("#itemCodeStr").val(),'itemCodeReward': $("#itemCodeReward").val(),'stateFOBWt': $("#stateFOBWt").val(),'endUse': $("#endUse").val(),'accessoryState': $("#accessoryState").val(),'hawbNo': $("#hawbNo").val(),'totalPackage': $("#totalPackage").val(),'igstPaymentStatus': $("#igstPaymentStatus").val(),'taxableValue': $("#taxableValue").val(),'igstAmount': $("#igstAmount").val()};
+		 
+		  var itemBean = JSON.stringify(text);
+		  
+		  $.ajax({	
+				type: 'POST',
+				dataType: 'json',
+				contentType:'application/json',
+				url: "${pageContext.request.contextPath}/saveProductDetails",
+				data:itemBean,
+				headers: {
+			        'X-CSRF-Token': token
+			    },
+				success :function(pdtId){
+					text.pdtId = pdtId;
+					var checkbox = "<td><input type='checkbox' id='"+rowNo+"_check' value='"+rowNo+"'/></td>";
+					var cell01 = "<td id='"+rowNo+"_productName' column ='productName'>"+ $("#productName").val(); +"</td>";
+					var cell02 = "<td id='"+rowNo+"_desc' column='description'><a href='#' onclick='editData("+rowNo+");'>"+$('#desc').val() +"</td> ";			  	
+				  	var cell03 = "<td id='"+rowNo+"_accessories'   column ='accessories'>"+ $("#accessories").val(); +"</td>";
+				  	var cell04 = "<td id='"+rowNo+"_pkgDetails'  column ='pkgDetails'>"+ $("#pkgDetails").val(); +"</td>";
+				  	var cell05 = "<td id='"+rowNo+"_ritcNo'   column ='ritcNo'>"+ $("#ritcNo").val(); +"</td>";
+				  	var cell06 = "<td id='"+rowNo+"_schemeCode'   column ='schemeCode'>"+ $("#schemeCode").val(); +"</td>";
+				  	var cell07 = "<td id='"+rowNo+"_category'  column ='category'>"+ $("#category").val(); +"</td>";
+				  	var cell08 = "<td id='"+rowNo+"_invoiceNo'  column ='invoiceNo'>"+ $("#invoiceNo").val(); +"</td>";
+				  	var cell09 = "<td id='"+rowNo+"_invDate'  column ='invDate'>"+ $("#invDate").val(); +"</td>";
+				  	var cell10 = "<td id='"+rowNo+"_qty'  column ='qty'>"+ $("#qty").val(); +"</td>";
+				  	var cell11 = "<td id='"+rowNo+"_unit'  column ='unit'>"+ $("#unit").val(); +"</td>";
+				  	var cell12 = "<td id='"+rowNo+"_itemRate'  column ='itemRate'>"+ $("#itemRate").val(); +"</td>";
+				  	var cell13 = "<td id='"+rowNo+"_per'  column ='per'>"+ $("#per").val(); +"</td>";
+				  	var cell14 = "<td id='"+rowNo+"_goodsValue'  column ='goodsValue'>"+ $("#goodsValue").val(); +"</td>";
+				  	var cell15 = "<td id='"+rowNo+"_pmvUnit'  column ='pmvUnit'>"+ $("#pmvUnit").val(); +"</td>";
+				  	var cell16 = "<td id='"+rowNo+"_pmvValue'  column ='pmvValue'>"+ $("#pmvValue").val(); +"</td>";
+				  	var cell17 = "<td id='"+rowNo+"_grossWeight'  column ='grossWeight'>"+ $("#grossWeight").val(); +"</td>";
+				  	var cell18 = "<td id='"+rowNo+"_netWeight'  column ='netWeight'>"+ $("#netWeight").val(); +"</td>";
+				  	var cell19 = "<td id='"+rowNo+"_perUnit'  column ='perUnit'>"+ $("#perUnit").val(); +"</td>";
+				  	//var cell20 = "<td id='"+rowNo+"_pmUnit'  column ='pmUnit'>"+ $("#pmUnit").val(); +"</td>";
+				  	var cell21 = "<td id='"+rowNo+"_noOfPackages'  column ='noOfPackages'>"+$("#noOfPackages").val(); +"</td>";
+				  	var cell22 = "<td id='"+rowNo+"_noOfPackPerUnit'  column ='noOfPackPerUnit'>"+ $("#noOfPackPerUnit").val(); +"</td>";
+				  	var cell23 = "<td id='"+rowNo+"_fobValue'  column ='fobValue'>"+ $("#fobValue").val(); +"</td>";
+				  	var cell24 = "<td id='"+rowNo+"_dbkSrNo'  column ='dbkSrNo'>"+ $("#dbkSrNo").val(); +"</td>";
+				  	var cell25 = "<td id='"+rowNo+"_onWt'  column ='onWt'>"+ $("#onWt").val(); +"</td>";
+				  	var cell26 = "<td id='"+rowNo+"_dbkPerUnit'  column ='dbkPerUnit'>"+ $("#dbkPerUnit").val(); +"</td>";
+				  	var cell27 = "<td id='"+rowNo+"_onFOB'  column ='onFOB'>"+ $("#onFOB").val(); +"</td>";
+				  	var cell28 = "<td id='"+rowNo+"_dbkQuantity'  column ='dbkQuantity'>"+ $("#dbkQuantity").val(); +"</td>";
+				  	var cell29 = "<td id='"+rowNo+"_dbkQtyPerUnit'  column ='dbkQtyPerUnit'>"+ $("#dbkQtyPerUnit").val(); +"</td>";
+				  	var cell30 = "<td id='"+rowNo+"_stateFOB'  column ='stateFOB'>"+ $("#stateFOB").val(); +"</td>";
+				  	var cell31 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ $("#statePerQty").val(); +"</td>";
+				  	var cell32 = "<td id='"+rowNo+"_statePerQty'  column ='statePerQty'>"+ $("#statePerQty").val(); +"</td>";
+				  	var cell33 = "<td id='"+rowNo+"_stateWt'  column ='stateWt'>"+ $("#stateWt").val(); +"</td>";
+				  	var cell34 = "<td id='"+rowNo+"_stateAmt'  column ='stateAmt'>"+ $("#stateAmt").val(); +"</td>";
+				  	var cell35 = "<td id='"+rowNo+"_jobNotificationNo'  column ='jobNotificationNo'>"+ $("#jobNotificationNo").val(); +"</td>";
+				  	var cell36 = "<td id='"+rowNo+"_itemCodeStr'  column ='itemCodeStr'>"+ $("#itemCodeStr").val(); +"</td>";
+					var cell37 = "<td id='"+rowNo+"_itemCodeReward'  column ='itemCodeReward'>"+ $("#itemCodeReward").val(); +"</td>";
+					var cell38 = "<td id='"+rowNo+"_stateFOBWt'  column ='stateFOBWt'>"+ $("#stateFOBWt").val(); +"</td>";
+					var cell39 = "<td id='"+rowNo+"_endUse'  column ='endUse'>"+ $("#endUse").val(); +"</td>";
+					var cell40 = "<td id='"+rowNo+"_accessoryState'  column ='accessoryState'>"+ $("#accessoryState").val(); +"</td>";
+					var cell41 = "<td id='"+rowNo+"_hawbNo'  column ='hawbNo'>"+ $("#hawbNo").val(); +"</td>";
+					var cell42 = "<td id='"+rowNo+"_totalPackage'  column ='totalPackage'>"+ $("#totalPackage").val(); +"</td>";
+					var cell43 = "<td id='"+rowNo+"_igstPaymentStatus'  column ='igstPaymentStatus'>"+ $("#igstPaymentStatus").val(); +"</td>";
+					var cell44 = "<td id='"+rowNo+"_taxableValue'  column ='taxableValue'>"+ $("#taxableValue").val(); +"</td>";
+					var cell45 = "<td id='"+rowNo+"_igstAmount'  column ='igstAmount'>"+ $("#igstAmount").val(); +"</td>";
+					
+				  	var deleteRow = "<button id='delButton' class='btn default' onclick='deleteRow($(this));'>delete</button>"
+				  	var row = "<tr  data-row='data-bean' item-bean ="+JSON.stringify(text)+" id='"+rowNo+"'>"+checkbox+cell01+cell02+cell03+cell04+cell05+cell06+cell07+cell08+cell09+cell10+cell11+cell12+cell13+cell14+cell15+cell16+cell17+cell18+cell19+cell21+cell22+cell23+cell24+cell25+cell26+cell27+cell28+cell29+cell30+cell31+cell32+cell33+cell34+cell35+cell36+cell37+cell38+cell39+cell40+cell41+cell42+cell43+cell44+cell45+"</tr>";
+				      $("#productDetailTable tbody").after(row);
+					console.log("SUCCESS: ", pdtId);
+					refreshData();
+				},
+				error : function(e) {
+					console.log("ERROR: ", e);				
+				},
+				done : function(e) {
+					
+					console.log("DONE");
+				}
+			});             
+			
+	}
+	function refreshData(){
+		$("#rowId").val("");
+		$("#desc").val("");
+		$("#pdtId").val(""); 
+		$("#productName").val(""); 
+		$("#desc").val(""); 
+		$("#accessories").val(""); 
+		$("#pkgDetails").val("");
+		$("#ritcNo").val("");
+		$("#schemeCode").val(""); 
+		$("#category").val(""); 
+		$("#invoiceNo").val("");
+		$("#invDate").val("");
+		$("#qty").val(""); 
+		$("#unit").val("");
+		$("#itemRate").val(""); 
+		$("#per").val("");
+		$("#goodsValue").val(""); 
+		$("#pmvUnit").val("");
+		$("#pmvValue").val(""); 
+		$("#grossWeight").val(""); 
+		$("#netWeight").val(""); 
+		$("#perUnit").val(""); 
+		$("#noOfPackages").val(""); 
+		$("#noOfPackPerUnit").val("");
+		$("#fobValue").val(""); 
+		$("#dbkSrNo").val("");
+		$("#onWt").val("");
+		$("#dbkPerUnit").val("");
+		$("#onFOB").val("");
+		$("#dbkQuantity").val(""); 
+		$("#dbkQtyPerUnit").val("");
+		$("#stateFOB").val(""); 
+		$("#statePerQty").val("");
+		$("#stateWt").val(""); 
+		$("#stateAmt").val(""); 
+		$("#jobNotificationNo").val("");
+		$("#itemCodeStr").val("");
+		$("#itemCodeReward").val(""); 
+		$("#stateFOBWt").val(""); 
+		$("#endUse").val(""); 
+		$("#accessoryState").val("");
+		$("#hawbNo").val(""); 
+		$("#totalPackage").val(""); 
+		$("#igstPaymentStatus").val(""); 
+		$("#taxableValue").val("");
+		$("#igstAmount").val("");
+	}
+
+	function editData(rowNo){
+		var  rowId ="#"+rowNo; 
+		var tr = $("#"+rowNo);
+		var itemBn = tr.attr("item-bean");
+		var itemBean = JSON.parse(itemBn);
+		//var item-bean = $("#w3s").attr("href");
+		$("#rowId").val(rowNo);
+		$("#desc").val(itemBean.desc);
+		$("#pdtId").val(itemBean.pdtId); 
+		$("#productName").val(itemBean.productName); 
+		$("#desc").val(itemBean.desc); 
+		$("#accessories").val( itemBean.accessories); 
+		$("#pkgDetails").val( itemBean.pkgDetails);
+		$("#ritcNo").val( itemBean.ritcNo);
+		$("#schemeCode").val( itemBean.schemeCode); 
+		$("#category").val( itemBean.category); 
+		$("#invoiceNo").val( itemBean.invoiceNo);
+		$("#invDate").val( itemBean.invDate);
+		$("#qty").val( itemBean.qty); 
+		$("#unit").val( itemBean.unit);
+		$("#itemRate").val( itemBean.itemRate); 
+		$("#per").val( itemBean.per);
+		$("#goodsValue").val( itemBean.goodsValue); 
+		$("#pmvUnit").val( itemBean.pmvUnit);
+		$("#pmvValue").val(itemBean.pmvValue); 
+		$("#grossWeight").val( itemBean.grossWeight); 
+		$("#netWeight").val( itemBean.netWeight); 
+		$("#perUnit").val(itemBean.perUnit); 
+		$("#noOfPackages").val( itemBean.noOfPackages); 
+		$("#noOfPackPerUnit").val( itemBean.noOfPackPerUnit);
+		$("#fobValue").val(itemBean.fobValue); 
+		$("#dbkSrNo").val( itemBean.dbkSrNo);
+		$("#onWt").val( itemBean.onWt);
+		$("#dbkPerUnit").val( itemBean.dbkPerUnit);
+		$("#onFOB").val( itemBean.onFOB);
+		$("#dbkQuantity").val( itemBean.dbkQuantity); 
+		$("#dbkQtyPerUnit").val( itemBean.dbkQtyPerUnit);
+		$("#stateFOB").val( itemBean.stateFOB); 
+		$("#statePerQty").val( itemBean.statePerQty);
+		$("#stateWt").val( itemBean.stateWt); 
+		$("#stateAmt").val( itemBean.stateAmt); 
+		$("#jobNotificationNo").val( itemBean.jobNotificationNo);
+		$("#itemCodeStr").val( itemBean.itemCodeStr);
+		$("#itemCodeReward").val( itemBean.itemCodeReward); 
+		$("#stateFOBWt").val( itemBean.stateFOBWt); 
+		$("#endUse").val( itemBean.endUse); 
+		$("#accessoryState").val( itemBean.accessoryState);
+		$("#hawbNo").val( itemBean.hawbNo); 
+		$("#totalPackage").val( itemBean.totalPackage); 
+		$("#igstPaymentStatus").val( itemBean.igstPaymentStatus); 
+		$("#taxableValue").val( itemBean.taxableValue);
+		$("#igstAmount").val( itemBean.igstAmount);
+		$('#editBttn').show();		
+		
+	}
+
+	function editRows(){
+	    var rowNo = $("#rowId").val();
+		var tr = $("#"+rowNo);
+		var itemBn = tr.attr("item-bean");
+		var itemBean = JSON.parse(itemBn);
+		//var item-bean = $("#w3s").attr("href");
+		 
+		 
+		itemBean.productName =$("#productName").val(); 
+		itemBean.desc =$("#desc").val(); 
+		itemBean.accessories =$("#accessories").val(); 
+		 itemBean.pkgDetails = $("#pkgDetails").val();
+		 itemBean.ritcNo = $("#ritcNo").val();
+		 itemBean.schemeCode = $("#schemeCode").val(); 
+		 itemBean.category = $("#category").val(); 
+		 itemBean.invoiceNo = $("#invoiceNo").val();
+		 itemBean.invDate =$("#invDate").val();
+		 itemBean.qty = $("#qty").val(); 
+		 itemBean.unit = $("#unit").val();
+		 itemBean.itemRate = $("#itemRate").val(); 
+		 itemBean.per = $("#per").val();
+		 itemBean.goodsValue = $("#goodsValue").val(); 
+		 itemBean.pmvUnit = $("#pmvUnit").val();
+		 itemBean.pmvValue = $("#pmvValue").val(); 
+		 itemBean.grossWeight = $("#grossWeight").val(); 
+		 itemBean.netWeight = $("#netWeight").val(); 
+		 itemBean.perUnit = $("#perUnit").val(); 
+		 itemBean.noOfPackages = $("#noOfPackages").val(); 
+		 itemBean.noOfPackPerUnit = $("#noOfPackPerUnit").val();
+		 itemBean.fobValue = $("#fobValue").val(); 
+		 itemBean.dbkSrNo = $("#dbkSrNo").val();
+		 itemBean.onWt = $("#onWt").val();
+		 itemBean.dbkPerUnit = $("#dbkPerUnit").val();
+		 itemBean.onFOB = $("#onFOB").val();
+		 itemBean.dbkQuantity = $("#dbkQuantity").val(); 
+		 itemBean.dbkQtyPerUnit = $("#dbkQtyPerUnit").val();
+		 itemBean.stateFOB = $("#stateFOB").val(); 
+		 itemBean.statePerQty =   $("#statePerQty").val();
+		 itemBean.stateWt =  $("#stateWt").val(); 
+		 itemBean.stateAmt = $("#stateAmt").val(); 
+		 itemBean.jobNotificationNo = $("#jobNotificationNo").val();
+		 itemBean.itemCodeStr = $("#itemCodeStr").val();
+		 itemBean.itemCodeReward = $("#itemCodeReward").val(); 
+		 itemBean.stateFOBWt = $("#stateFOBWt").val(); 
+		 itemBean.endUse = $("#endUse").val(); 
+		 itemBean.accessoryState = $("#accessoryState").val();
+		 itemBean.hawbNo = $("#hawbNo").val(); 
+		 itemBean.totalPackage = $("#totalPackage").val(); 
+		 itemBean.igstPaymentStatus = $("#igstPaymentStatus").val(); 
+		 itemBean.taxableValue = $("#taxableValue").val();
+		 itemBean.igstAmount = $("#igstAmount").val();
+		  $.ajax({
+				type : "POST",
+				contentType:'application/json',
+				url : "${pageContext.request.contextPath}/updateProductDetails",
+				data : JSON.stringify(itemBean),
+				dataType : "json",
+				headers: {
+			        'X-CSRF-Token': token
+			    },
+				success : function(data) {
+		$("#"+rowNo+"_desc").text(itemBean.desc) 
+		$("#"+rowNo+"_productName").text(itemBean.productName); 
+		$("#"+rowNo+"_desc").text(itemBean.desc.trim()); 
+		$("#"+rowNo+"_accessories").text( itemBean.accessories); 
+		$("#"+rowNo+"_pkgDetails").text( itemBean.pkgDetails);
+		$("#"+rowNo+"_ritcNo").text( itemBean.ritcNo);
+		$("#"+rowNo+"_schemeCode").text( itemBean.schemeCode); 
+		$("#"+rowNo+"_category").text( itemBean.category); 
+		$("#"+rowNo+"_invoiceNo").text( itemBean.invoiceNo);
+		$("#"+rowNo+"_invDate").text( itemBean.invDate);
+		$("#"+rowNo+"_qty").text( itemBean.qty); 
+		$("#"+rowNo+"_unit").text( itemBean.unit);
+		$("#"+rowNo+"_itemRate").text( itemBean.itemRate); 
+		$("#"+rowNo+"_per").text( itemBean.per);
+		$("#"+rowNo+"_goodsValue").text( itemBean.goodsValue); 
+		$("#"+rowNo+"_pmvUnit").text( itemBean.pmvUnit);
+		$("#"+rowNo+"_pmvValue").text(itemBean.pmvValue); 
+		$("#"+rowNo+"_grossWeight").text( itemBean.grossWeight); 
+		$("#"+rowNo+"_netWeight").text( itemBean.netWeight); 
+		$("#"+rowNo+"_perUnit").text(itemBean.perUnit); 
+		$("#"+rowNo+"_noOfPackages").text( itemBean.noOfPackages); 
+		$("#"+rowNo+"_noOfPackPerUnit").text( itemBean.noOfPackPerUnit);
+		$("#"+rowNo+"_fobValue").text(itemBean.fobValue); 
+		$("#"+rowNo+"_dbkSrNo").text( itemBean.dbkSrNo);
+		$("#"+rowNo+"_onWt").text( itemBean.onWt);
+		$("#"+rowNo+"_dbkPerUnit").text( itemBean.dbkPerUnit);
+		$("#"+rowNo+"_onFOB").text( itemBean.onFOB);
+		$("#"+rowNo+"_dbkQuantity").text( itemBean.dbkQuantity); 
+		$("#"+rowNo+"_dbkQtyPerUnit").text( itemBean.dbkQtyPerUnit);
+		$("#"+rowNo+"_stateFOB").text( itemBean.stateFOB); 
+		$("#"+rowNo+"_statePerQty").text( itemBean.statePerQty);
+		$("#"+rowNo+"_stateWt").text( itemBean.stateWt); 
+		$("#"+rowNo+"_stateAmt").text( itemBean.stateAmt); 
+		$("#"+rowNo+"_jobNotificationNo").text( itemBean.jobNotificationNo);
+		$("#"+rowNo+"_itemCodeStr").text( itemBean.itemCodeStr);
+		$("#"+rowNo+"_itemCodeReward").text( itemBean.itemCodeReward); 
+		$("#"+rowNo+"_stateFOBWt").text( itemBean.stateFOBWt); 
+		$("#"+rowNo+"_endUse").text( itemBean.endUse); 
+		$("#"+rowNo+"_accessoryState").text( itemBean.accessoryState);
+		$("#"+rowNo+"_hawbNo").text( itemBean.hawbNo); 
+		$("#"+rowNo+"_totalPackage").text( itemBean.totalPackage); 
+		$("#"+rowNo+"_igstPaymentStatus").text( itemBean.igstPaymentStatus); 
+		$("#"+rowNo+"_taxableValue").text( itemBean.taxableValue);
+		$("#"+rowNo+"_igstAmount").text( itemBean.igstAmount);  
+									
+					tr.data('item-bean',itemBean);
+					console.log("SUCCESS: ", data);
+					refreshData();
+				},
+				error : function(e) {
+					console.log("ERROR: ", e);				
+				},
+				done : function(e) {
+					console.log("DONE");
+				}
+			});											
+	}
+	function delRows(){
+		var deleteArrayList=[];
+		rowIdList =[];
+		$('#productDetailTable').find('input[type="checkbox"]:checked').each(function () {
+			
+			var rowNo =$(this).attr("id");
+			var arr =rowNo.split("_");
+			var tr = $("#"+arr[0]);
+			var itemBn = tr.attr("item-bean");
+			var itemBean = JSON.parse(itemBn);
+			deleteArrayList.push(itemBean);  
+			rowIdList.push(arr[0]); 
+			//this is the current checkbox
+		    });
+		
+		$.ajax({
 			type : "POST",
 			contentType:'application/json',
-			url : "${pageContext.request.contextPath}/updateProductDetails",
-			data : JSON.stringify(itemBean),
+			url : "${pageContext.request.contextPath}/deleteProductDetails",
+			data :  JSON.stringify(deleteArrayList),
 			dataType : "json",
 			headers: {
 		        'X-CSRF-Token': token
-		    },
+		    },			
 			success : function(data) {
-	$("#"+rowNo+"_description").text(itemBean.desc) 
-	$("#"+rowNo+"_productName").val(itemBean.productName); 
-	$("#"+rowNo+"_desc").val(itemBean.desc.trim()); 
-	$("#"+rowNo+"_accessories").val( itemBean.accessories); 
-	$("#"+rowNo+"_pkgDetails").val( itemBean.pkgDetails);
-	$("#"+rowNo+"_ritcNo").val( itemBean.ritcNo);
-	$("#"+rowNo+"_schemeCode").val( itemBean.schemeCode); 
-	$("#"+rowNo+"_category").val( itemBean.category); 
-	$("#"+rowNo+"_invoiceNo").val( itemBean.invoiceNo);
-	$("#"+rowNo+"_invDate").val( itemBean.invDate);
-	$("#"+rowNo+"_qty").val( itemBean.qty); 
-	$("#"+rowNo+"_unit").val( itemBean.unit);
-	$("#"+rowNo+"_itemRate").val( itemBean.itemRate); 
-	$("#"+rowNo+"_per").val( itemBean.per);
-	$("#"+rowNo+"_goodsValue").val( itemBean.goodsValue); 
-	$("#"+rowNo+"_pmvUnit").val( itemBean.pmvUnit);
-	$("#"+rowNo+"_pmvValue").val(itemBean.pmvValue); 
-	$("#"+rowNo+"_grossWeight").val( itemBean.grossWeight); 
-	$("#"+rowNo+"_netWeight").val( itemBean.netWeight); 
-	$("#"+rowNo+"_perUnit").val(itemBean.perUnit); 
-	$("#"+rowNo+"_noOfPackages").val( itemBean.noOfPackages); 
-	$("#"+rowNo+"_noOfPackPerUnit").val( itemBean.noOfPackPerUnit);
-	$("#"+rowNo+"_fobValue").val(itemBean.fobValue); 
-	$("#"+rowNo+"_dbkSrNo").val( itemBean.dbkSrNo);
-	$("#"+rowNo+"_onWt").val( itemBean.onWt);
-	$("#"+rowNo+"_dbkPerUnit").val( itemBean.dbkPerUnit);
-	$("#"+rowNo+"_onFOB").val( itemBean.onFOB);
-	$("#"+rowNo+"_dbkQuantity").val( itemBean.dbkQuantity); 
-	$("#"+rowNo+"_dbkQtyPerUnit").val( itemBean.dbkQtyPerUnit);
-	$("#"+rowNo+"_stateFOB").val( itemBean.stateFOB); 
-	$("#"+rowNo+"_statePerQty").val( itemBean.statePerQty);
-	$("#"+rowNo+"_stateWt").val( itemBean.stateWt); 
-	$("#"+rowNo+"_stateAmt").val( itemBean.stateAmt); 
-	$("#"+rowNo+"_jobNotificationNo").val( itemBean.jobNotificationNo);
-	$("#"+rowNo+"_itemCodeStr").val( itemBean.itemCodeStr);
-	$("#"+rowNo+"_itemCodeReward").val( itemBean.itemCodeReward); 
-	$("#"+rowNo+"_stateFOBWt").val( itemBean.stateFOBWt); 
-	$("#"+rowNo+"_endUse").val( itemBean.endUse); 
-	$("#"+rowNo+"_accessoryState").val( itemBean.accessoryState);
-	$("#"+rowNo+"_hawbNo").val( itemBean.hawbNo); 
-	$("#"+rowNo+"_totalPackage").val( itemBean.totalPackage); 
-	$("#"+rowNo+"_igstPaymentStatus").val( itemBean.igstPaymentStatus); 
-	$("#"+rowNo+"_taxableValue").val( itemBean.taxableValue);
-	$("#"+rowNo+"_igstAmount").val( itemBean.igstAmount);  
-								
-				tr.data('item-bean',itemBean);
+				if(data ==0){
+					var i;
+					for (i = 0; i <= rowIdList.length; i++) {				    
+					    $("#"+rowIdList[i]).remove();
+					}								
+				}
 				console.log("SUCCESS: ", data);				
 			},
 			error : function(e) {
@@ -1332,50 +1423,9 @@ function editRows(){
 			done : function(e) {
 				console.log("DONE");
 			}
-		});											
-}
-function delRows(){
-	var deleteArrayList=[];
-	rowIdList =[];
-	$('#productDetailTable').find('input[type="checkbox"]:checked').each(function () {
+		});
 		
-		var rowNo =$(this).attr("id");
-		var arr =rowNo.split("_");
-		var tr = $("#"+arr[0]);
-		var itemBn = tr.attr("item-bean");
-		var itemBean = JSON.parse(itemBn);
-		deleteArrayList.push(itemBean);  
-		rowIdList.push(arr[0]); 
-		//this is the current checkbox
-	    });
-	
-	$.ajax({
-		type : "POST",
-		contentType:'application/json',
-		url : "${pageContext.request.contextPath}/deleteProductDetails",
-		data :  JSON.stringify(deleteArrayList),
-		dataType : "json",
-		headers: {
-	        'X-CSRF-Token': token
-	    },			
-		success : function(data) {
-			if(data =="success"){
-				for (rowIdList in rowNo) {
-					$("#"+rowNo).remove();
-				}
-				
-			}
-			console.log("SUCCESS: ", data);				
-		},
-		error : function(e) {
-			console.log("ERROR: ", e);				
-		},
-		done : function(e) {
-			console.log("DONE");
-		}
-	});
-	
-}
+	}
 </script>
 
 	<script type="text/javascript"
