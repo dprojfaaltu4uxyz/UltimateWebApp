@@ -13,7 +13,7 @@ import com.webapp.project.modules.masters.model.State;
 public class StateDaoImpl  extends AbstractDao<Integer, State> implements StateDao{
 
 	public State findById(Long id) {
-		return findById(id);
+		return getByKey(id);
 	}
 
 	public String save(State state) {

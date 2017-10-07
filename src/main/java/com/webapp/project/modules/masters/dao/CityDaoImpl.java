@@ -14,7 +14,7 @@ public class CityDaoImpl  extends AbstractDao<Integer, City> implements CityDao{
 
 	public City findById(Long id) {
 
-		return findById(id);
+		return getByKey(id);
 	}
 
 	public String save(City city) {

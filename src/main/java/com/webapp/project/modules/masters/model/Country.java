@@ -41,9 +41,9 @@ public class Country implements java.io.Serializable {
 	public Country() {
 	}
 
-	public Country(long countryId, Date modifiedDate) {
+	public Country(long countryId, String countryName) {
 		this.countryId = countryId;
-		this.modifiedDate = modifiedDate;
+		this.countryName = countryName;
 	}
 
 	public Country(long countryId, String countryName, String countryCode, Date createDate, Date modifiedDate,

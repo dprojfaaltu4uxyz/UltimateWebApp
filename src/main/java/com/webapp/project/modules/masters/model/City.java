@@ -44,9 +44,9 @@ public class City implements java.io.Serializable {
 	public City() {
 	}
 
-	public City(long cityId, Date modifiedDate) {
+	public City(long cityId, String cityName) {
 		this.cityId = cityId;
-		this.modifiedDate = modifiedDate;
+		this.cityName = cityName;
 	}
 
 	public City(long cityId, AppUser appUser, State state, String cityName, String cityCode,

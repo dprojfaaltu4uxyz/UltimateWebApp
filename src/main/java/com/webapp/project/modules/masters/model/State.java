@@ -42,9 +42,9 @@ public class State implements java.io.Serializable {
 	public State() {
 	}
 
-	public State(long stateId, Date modifiedDate) {
+	public State(long stateId, String stateName) {
 		this.stateId = stateId;
-		this.modifiedDate = modifiedDate;
+		this.stateName = stateName;
 	}
 
 	public State(long stateId, AppUser appUser, String stateName, String stateCode, Country country,

@@ -13,7 +13,7 @@ import com.webapp.project.modules.masters.model.Country;
 public class CountryDaoImpl extends AbstractDao<Integer, Country>  implements CountryDao{
 
 	public Country findById(Long id) {
-		return findById(id);
+		return getByKey(id);
 	}
 
 	public String save(Country country) {
@@ -22,7 +22,7 @@ public class CountryDaoImpl extends AbstractDao<Integer, Country>  implements Co
 
 	public List<Country> findAllCountries() {
 
-		Criteria criteria = createEntityCriteria().addOrder(Order.asc("city"));
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("countryName"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
 		List<Country> countries = (List<Country>) criteria.list();
 		return countries; 
