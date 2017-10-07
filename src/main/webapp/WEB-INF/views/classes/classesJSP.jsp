@@ -18,7 +18,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<%@include file="../pagetemplate/commonCSSJSP.jsp" %>
+<%@include file="../pagetemplate/commonCSSJSP.jsp"%>
 <link rel="stylesheet" type="text/css" media="screen"
 	href="<c:url value='/static/css/datepicker.css'/>">
 </head>
@@ -101,15 +101,15 @@
 			</ol>
 			<!-- end breadcrumb -->
 
-			
+
 
 		</div>
 		<!-- END RIBBON -->
 
 		<!-- MAIN CONTENT -->
-			<div id="content">
-				
-			 
+		<div id="content">
+
+
 
 
 			<!-- widget grid -->
@@ -139,11 +139,12 @@
 								data-widget-sortable="false"
 				
 								-->
-							<header >
-									<span class="widget-icon" > <i class="fa fa-edit"></i> </span>
-									<h2 >Class </h2>
-				
-								</header>
+							<header>
+								<span class="widget-icon"> <i class="fa fa-edit"></i>
+								</span>
+								<h2>Class</h2>
+
+							</header>
 
 							<!-- widget div-->
 							<div>
@@ -174,41 +175,41 @@
 															<span class="input-group-addon"><i
 																class="fa fa-user"></i></span>
 														</div>
-															<div class="has-error">
-																<form:errors path="classes" class="help-inline" />
-															</div>
-														
+														<div class="has-error">
+															<form:errors path="classes" class="help-inline" />
+														</div>
+
 													</div>
 													<div class="form-group">
 														<label>Class Numeric (for ex: 1):</label>
 														<div class="input-group">
-															<form:input type="text" path="classesNumeric" id="classesNumeric"
-																class="form-control" />
+															<form:input type="text" path="classesNumeric"
+																id="classesNumeric" class="form-control" />
 															<span class="input-group-addon"><i
 																class="fa fa-envelope"></i></span>
 														</div>
-															<div class="has-error">
-																<form:errors path="classesNumeric" class="help-inline" />
-															</div>
-														
+														<div class="has-error">
+															<form:errors path="classesNumeric" class="help-inline" />
+														</div>
+
 													</div>
 													<div class="form-group">
-													<label>Teacher Name</label>
-													<form:select path="teacher" 
-																multiple="false" style="width: 100%" class="select2" >
-															<option value="0">Select Teacher</option>			
+														<label>Teacher Name</label>
+														<form:select path="teacher" multiple="false"
+															style="width: 100%" class="select2">
+															<option value="0">Select Teacher</option>
 															<c:forEach var="teacher" items="${teacherList}">
-																<option value="${teacher.teacherId}">${teacher.firstName}</option>	
+																<option value="${teacher.teacherId}">${teacher.firstName}</option>
 															</c:forEach>
-															
-													</form:select>			
-													
-																
-															<div class="has-error">
-																<form:errors path="teacher" class="help-inline" />
-															</div>
+
+														</form:select>
+
+
+														<div class="has-error">
+															<form:errors path="teacher" class="help-inline" />
+														</div>
 													</div>
-												 
+
 													<div class="form-group">
 														<label>Note:</label>
 														<div class="input-group">
@@ -216,12 +217,12 @@
 																class="form-control" />
 															<span class="input-group-addon"><i
 																class="fa fa-th-large"></i></span>
-													</div>			
-															<div class="has-error">
-																<form:errors path="note" class="help-inline" />
-															</div>
+														</div>
+														<div class="has-error">
+															<form:errors path="note" class="help-inline" />
+														</div>
 													</div>
-													
+
 												</div>
 											</div>
 
@@ -234,7 +235,7 @@
 												<div class="col-md-12">
 													<button class="btn btn-default" type="submit">
 														Cancel</button>
-													<button class="btn btn-primary"  type="submit">
+													<button class="btn btn-primary" type="submit">
 														<i class="fa fa-save"></i> Submit
 													</button>
 												</div>
@@ -281,9 +282,7 @@
 	<!-- END MAIN PANEL -->
 
 	<!-- PAGE FOOTER -->
-	<div class="page-footer">
-		
-	</div>
+	<div class="page-footer"></div>
 	<!-- END PAGE FOOTER -->
 
 	<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)

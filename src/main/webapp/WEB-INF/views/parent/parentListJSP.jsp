@@ -1,25 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html lang="en-us">
-	<head>
-		<meta charset="utf-8">
-		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+<head>
+<meta charset="utf-8">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-		<title> SmartAdmin </title>
-		<meta name="description" content="">
-		<meta name="author" content="">
-			
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SmartAdmin</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-		<%@include file="../pagetemplate/commonCSSJSP.jsp" %>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	</head>
-	
-	<!--
+<%@include file="../pagetemplate/commonCSSJSP.jsp"%>
+
+</head>
+
+<!--
 
 	TABLE OF CONTENTS.
 	
@@ -48,9 +51,9 @@
 	===================================================================
 	
 	-->
-	
-	<!-- #BODY -->
-	<!-- Possible Classes
+
+<!-- #BODY -->
+<!-- Possible Classes
 
 		* 'smart-style-{SKIN#}'
 		* 'smart-rtl'         - Switch theme mode to RTL
@@ -64,35 +67,39 @@
 		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
 	// for material put this in body : desktop-detected pace-done smart-style-6
 	-->
-	<body class="">
+<body class="">
 
-		<!-- HEADER -->
-		<%@include file="../pagetemplate/topPanelJSP.jsp" %>
-		<!-- END HEADER -->
+	<!-- HEADER -->
+	<%@include file="../pagetemplate/topPanelJSP.jsp"%>
+	<!-- END HEADER -->
 
-		<!-- Left panel : Navigation area -->
-		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-		<%@include file="../pagetemplate/sidePanelJSP.jsp" %>
+	<!-- Left panel : Navigation area -->
+	<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+	<%@include file="../pagetemplate/sidePanelJSP.jsp"%>
 
-		<!-- MAIN PANEL -->
-		<div id="main" role="main">
+	<!-- MAIN PANEL -->
+	<div id="main" role="main">
 
-			<!-- RIBBON -->
-			<div id="ribbon">
+		<!-- RIBBON -->
+		<div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
+			<span class="ribbon-button-alignment"> <span id="refresh"
+				class="btn btn-ribbon" data-action="resetWidgets"
+				data-title="refresh" rel="tooltip" data-placement="bottom"
+				data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings."
+				data-html="true"> <i class="fa fa-refresh"></i>
+			</span>
+			</span>
 
-				<!-- breadcrumb -->
-				<ol class="breadcrumb">
-					<li>Home</li><li>Tables</li><li>Data Tables</li>
-				</ol>
-				<!-- end breadcrumb -->
+			<!-- breadcrumb -->
+			<ol class="breadcrumb">
+				<li>Home</li>
+				<li>Tables</li>
+				<li>Data Tables</li>
+			</ol>
+			<!-- end breadcrumb -->
 
-				<!-- You can also add more buttons to the
+			<!-- You can also add more buttons to the
 				ribbon for further usability
 
 				Example below:
@@ -103,58 +110,66 @@
 				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
 				</span> -->
 
-			</div>
-			<!-- END RIBBON -->
+		</div>
+		<!-- END RIBBON -->
 
-			<!-- MAIN CONTENT -->
-			<div id="content">
+		<!-- MAIN CONTENT -->
+		<div id="content">
 
-				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<h1 class="page-title txt-color-blueDark">
-							<i class="fa fa-table fa-fw "></i> 
-								Table 
-							<span>> 
-								Data Tables
-							</span>
-						</h1>
-					</div>
-					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-						<ul id="sparks" class="">
-							<li class="sparks-info">
-								<h5> My Income <span class="txt-color-blue">$47,171</span></h5>
-								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
-									1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
-								</div>
-							</li>
-							<li class="sparks-info">
-								<h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip" title="Increased"></i>&nbsp;45%</span></h5>
-								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
-									110,150,300,130,400,240,220,310,220,300, 270, 210
-								</div>
-							</li>
-							<li class="sparks-info">
-								<h5> Site Orders <span class="txt-color-greenDark"><i class="fa fa-shopping-cart"></i>&nbsp;2447</span></h5>
-								<div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
-									110,150,300,130,400,240,220,310,220,300, 270, 210
-								</div>
-							</li>
-						</ul>
-					</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+					<h1 class="page-title txt-color-blueDark">
+						<i class="fa fa-table fa-fw "></i> Table <span>> Data
+							Tables </span>
+					</h1>
 				</div>
-				
-				<!-- widget grid -->
-				<section id="widget-grid" class="">
-				
-					<!-- row -->
-					<div class="row">
-				
-						<!-- NEW WIDGET START -->
-						<!-- TO Be pasted here - om thacker-->
-				<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-editbutton="false">
-								<!-- widget options:
+				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+					<ul id="sparks" class="">
+						<li class="sparks-info">
+							<h5>
+								My Income <span class="txt-color-blue">$47,171</span>
+							</h5>
+							<div
+								class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
+								1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471,
+								2700, 3631, 2471</div>
+						</li>
+						<li class="sparks-info">
+							<h5>
+								Site Traffic <span class="txt-color-purple"><i
+									class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip"
+									title="Increased"></i>&nbsp;45%</span>
+							</h5>
+							<div
+								class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
+								110,150,300,130,400,240,220,310,220,300, 270, 210</div>
+						</li>
+						<li class="sparks-info">
+							<h5>
+								Site Orders <span class="txt-color-greenDark"><i
+									class="fa fa-shopping-cart"></i>&nbsp;2447</span>
+							</h5>
+							<div
+								class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
+								110,150,300,130,400,240,220,310,220,300, 270, 210</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- widget grid -->
+			<section id="widget-grid" class="">
+
+				<!-- row -->
+				<div class="row">
+
+					<!-- NEW WIDGET START -->
+					<!-- TO Be pasted here - om thacker-->
+					<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<!-- Widget ID (each widget will need unique ID)-->
+						<div class="jarviswidget jarviswidget-color-blueDark"
+							id="wid-id-3" data-widget-editbutton="false">
+							<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
 								data-widget-colorbutton="false"
@@ -167,148 +182,179 @@
 								data-widget-sortable="false"
 				
 								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Export to PDF / Excel List of Users </h2>
-									
-								</header>
-								<!-- widget div-->
-								<div>
-								<h2><a href="${pageContext.request.contextPath}/newparent">Add New Parent</a> </h2>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body no-padding">
-				
-										<table id="datatable_tabletools" class="table table-striped table-bordered table-hover" width="100%">
-											<thead>
-												<tr>
-													<!-- <th data-hide="phone">ID</th>
+							<header>
+								<span class="widget-icon"> <i class="fa fa-table"></i>
+								</span>
+								<h2>Export to PDF / Excel List of Users</h2>
+
+							</header>
+							<!-- widget div-->
+							<div>
+								<h2>
+									<a href="${pageContext.request.contextPath}/newparent">Add
+										New Parent</a>
+								</h2>
+
+								<!-- widget edit box -->
+								<div class="jarviswidget-editbox">
+									<!-- This area used as dropdown edit box -->
+
+								</div>
+								<!-- end widget edit box -->
+
+								<!-- widget content -->
+								<div class="widget-body no-padding">
+
+									<table id="datatable_tabletools"
+										class="table table-striped table-bordered table-hover"
+										width="100%">
+										<thead>
+											<tr>
+												<!-- <th data-hide="phone">ID</th>
 													<th data-class="expand">Name</th>
 													<th>Phone</th>
 													<th data-hide="phone">Company</th>
 													<th data-hide="phone,tablet">Zip</th>
 													<th data-hide="phone,tablet">City</th>
 													<th data-hide="phone,tablet">Date</th>-->
-													 
-													<th data-hide="phone">First Name</th>
-													<th data-hide="phone">Middle Name</th>
-													<th data-hide="phone">Last Name</th>
-													<th data-hide="phone">Father's Name</th>
-													<th data-hide="phone">Mother's Name</th>
-													<th data-class="expand">Father's Profession</th>
-											        <th data-hide="phone,tablet">Mother's Profession</th>
-											        <th data-hide="phone,tablet">Email</th>
-											        <th data-hide="phone,tablet">Phone</th>
-											        <th data-hide="phone,tablet">IsActive</th>
-											        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-											        	<th data-hide="phone,tablet">Edit</th>
-											        </sec:authorize>
-											        <sec:authorize access="hasRole('ADMIN')">
-											        	<th data-hide="phone,tablet">Delete</th>
-											        </sec:authorize>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${parents}" var="parent">
-											<tr>
-												<td>${parent.firstName}</td>
-												<td>${parent.middleName}</td>
-												<td>${parent.lastName}</td>
-												<td>${parent.fatherName}</td>
-												<td>${parent.motherName}</td>
-												<td>${parent.fatherProfession}</td>
-												<td>${parent.motherProfession}</td>
-												<td>${parent.email}</td>
-												<td>${parent.phone}</td>
-												<td>${parent.parentActive}</td>
-											    <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-													<td><a href="<c:url value='/edit-parent-${parent.parentId}' />" class="btn btn-success custom-width">edit</a></td>
-										        </sec:authorize>
-										        <sec:authorize access="hasRole('ADMIN')">
-													<td><a href="<c:url value='/delete-parent-${parent.parentId}' />" class="btn btn-danger custom-width">delete</a></td>
-						        				</sec:authorize>
-											</tr>
-										</c:forEach>
-											</tbody>
-										</table>
-				
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
-						</article>
-						<!-- WIDGET END -->
-				
-					</div>
-				
-					<!-- end row -->
-				
-					<!-- end row -->
-				
-				</section>
-				<!-- end widget grid -->
 
-			</div>
-			<!-- END MAIN CONTENT -->
+												<th data-hide="phone">First Name</th>
+												<th data-hide="phone">Middle Name</th>
+												<th data-hide="phone">Last Name</th>
+												<th data-hide="phone">Father's Name</th>
+												<th data-hide="phone">Mother's Name</th>
+												<th data-class="expand">Father's Profession</th>
+												<th data-hide="phone,tablet">Mother's Profession</th>
+												<th data-hide="phone,tablet">Email</th>
+												<th data-hide="phone,tablet">Phone</th>
+												<th data-hide="phone,tablet">IsActive</th>
+												<sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+													<th data-hide="phone,tablet">Edit</th>
+												</sec:authorize>
+												<sec:authorize access="hasRole('ADMIN')">
+													<th data-hide="phone,tablet">Delete</th>
+												</sec:authorize>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach items="${parents}" var="parent">
+												<tr>
+													<td>${parent.firstName}</td>
+													<td>${parent.middleName}</td>
+													<td>${parent.lastName}</td>
+													<td>${parent.fatherName}</td>
+													<td>${parent.motherName}</td>
+													<td>${parent.fatherProfession}</td>
+													<td>${parent.motherProfession}</td>
+													<td>${parent.email}</td>
+													<td>${parent.phone}</td>
+													<td>${parent.parentActive}</td>
+													<sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+														<td><a
+															href="<c:url value='/edit-parent-${parent.parentId}' />"
+															class="btn btn-success custom-width">edit</a></td>
+													</sec:authorize>
+													<sec:authorize access="hasRole('ADMIN')">
+														<td><a
+															href="<c:url value='/delete-parent-${parent.parentId}' />"
+															class="btn btn-danger custom-width">delete</a></td>
+													</sec:authorize>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+
+								</div>
+								<!-- end widget content -->
+
+							</div>
+							<!-- end widget div -->
+
+						</div>
+						<!-- end widget -->
+
+					</article>
+					<!-- WIDGET END -->
+
+				</div>
+
+				<!-- end row -->
+
+				<!-- end row -->
+
+			</section>
+			<!-- end widget grid -->
 
 		</div>
-		<!-- END MAIN PANEL -->
+		<!-- END MAIN CONTENT -->
+
+	</div>
+	<!-- END MAIN PANEL -->
 
 
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+	<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,
 		you can add as many as you like
 		-->
-		<div id="shortcut">
-			<ul>
-				<li>
-					<a href="inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
-				</li>
-				<li>
-					<a href="gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
-				</li>
-				<li>
-					<a href="invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
-				</li>
-				<li>
-					<a href="profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
-				</li>
-			</ul>
-		</div>
-		<!-- END SHORTCUT AREA -->
+	<div id="shortcut">
+		<ul>
+			<li><a href="inbox.html"
+				class="jarvismetro-tile big-cubes bg-color-blue"> <span
+					class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail
+							<span class="label pull-right bg-color-darken">14</span>
+					</span>
+				</span>
+			</a></li>
+			<li><a href="calendar.html"
+				class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span
+					class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span>
+				</span>
+			</a></li>
+			<li><a href="gmap-xml.html"
+				class="jarvismetro-tile big-cubes bg-color-purple"> <span
+					class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span>
+				</span>
+			</a></li>
+			<li><a href="invoice.html"
+				class="jarvismetro-tile big-cubes bg-color-blueDark"> <span
+					class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice
+							<span class="label pull-right bg-color-darken">99</span>
+					</span>
+				</span>
+			</a></li>
+			<li><a href="gallery.html"
+				class="jarvismetro-tile big-cubes bg-color-greenLight"> <span
+					class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery
+					</span>
+				</span>
+			</a></li>
+			<li><a href="profile.html"
+				class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span
+					class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My
+							Profile </span>
+				</span>
+			</a></li>
+		</ul>
+	</div>
+	<!-- END SHORTCUT AREA -->
 
-		<!--================================================== -->
+	<!--================================================== -->
 
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+	<script data-pace-options='{ "restartOnRequestAfter": true }'
+		src="js/plugin/pace/pace.min.js"></script>
 
-		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>
+	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
 			if (!window.jQuery) {
 				document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
 			}
 		</script>
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js></script>
 		<script>
 			if (!window.jQuery.ui) {
 				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');

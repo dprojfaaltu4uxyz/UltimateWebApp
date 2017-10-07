@@ -1,359 +1,415 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="Smacventure, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <meta name="_csrf" content="${_csrf.token}"/>
-    <meta name="_csrf_header" content="${_csrf.headerName}"/>
-	<link rel="shortcut icon" href="img/favicon.png">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mosaddek">
+<meta name="keyword"
+	content="Smacventure, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Invoice</title>
+<title>Invoice</title>
 
-     <!-- Bootstrap core CSS -->
-    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"/>
-    <link href="<c:url value='/static/css/bootstrap-reset.css' />" rel="stylesheet"/>
-    <!--external css-->
-    <link href="<c:url value='/static/assets/font-awesome/css/font-awesome.css' />" rel="stylesheet" />
-	
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-datepicker/css/datepicker.css' />" />
-    
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-daterangepicker/daterangepicker-bs3.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-datetimepicker/css/datetimepicker.css' />" />
+<!-- Bootstrap core CSS -->
+<link href="<c:url value='/static/css/bootstrap.min.css' />"
+	rel="stylesheet" />
+<link href="<c:url value='/static/css/bootstrap-reset.css' />"
+	rel="stylesheet" />
+<!--external css-->
+<link
+	href="<c:url value='/static/assets/font-awesome/css/font-awesome.css' />"
+	rel="stylesheet" />
 
-    <!--bootstrap switcher-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css'/>"/>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-datepicker/css/datepicker.css' />" />
 
-    <!-- switchery-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/switchery/switchery.css'/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-daterangepicker/daterangepicker-bs3.css' />" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-datetimepicker/css/datetimepicker.css' />" />
 
-    <!--select 2-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/select2/css/select2.min.css'/>"/>
+<!--bootstrap switcher-->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css'/>" />
 
-	
-      <!--right slidebar-->
-    <link href="<c:url value='/static/css/slidebars.css' />" rel="stylesheet"/>
+<!-- switchery-->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/switchery/switchery.css'/>" />
 
-	
-	
-    <!-- Custom styles for this template -->
+<!--select 2-->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/select2/css/select2.min.css'/>" />
 
-    <link href="<c:url value='/static/css/style.css' />" rel="stylesheet">
-    <link href="<c:url value='/static/css/style-responsive.css' />" rel="stylesheet" />
 
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
+<!--right slidebar-->
+<link href="<c:url value='/static/css/slidebars.css' />"
+	rel="stylesheet" />
+
+
+
+<!-- Custom styles for this template -->
+
+<link href="<c:url value='/static/css/style.css' />" rel="stylesheet">
+<link href="<c:url value='/static/css/style-responsive.css' />"
+	rel="stylesheet" />
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+<!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-  .side{
-  position:fixed;
+<style type="text/css">
+.side {
+	position: fixed;
 }
 
-.scroll-area{
-  width:100%;
-  height:calc(100% - 200px);
-  margin-top:100px;
-  float:left;
-  overflow-y:scroll;
+.scroll-area {
+	width: 100%;
+	height: calc(100% - 200px);
+	margin-top: 100px;
+	float: left;
+	overflow-y: scroll;
 }
 
-.table-fixed{
-  width: 100%;
-  background-color: #f3f3f3;
+.table-fixed {
+	width: 100%;
+	background-color: #f3f3f3;
 }
 
-#invTable tbody{
-    height:200px;
-    overflow-y:auto;
-    width: 100%;
-    }
-   
-   
-    </style>
-    <script>
+#invTable tbody {
+	height: 200px;
+	overflow-y: auto;
+	width: 100%;
+}
+</style>
+<script>
     
  
 
 </script>
-  </head>
+</head>
 
-  <body>
-  
-  <section id="container">
-      <!--header start-->
-      <%@include file="../pagetemplate/topPanelJSP.jsp" %>
-      <!--header end-->
-      <!--sidebar start-->
-      <%@include file="../pagetemplate/sidePanelJSP.jsp" %>
-		  <section id="main-content">
-		  
-		  	<section class="wrapper">
-		  	<div class="row">
-                  <div class="col-lg-12">
-                      <section class="panel">
-                          <div class="panel-body">
+<body>
 
-                                <form class="form-horizontal" id="default">
-                                     <!-- Select Basic -->
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="desc">Description </label>
-                                        <div class="col-md-3">
-                                            <input id="desc" name="desc" type="text" placeholder="Description" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="rate">Rate </label>
-                                        <div class="col-md-3">
-                                            <input id="rate" name="rate" type="text" placeholder="Rate" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="qty">QTY </label>
-                                        <div class="col-md-3">
-                                            <input id="qty" name="qty" type="text" placeholder="Job No" class="form-control input-md">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="currency">Currency </label>
-                                        <div class="col-md-3">
-                                            <input id="currency" name="currency" type="text" placeholder="Currency" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="exRate">Ex Rate </label>
-                                        <div class="col-md-3">
-                                            <input id="exRate" name="exRate" type="text" placeholder="Ex Rate" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="rateXqty">Rate X Qty</label>
-                                        <div class="col-md-3">
-                                            <input id="rateXqty" name="rateXqty" type="text" placeholder="Rate X Qty" class="form-control input-md">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="amount">Amount </label>
-                                        <div class="col-md-3">
-                                            <input id="amount" name="amount" type="text" placeholder="Amount" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="date">Date </label>
-                                        <div class="col-md-3">
-                                            <input id="date" name="date" type="text" placeholder="Date" class="form-control input-md date	">
-                                        </div>
-                                        <label class="col-md-1 " for="grossWeight">Gross Weight </label>
-                                        <div class="col-md-3">
-                                            <input id="grossWeight" name="grossWeight" type="text" placeholder="Gross Weight" class="form-control input-md">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="netUnit">Net Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="netUnit" name="netUnit" type="text" placeholder="Net Unit" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="goodsValue">Goods Value </label>
-                                        <div class="col-md-3">
-                                            <input id="goodsValue" name="goodsValue" type="text" placeholder="Goods Value" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="natureOfContract">Nature of Contract </label>
-                                        <div class="col-md-3">
-                                            <input id="natureOfContract" name="natureOfContract" type="text" placeholder="Nature of Contract" class="form-control input-md">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="freight">Freight </label>
-                                        <div class="col-md-3">
-                                            <input id="freight" name="freight" type="text" placeholder="Freight" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="unit">Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="unit" name="unit" type="text" placeholder="Unit" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="actualFreight">Actual Freight </label>
-                                        <div class="col-md-3">
-                                             <div class="checkboxes">
-                                                    <input name="actualFreight" id="actualFreight" value="1" type="checkbox" /> Actual Freight
-                                               </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="insurance">Insurance </label>
-                                        <div class="col-md-3">
-                                            <input id="insurance" name="insurance" type="text" placeholder="Insurance" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="insuranceUnit">Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="insuranceUnit" name="insuranceUnit" type="text" placeholder="Unit" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="actualInsurance">Actual Insurance </label>
-                                        <div class="col-md-3">
-                                             <div class="checkboxes">
-                                                    <input name="actualInsurance" id="actualInsurance" value="1" type="checkbox" /> Actual Insurance
-                                               </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="packagingAndMisc">Packaging and Misc </label>
-                                        <div class="col-md-3">
-                                            <input id="packagingAndMisc" name="packagingAndMisc" type="text" placeholder="Packaging and Misc" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="pmUnit">Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="pmUnit" name="pmUnit" type="text" placeholder="Unit" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="actualPM">Actual PM </label>
-                                        <div class="col-md-3">
-                                             <div class="checkboxes">
-                                                    <input name="actualPM" id="actualPM" value="1" type="checkbox" /> Actual PM
-                                               </div>
-                                        </div>
-                                    </div>
-                                     <div class="form-group">
-                                        <label class="col-md-1 " for="otherCharges">Other Charges </label>
-                                        <div class="col-md-3">
-                                            <input id="otherCharges" name="otherCharges" type="text" placeholder="Other Charges" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="otherUnit">Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="otherUnit" name="otherUnit" type="text" placeholder="Unit" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="fobValue">FOB Value</label>
-                                        <div class="col-md-3">
-                                              <input id="fobValue" name="fobValue" type="text" placeholder="FOB Value" class="form-control input-md">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="pmvRate">PMV Rate </label>
-                                        <div class="col-md-3">
-                                            <input id="pmvRate" name="pmvRate" type="text" placeholder="PMV Rate" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="pmvUnit">PMV Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="pmvUnit" name="pmvUnit" type="text" placeholder="PMV Unit" class="form-control input-md">
-                                        </div>
-                                        <label class="col-md-1 " for="pmvValue">PMV Value</label>
-                                        <div class="col-md-3">
-                                              <input id="pmvValue" name="pmvValue" type="text" placeholder="PMV Rate" class="form-control input-md">
-                                        </div>
-                                    </div>
-                                    <input type="hidden" id="rowId" value=""></input>
-                                    <div class="form-group">
-                                    	<div class="col-lg-offset-2 col-md-6">
-                                    	 <button id="addBttn" class="btn btn-danger" onclick="addRows();" type="button">Save</button>
-                                    	 <button id="editBttn" class="btn btn-danger" onclick="editRows();" type="button">Update</button>
-                                      </div>
-                                    </div>
-                                </form>
-                            </div>                                      
-                                          <div class="col-lg-offset-2 col-lg-10">
-                                              <button id="addBttn" class="btn btn-danger" style="float: right" onclick="addRows();" type="button">Save</button>
-                                              <button id="editBttn" class="btn btn-danger" style="float: right" onclick="editRows();" type="button">Update</button>                                               
-                                          </div>                                      
-                          
-                      </section>
-                  </div>
-                  </div>
-		  	   <div class="row">
-                  <div class="col-lg-12">
-                      <section class="panel">
-                          <header class="panel-heading">
-                            Add Invoice Details Below
-                          </header>
-                          <div class="panel-body" style="padding: 60px;  padding-top: 0px;  padding-left: 10px; padding-bottom: 0px; padding-right: 10px;">
-                          <table id="invTable" class="table table-fixed">
-											<thead>
-												<tr data-row='data-row'>
-													<th></th>
-													<th>Description</th>
-													<th>Rate</th>
-													<th>QTY</th>
-													<th>CURRENCY</th>
-													<th>Ex Rate</th>
-													<th>Rate X Qty</th>
-													<th>Amount</th>
-													<th>Date</th>
-													<th>Gross Weight</th>
-													<th>Net Unit</th>
-													<th>Goods Value</th>
-													<th>Nature of Contract</th>
-													<th>Freight</th>
-													<th>Unit</th>
-													<th>Actual Freight</th>
-													<th>Insurance</th>
-													<th>Unit</th>
-													<th>Actual Insurance</th>
-													<th>Packaging and Misc</th>
-													<th>Unit</th>
-													<th>Actual PM</th>
-													<th>Other Charges</th>
-													<th>Unit</th>
-													<th>FOB Value</th>
-													<th>PMV Rate</th>
-													<th>PMV Unit</th>
-													<th>PMV Value</th>
-												</tr>
-											</thead>
-											<tbody >
-											</tbody>
-										</table>
-                          </div>
-		  	   </section>
-                  </div>
-                  <div class="col-lg-offset-2 col-lg-10">
-                                              <button id="delBttn" class="btn btn-danger" style="float: right" onclick="delRows();" type="button">Delete</button>                                              
-                                          </div>
-                  </div>
-		  	   
-                   
-		  	</section>
-		  
-		  </section>   
-	 <!--main content end-->
+	<section id="container">
+		<!--header start-->
+		<%@include file="../pagetemplate/topPanelJSP.jsp"%>
+		<!--header end-->
+		<!--sidebar start-->
+		<%@include file="../pagetemplate/sidePanelJSP.jsp"%>
+		<section id="main-content">
 
-      <!-- Right Slidebar start -->
-      <%@include file="../pagetemplate/rightSidePanelJSP.jsp" %>
-      <!-- Right Slidebar end -->
+			<section class="wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<section class="panel">
+							<div class="panel-body">
 
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2013 &copy; FlatLab by VectorLab.
-              <a href="#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end--> 
-      </section>
-  
-  
-  
-  
-   <!-- js placed at the end of the document so the pages load faster -->
-   
-    <script src="<c:url value='/static/js/jquery.js' />"></script>
-    <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
-    <script class="include" type="text/javascript" src="<c:url value='/static/js/jquery.dcjqaccordion.2.7.js' />"></script>
-    <script src="<c:url value='/static/js/jquery.scrollTo.min.js' />"></script>
-    <script src="<c:url value='/static/js/jquery.nicescroll.js" type="text/javascript' />"></script>
-      <script type="text/javascript" src="<c:url value='/static/js/jquery.validate.min.js'/>"></script>
-    <script src="<c:url value='/static/js/respond.min.js' />" ></script>
-  
-   
-<!--right slidebar-->
-  <script src="<c:url value='/static/js/slidebars.min.js'/>"></script>
+								<form class="form-horizontal" id="default">
+									<!-- Select Basic -->
+									<div class="form-group">
+										<label class="col-md-1 " for="desc">Description </label>
+										<div class="col-md-3">
+											<input id="desc" name="desc" type="text"
+												placeholder="Description" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="rate">Rate </label>
+										<div class="col-md-3">
+											<input id="rate" name="rate" type="text" placeholder="Rate"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="qty">QTY </label>
+										<div class="col-md-3">
+											<input id="qty" name="qty" type="text" placeholder="Job No"
+												class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="currency">Currency </label>
+										<div class="col-md-3">
+											<input id="currency" name="currency" type="text"
+												placeholder="Currency" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="exRate">Ex Rate </label>
+										<div class="col-md-3">
+											<input id="exRate" name="exRate" type="text"
+												placeholder="Ex Rate" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="rateXqty">Rate X Qty</label>
+										<div class="col-md-3">
+											<input id="rateXqty" name="rateXqty" type="text"
+												placeholder="Rate X Qty" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="amount">Amount </label>
+										<div class="col-md-3">
+											<input id="amount" name="amount" type="text"
+												placeholder="Amount" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="date">Date </label>
+										<div class="col-md-3">
+											<input id="date" name="date" type="text" placeholder="Date"
+												class="form-control input-md date	">
+										</div>
+										<label class="col-md-1 " for="grossWeight">Gross
+											Weight </label>
+										<div class="col-md-3">
+											<input id="grossWeight" name="grossWeight" type="text"
+												placeholder="Gross Weight" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="netUnit">Net Unit </label>
+										<div class="col-md-3">
+											<input id="netUnit" name="netUnit" type="text"
+												placeholder="Net Unit" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="goodsValue">Goods Value
+										</label>
+										<div class="col-md-3">
+											<input id="goodsValue" name="goodsValue" type="text"
+												placeholder="Goods Value" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="natureOfContract">Nature
+											of Contract </label>
+										<div class="col-md-3">
+											<input id="natureOfContract" name="natureOfContract"
+												type="text" placeholder="Nature of Contract"
+												class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="freight">Freight </label>
+										<div class="col-md-3">
+											<input id="freight" name="freight" type="text"
+												placeholder="Freight" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="unit">Unit </label>
+										<div class="col-md-3">
+											<input id="unit" name="unit" type="text" placeholder="Unit"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="actualFreight">Actual
+											Freight </label>
+										<div class="col-md-3">
+											<div class="checkboxes">
+												<input name="actualFreight" id="actualFreight" value="1"
+													type="checkbox" /> Actual Freight
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="insurance">Insurance </label>
+										<div class="col-md-3">
+											<input id="insurance" name="insurance" type="text"
+												placeholder="Insurance" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="insuranceUnit">Unit </label>
+										<div class="col-md-3">
+											<input id="insuranceUnit" name="insuranceUnit" type="text"
+												placeholder="Unit" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="actualInsurance">Actual
+											Insurance </label>
+										<div class="col-md-3">
+											<div class="checkboxes">
+												<input name="actualInsurance" id="actualInsurance" value="1"
+													type="checkbox" /> Actual Insurance
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="packagingAndMisc">Packaging
+											and Misc </label>
+										<div class="col-md-3">
+											<input id="packagingAndMisc" name="packagingAndMisc"
+												type="text" placeholder="Packaging and Misc"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="pmUnit">Unit </label>
+										<div class="col-md-3">
+											<input id="pmUnit" name="pmUnit" type="text"
+												placeholder="Unit" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="actualPM">Actual PM </label>
+										<div class="col-md-3">
+											<div class="checkboxes">
+												<input name="actualPM" id="actualPM" value="1"
+													type="checkbox" /> Actual PM
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="otherCharges">Other
+											Charges </label>
+										<div class="col-md-3">
+											<input id="otherCharges" name="otherCharges" type="text"
+												placeholder="Other Charges" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="otherUnit">Unit </label>
+										<div class="col-md-3">
+											<input id="otherUnit" name="otherUnit" type="text"
+												placeholder="Unit" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="fobValue">FOB Value</label>
+										<div class="col-md-3">
+											<input id="fobValue" name="fobValue" type="text"
+												placeholder="FOB Value" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="pmvRate">PMV Rate </label>
+										<div class="col-md-3">
+											<input id="pmvRate" name="pmvRate" type="text"
+												placeholder="PMV Rate" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="pmvUnit">PMV Unit </label>
+										<div class="col-md-3">
+											<input id="pmvUnit" name="pmvUnit" type="text"
+												placeholder="PMV Unit" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="pmvValue">PMV Value</label>
+										<div class="col-md-3">
+											<input id="pmvValue" name="pmvValue" type="text"
+												placeholder="PMV Rate" class="form-control input-md">
+										</div>
+									</div>
+									<input type="hidden" id="rowId" value=""></input>
+									<div class="form-group">
+										<div class="col-lg-offset-2 col-md-6">
+											<button id="addBttn" class="btn btn-danger"
+												onclick="addRows();" type="button">Save</button>
+											<button id="editBttn" class="btn btn-danger"
+												onclick="editRows();" type="button">Update</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="col-lg-offset-2 col-lg-10">
+								<button id="addBttn" class="btn btn-danger" style="float: right"
+									onclick="addRows();" type="button">Save</button>
+								<button id="editBttn" class="btn btn-danger"
+									style="float: right" onclick="editRows();" type="button">Update</button>
+							</div>
 
-    
-  <!--common script for all pages-->
-  <script src="<c:url value='/static/js/common-scripts.js' />"></script>
-  
-<!--script for this page-->
-    <script src="<c:url value='/static/js/form-validation-script.js'/>" ></script>
-    <script type="text/javascript" src="<c:url value='/static/assets/bootstrap-datepicker/js/bootstrap-datepicker.js'/>" ></script>
-  
-  
-   <!--select2-->
-  <script type="text/javascript" src="assets/select2/js/select2.min.js"></script>
-<script>
+						</section>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<section class="panel">
+							<header class="panel-heading"> Add Invoice Details Below
+							</header>
+							<div class="panel-body"
+								style="padding: 60px; padding-top: 0px; padding-left: 10px; padding-bottom: 0px; padding-right: 10px;">
+								<table id="invTable" class="table table-fixed">
+									<thead>
+										<tr data-row='data-row'>
+											<th></th>
+											<th>Description</th>
+											<th>Rate</th>
+											<th>QTY</th>
+											<th>CURRENCY</th>
+											<th>Ex Rate</th>
+											<th>Rate X Qty</th>
+											<th>Amount</th>
+											<th>Date</th>
+											<th>Gross Weight</th>
+											<th>Net Unit</th>
+											<th>Goods Value</th>
+											<th>Nature of Contract</th>
+											<th>Freight</th>
+											<th>Unit</th>
+											<th>Actual Freight</th>
+											<th>Insurance</th>
+											<th>Unit</th>
+											<th>Actual Insurance</th>
+											<th>Packaging and Misc</th>
+											<th>Unit</th>
+											<th>Actual PM</th>
+											<th>Other Charges</th>
+											<th>Unit</th>
+											<th>FOB Value</th>
+											<th>PMV Rate</th>
+											<th>PMV Unit</th>
+											<th>PMV Value</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+						</section>
+					</div>
+					<div class="col-lg-offset-2 col-lg-10">
+						<button id="delBttn" class="btn btn-danger" style="float: right"
+							onclick="delRows();" type="button">Delete</button>
+					</div>
+				</div>
+
+
+			</section>
+
+		</section>
+		<!--main content end-->
+
+		<!-- Right Slidebar start -->
+		<%@include file="../pagetemplate/rightSidePanelJSP.jsp"%>
+		<!-- Right Slidebar end -->
+
+		<!--footer start-->
+		<footer class="site-footer">
+			<div class="text-center">
+				2013 &copy; FlatLab by VectorLab. <a href="#" class="go-top"> <i
+					class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!--footer end-->
+	</section>
+
+
+
+
+	<!-- js placed at the end of the document so the pages load faster -->
+
+	<script src="<c:url value='/static/js/jquery.js' />"></script>
+	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+	<script class="include" type="text/javascript"
+		src="<c:url value='/static/js/jquery.dcjqaccordion.2.7.js' />"></script>
+	<script src="<c:url value='/static/js/jquery.scrollTo.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/jquery.nicescroll.js" type="text/javascript' />"></script>
+	<script type="text/javascript"
+		src="<c:url value='/static/js/jquery.validate.min.js'/>"></script>
+	<script src="<c:url value='/static/js/respond.min.js' />"></script>
+
+
+	<!--right slidebar-->
+	<script src="<c:url value='/static/js/slidebars.min.js'/>"></script>
+
+
+	<!--common script for all pages-->
+	<script src="<c:url value='/static/js/common-scripts.js' />"></script>
+
+	<!--script for this page-->
+	<script src="<c:url value='/static/js/form-validation-script.js'/>"></script>
+	<script type="text/javascript"
+		src="<c:url value='/static/assets/bootstrap-datepicker/js/bootstrap-datepicker.js'/>"></script>
+
+
+	<!--select2-->
+	<script type="text/javascript" src="assets/select2/js/select2.min.js"></script>
+	<script>
 $('.date').datepicker({
     autoclose: true
 });
@@ -646,5 +702,5 @@ function delRows(){
 }
 </script>
 
-  </body>
+</body>
 </html>

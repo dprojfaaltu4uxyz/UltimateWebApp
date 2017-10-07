@@ -1,26 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
 <html lang="en-us">
-	<head>
-		<meta charset="utf-8">
-		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+<head>
+<meta charset="utf-8">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-		<title> SmartAdmin </title>
-		<meta name="description" content="">
-		<meta name="author" content="">
-			
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SmartAdmin</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-		<%@include file="../pagetemplate/commonCSSJSP.jsp" %>
-	<link rel="stylesheet" type="text/css" media="screen" href="<c:url value='/static/css/datepicker.css'/>" >
-	</head>
-	
-	<!--
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<%@include file="../pagetemplate/commonCSSJSP.jsp"%>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="<c:url value='/static/css/datepicker.css'/>">
+</head>
+
+<!--
 
 	TABLE OF CONTENTS.
 	
@@ -49,9 +52,9 @@
 	===================================================================
 	
 	-->
-	
-	<!-- #BODY -->
-	<!-- Possible Classes
+
+<!-- #BODY -->
+<!-- Possible Classes
 
 		* 'smart-style-{SKIN#}'
 		* 'smart-rtl'         - Switch theme mode to RTL
@@ -66,35 +69,39 @@
 	
 	// for material put this in body : desktop-detected pace-done smart-style-6
 	-->
-	<body class="">
+<body class="">
 
-		<!-- HEADER -->
-		<%@include file="../pagetemplate/topPanelJSP.jsp" %>
-		<!-- END HEADER -->
+	<!-- HEADER -->
+	<%@include file="../pagetemplate/topPanelJSP.jsp"%>
+	<!-- END HEADER -->
 
-		<!-- Left panel : Navigation area -->
-		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-		<%@include file="../pagetemplate/sidePanelJSP.jsp" %>
+	<!-- Left panel : Navigation area -->
+	<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+	<%@include file="../pagetemplate/sidePanelJSP.jsp"%>
 
-		<!-- MAIN PANEL -->
-		<div id="main" role="main">
+	<!-- MAIN PANEL -->
+	<div id="main" role="main">
 
-			<!-- RIBBON -->
-			<div id="ribbon">
+		<!-- RIBBON -->
+		<div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
+			<span class="ribbon-button-alignment"> <span id="refresh"
+				class="btn btn-ribbon" data-action="resetWidgets"
+				data-title="refresh" rel="tooltip" data-placement="bottom"
+				data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings."
+				data-html="true"> <i class="fa fa-refresh"></i>
+			</span>
+			</span>
 
-				<!-- breadcrumb -->
-				<ol class="breadcrumb">
-					<li>Home</li><li>Tables</li><li>Data Tables</li>
-				</ol>
-				<!-- end breadcrumb -->
+			<!-- breadcrumb -->
+			<ol class="breadcrumb">
+				<li>Home</li>
+				<li>Tables</li>
+				<li>Data Tables</li>
+			</ol>
+			<!-- end breadcrumb -->
 
-				<!-- You can also add more buttons to the
+			<!-- You can also add more buttons to the
 				ribbon for further usability
 
 				Example below:
@@ -105,60 +112,69 @@
 				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
 				</span> -->
 
-			</div>
-			<!-- END RIBBON -->
+		</div>
+		<!-- END RIBBON -->
 
-			<!-- MAIN CONTENT -->
-			<div id="content">
+		<!-- MAIN CONTENT -->
+		<div id="content">
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+					<h1 class="page-title txt-color-blueDark">
+						<i class="fa fa-table fa-fw "></i> Table <span>> Data
+							Tables </span>
+					</h1>
+				</div>
+				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+					<ul id="sparks" class="">
+						<li class="sparks-info">
+							<h5>
+								My Income <span class="txt-color-blue">$47,171</span>
+							</h5>
+							<div
+								class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
+								1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471,
+								2700, 3631, 2471</div>
+						</li>
+						<li class="sparks-info">
+							<h5>
+								Site Traffic <span class="txt-color-purple"><i
+									class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip"
+									title="Increased"></i>&nbsp;45%</span>
+							</h5>
+							<div
+								class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
+								110,150,300,130,400,240,220,310,220,300, 270, 210</div>
+						</li>
+						<li class="sparks-info">
+							<h5>
+								Site Orders <span class="txt-color-greenDark"><i
+									class="fa fa-shopping-cart"></i>&nbsp;2447</span>
+							</h5>
+							<div
+								class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
+								110,150,300,130,400,240,220,310,220,300, 270, 210</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<!-- widget grid -->
+			<section id="widget-grid" class="">
+
+
 
 				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<h1 class="page-title txt-color-blueDark">
-							<i class="fa fa-table fa-fw "></i> 
-								Table 
-							<span>> 
-								Data Tables
-							</span>
-						</h1>
-					</div>
-					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-						<ul id="sparks" class="">
-							<li class="sparks-info">
-								<h5> My Income <span class="txt-color-blue">$47,171</span></h5>
-								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
-									1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
-								</div>
-							</li>
-							<li class="sparks-info">
-								<h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip" title="Increased"></i>&nbsp;45%</span></h5>
-								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
-									110,150,300,130,400,240,220,310,220,300, 270, 210
-								</div>
-							</li>
-							<li class="sparks-info">
-								<h5> Site Orders <span class="txt-color-greenDark"><i class="fa fa-shopping-cart"></i>&nbsp;2447</span></h5>
-								<div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
-									110,150,300,130,400,240,220,310,220,300, 270, 210
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-				
-				
-				<!-- widget grid -->
-				<section id="widget-grid" class="">
-				
-				
-				
-					<div class="row">
-				
-						<!-- NEW COL START -->
-						<article class="col-sm-12 col-md-12 col-lg-6">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
-								<!-- widget options:
+
+					<!-- NEW COL START -->
+					<article class="col-sm-12 col-md-12 col-lg-6">
+
+						<!-- Widget ID (each widget will need unique ID)-->
+						<div class="jarviswidget" id="wid-id-3"
+							data-widget-colorbutton="false" data-widget-editbutton="false"
+							data-widget-custombutton="false">
+							<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
 								data-widget-colorbutton="false"
@@ -171,68 +187,74 @@
 								data-widget-sortable="false"
 				
 								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-									<h2>Plugins & Enhancers </h2>
-				
-								</header>
-				
-								<!-- widget div-->
-								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body">
-				
-										<form:form method="POST" modelAttribute="student" >
-											<form:input type="hidden" path="studentId" id="id"/>
-				
-											<fieldset>
-												<legend>
-													Select 2
-												</legend>
-										
-												<div class="row">
+							<header>
+								<span class="widget-icon"> <i class="fa fa-edit"></i>
+								</span>
+								<h2>Plugins & Enhancers</h2>
+
+							</header>
+
+							<!-- widget div-->
+							<div>
+
+								<!-- widget edit box -->
+								<div class="jarviswidget-editbox">
+									<!-- This area used as dropdown edit box -->
+
+								</div>
+								<!-- end widget edit box -->
+
+								<!-- widget content -->
+								<div class="widget-body">
+
+									<form:form method="POST" modelAttribute="student">
+										<form:input type="hidden" path="studentId" id="id" />
+
+										<fieldset>
+											<legend> Select 2 </legend>
+
+											<div class="row">
 												<div class="col-sm-12">
-				
-														<div class="form-group">
-															<label>Name:</label>
-															<div class="input-group">
-																<form:input type="text" path="name" id="name" class="form-control" />
-																<span class="input-group-addon"><i class="fa fa-user"></i></span>
-																<div class="has-error">
-																	<form:errors path="name" class="help-inline"/>
-																</div>
-															</div>
-														</div>
-														<div class="form-group">
-															<label>Email:</label>
-															<div class="input-group">
-																<form:input type="text" path="email" id="email" class="form-control" />
-																<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+
+													<div class="form-group">
+														<label>Name:</label>
+														<div class="input-group">
+															<form:input type="text" path="name" id="name"
+																class="form-control" />
+															<span class="input-group-addon"><i
+																class="fa fa-user"></i></span>
 															<div class="has-error">
-																<form:errors path="email" class="help-inline"/>
-															</div>
-															</div>
-														</div>
-													
-														<div class="form-group">
-															<label>DOB:</label>
-															<div class="input-group">
-																<form:input type="text" name="dob" id="dob" placeholder="Select a date" path="dob" class="form-control" data-dateformat="dd/mm/yy" />
-																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-																<div class="has-error">
-																	<form:errors path="dob" class="help-inline"/>
-																</div>
+																<form:errors path="name" class="help-inline" />
 															</div>
 														</div>
-														<!-- <div class="form-group">
+													</div>
+													<div class="form-group">
+														<label>Email:</label>
+														<div class="input-group">
+															<form:input type="text" path="email" id="email"
+																class="form-control" />
+															<span class="input-group-addon"><i
+																class="fa fa-envelope"></i></span>
+															<div class="has-error">
+																<form:errors path="email" class="help-inline" />
+															</div>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label>DOB:</label>
+														<div class="input-group">
+															<form:input type="text" name="dob" id="dob"
+																placeholder="Select a date" path="dob"
+																class="form-control" data-dateformat="dd/mm/yy" />
+															<span class="input-group-addon"><i
+																class="fa fa-calendar"></i></span>
+															<div class="has-error">
+																<form:errors path="dob" class="help-inline" />
+															</div>
+														</div>
+													</div>
+													<!-- <div class="form-group">
 															<label>Gender:</label>
 															<div class="input-group">
 																<form:select path="gender" items="${genderList}" multiple="false"  class="form-control" />
@@ -242,290 +264,350 @@
 																</div>
 															</div>
 														</div> -->
-														<div class="form-group">
-															<label>Gender</label>
-															<div class="input-group">
-																<form:select path="gender" items="${genderList}" multiple="false"  class="select2" />
-																<span class="input-group-addon"><i class="fa fa-mars-stroke"></i></span>
-																<div class="has-error">
-																		<form:errors path="gender" class="help-inline"/>
-																</div>
-															</div>
-															<div class="note">
-																<strong>Usage:</strong> &lt;select style=&quot;width:100%&quot; class=&quot;select2&quot; &quot;&gt;...&lt;/select&gt;
+													<div class="form-group">
+														<label>Gender</label>
+														<div class="input-group">
+															<form:select path="gender" items="${genderList}"
+																multiple="false" class="select2" />
+															<span class="input-group-addon"><i
+																class="fa fa-mars-stroke"></i></span>
+															<div class="has-error">
+																<form:errors path="gender" class="help-inline" />
 															</div>
 														</div>
-				
-														<div class="form-group">
-															<label>Religion:</label>
-															<div class="input-group">
-																<form:input type="text" path="religion" id="religion" class="form-control" />
-																<span class="input-group-addon"><i class="fa fa-th-large"></i></span>
-																<div class="has-error">
-																	<form:errors path="religion" class="help-inline"/>
-																</div>
-															</div>
-														</div>
-														<div class="form-group">
-															<label>Phone:</label>
-															<div class="input-group">
-																<form:input type="text" path="phone" id="phone" class="form-control" />
-																<span class="input-group-addon"><i class="fa fa-phone-square"></i></span>
-																<div class="has-error">
-																	<form:errors path="phone" class="help-inline"/>
-																</div>
-															</div>
-														</div>
-														<div class="form-group">
-															<label>Address:</label>
-															<div class="input-group">
-																<form:input type="text" path="address" id="address" class="form-control" />
-																<span class="input-group-addon"><i class="fa fa-home"></i></span>
-																<div class="has-error">
-																	<form:errors path="address" class="help-inline"/>
-																</div>
-															</div>
+														<div class="note">
+															<strong>Usage:</strong> &lt;select
+															style=&quot;width:100%&quot; class=&quot;select2&quot;
+															&quot;&gt;...&lt;/select&gt;
 														</div>
 													</div>
-												</div>
-												
-												
-												
-												<div class="form-group">
-													<label>Select2 Plugin (multi-select)</label>
-													<select multiple style="width:100%" class="select2">
-														<optgroup label="Alaskan/Hawaiian Time Zone">
-															<option value="AK">Alaska</option>
-															<option value="HI">Hawaii</option>
-														</optgroup>
-														<optgroup label="Pacific Time Zone">
-															<option value="CA">California</option>
-															<option value="NV" selected="selected">Nevada</option>
-															<option value="OR">Oregon</option>
-															<option value="WA">Washington</option>
-														</optgroup>
-														<optgroup label="Mountain Time Zone">
-															<option value="AZ">Arizona</option>
-															<option value="CO">Colorado</option>
-															<option value="ID">Idaho</option>
-															<option value="MT" selected="selected">Montana</option><option value="NE">Nebraska</option>
-															<option value="NM">New Mexico</option>
-															<option value="ND">North Dakota</option>
-															<option value="UT">Utah</option>
-															<option value="WY">Wyoming</option>
-														</optgroup>
-														<optgroup label="Central Time Zone">
-															<option value="AL">Alabama</option>
-															<option value="AR">Arkansas</option>
-															<option value="IL">Illinois</option>
-															<option value="IA">Iowa</option>
-															<option value="KS">Kansas</option>
-															<option value="KY">Kentucky</option>
-															<option value="LA">Louisiana</option>
-															<option value="MN">Minnesota</option>
-															<option value="MS">Mississippi</option>
-															<option value="MO">Missouri</option>
-															<option value="OK">Oklahoma</option>
-															<option value="SD">South Dakota</option>
-															<option value="TX">Texas</option>
-															<option value="TN">Tennessee</option>
-															<option value="WI">Wisconsin</option>
-														</optgroup>
-														<optgroup label="Eastern Time Zone">
-															<option value="CT">Connecticut</option>
-															<option value="DE">Delaware</option>
-															<option value="FL">Florida</option>
-															<option value="GA">Georgia</option>
-															<option value="IN">Indiana</option>
-															<option value="ME">Maine</option>
-															<option value="MD">Maryland</option>
-															<option value="MA">Massachusetts</option>
-															<option value="MI" selected="selected">Michigan</option>
-															<option value="NH">New Hampshire</option>
-															<option value="NJ">New Jersey</option>
-															<option value="NY">New York</option>
-															<option value="NC">North Carolina</option>
-															<option value="OH">Ohio</option>
-															<option value="PA">Pennsylvania</option>
-															<option value="RI">Rhode Island</option>
-															<option value="SC">South Carolina</option>
-															<option value="VT">Vermont</option>
-															<option value="VA">Virginia</option>
-															<option value="WV">West Virginia</option>
-														</optgroup>
-													</select>
-				
-													<div class="note">
-														<strong>Usage:</strong> &lt;select multiple style=&quot;width:100%&quot; class=&quot;select2&quot; &gt;...&lt;/select&gt;
-													</div>
-												</div>
-				
-											</fieldset>
-				
-											
-				
-										</form:form>
-				
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
-						</article>
-						<!-- END COL -->
-				
-				
-					</div>
-				
-					<!-- end row -->
-				
-					<!-- row -->
-					
-					<!-- end row -->
-				
-					<!-- row -->
-					
-					<!-- end row -->		
-				
-				
-				</section>
-				<!-- end widget grid -->
 
-			</div>
-			<!-- END MAIN CONTENT -->
+													<div class="form-group">
+														<label>Religion:</label>
+														<div class="input-group">
+															<form:input type="text" path="religion" id="religion"
+																class="form-control" />
+															<span class="input-group-addon"><i
+																class="fa fa-th-large"></i></span>
+															<div class="has-error">
+																<form:errors path="religion" class="help-inline" />
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Phone:</label>
+														<div class="input-group">
+															<form:input type="text" path="phone" id="phone"
+																class="form-control" />
+															<span class="input-group-addon"><i
+																class="fa fa-phone-square"></i></span>
+															<div class="has-error">
+																<form:errors path="phone" class="help-inline" />
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Address:</label>
+														<div class="input-group">
+															<form:input type="text" path="address" id="address"
+																class="form-control" />
+															<span class="input-group-addon"><i
+																class="fa fa-home"></i></span>
+															<div class="has-error">
+																<form:errors path="address" class="help-inline" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+
+											<div class="form-group">
+												<label>Select2 Plugin (multi-select)</label> <select
+													multiple style="width: 100%" class="select2">
+													<optgroup label="Alaskan/Hawaiian Time Zone">
+														<option value="AK">Alaska</option>
+														<option value="HI">Hawaii</option>
+													</optgroup>
+													<optgroup label="Pacific Time Zone">
+														<option value="CA">California</option>
+														<option value="NV" selected="selected">Nevada</option>
+														<option value="OR">Oregon</option>
+														<option value="WA">Washington</option>
+													</optgroup>
+													<optgroup label="Mountain Time Zone">
+														<option value="AZ">Arizona</option>
+														<option value="CO">Colorado</option>
+														<option value="ID">Idaho</option>
+														<option value="MT" selected="selected">Montana</option>
+														<option value="NE">Nebraska</option>
+														<option value="NM">New Mexico</option>
+														<option value="ND">North Dakota</option>
+														<option value="UT">Utah</option>
+														<option value="WY">Wyoming</option>
+													</optgroup>
+													<optgroup label="Central Time Zone">
+														<option value="AL">Alabama</option>
+														<option value="AR">Arkansas</option>
+														<option value="IL">Illinois</option>
+														<option value="IA">Iowa</option>
+														<option value="KS">Kansas</option>
+														<option value="KY">Kentucky</option>
+														<option value="LA">Louisiana</option>
+														<option value="MN">Minnesota</option>
+														<option value="MS">Mississippi</option>
+														<option value="MO">Missouri</option>
+														<option value="OK">Oklahoma</option>
+														<option value="SD">South Dakota</option>
+														<option value="TX">Texas</option>
+														<option value="TN">Tennessee</option>
+														<option value="WI">Wisconsin</option>
+													</optgroup>
+													<optgroup label="Eastern Time Zone">
+														<option value="CT">Connecticut</option>
+														<option value="DE">Delaware</option>
+														<option value="FL">Florida</option>
+														<option value="GA">Georgia</option>
+														<option value="IN">Indiana</option>
+														<option value="ME">Maine</option>
+														<option value="MD">Maryland</option>
+														<option value="MA">Massachusetts</option>
+														<option value="MI" selected="selected">Michigan</option>
+														<option value="NH">New Hampshire</option>
+														<option value="NJ">New Jersey</option>
+														<option value="NY">New York</option>
+														<option value="NC">North Carolina</option>
+														<option value="OH">Ohio</option>
+														<option value="PA">Pennsylvania</option>
+														<option value="RI">Rhode Island</option>
+														<option value="SC">South Carolina</option>
+														<option value="VT">Vermont</option>
+														<option value="VA">Virginia</option>
+														<option value="WV">West Virginia</option>
+													</optgroup>
+												</select>
+
+												<div class="note">
+													<strong>Usage:</strong> &lt;select multiple
+													style=&quot;width:100%&quot; class=&quot;select2&quot;
+													&gt;...&lt;/select&gt;
+												</div>
+											</div>
+
+										</fieldset>
+
+
+
+									</form:form>
+
+								</div>
+								<!-- end widget content -->
+
+							</div>
+							<!-- end widget div -->
+
+						</div>
+						<!-- end widget -->
+
+					</article>
+					<!-- END COL -->
+
+
+				</div>
+
+				<!-- end row -->
+
+				<!-- row -->
+
+				<!-- end row -->
+
+				<!-- row -->
+
+				<!-- end row -->
+
+
+			</section>
+			<!-- end widget grid -->
 
 		</div>
-		<!-- END MAIN PANEL -->
+		<!-- END MAIN CONTENT -->
 
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+	</div>
+	<!-- END MAIN PANEL -->
+
+	<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,
 		you can add as many as you like
 		-->
-		<div id="shortcut">
-			<ul>
-				<li>
-					<a href="inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
-				</li>
-				<li>
-					<a href="gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
-				</li>
-				<li>
-					<a href="invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
-				</li>
-				<li>
-					<a href="profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
-				</li>
-			</ul>
-		</div>
-		<!-- END SHORTCUT AREA -->
+	<div id="shortcut">
+		<ul>
+			<li><a href="inbox.html"
+				class="jarvismetro-tile big-cubes bg-color-blue"> <span
+					class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail
+							<span class="label pull-right bg-color-darken">14</span>
+					</span>
+				</span>
+			</a></li>
+			<li><a href="calendar.html"
+				class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span
+					class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span>
+				</span>
+			</a></li>
+			<li><a href="gmap-xml.html"
+				class="jarvismetro-tile big-cubes bg-color-purple"> <span
+					class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span>
+				</span>
+			</a></li>
+			<li><a href="invoice.html"
+				class="jarvismetro-tile big-cubes bg-color-blueDark"> <span
+					class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice
+							<span class="label pull-right bg-color-darken">99</span>
+					</span>
+				</span>
+			</a></li>
+			<li><a href="gallery.html"
+				class="jarvismetro-tile big-cubes bg-color-greenLight"> <span
+					class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery
+					</span>
+				</span>
+			</a></li>
+			<li><a href="profile.html"
+				class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span
+					class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My
+							Profile </span>
+				</span>
+			</a></li>
+		</ul>
+	</div>
+	<!-- END SHORTCUT AREA -->
 
-		<!--================================================== -->
+	<!--================================================== -->
 
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="<c:url value='/static/js/plugin/pace/pace.min.js' />" ></script>
+	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+	<script data-pace-options='{ "restartOnRequestAfter": true }'
+		src="<c:url value='/static/js/plugin/pace/pace.min.js' />"></script>
 
-		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-		<script src="<c:url value='/static/js/jquery.min.js' />" ></script>
-		<script>
+	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+	<script src="<c:url value='/static/js/jquery.min.js' />"></script>
+	<script>
 			if (!window.jQuery) {
 				document.write('<script src="/static/js/libs/jquery-2.1.1.min.js"><\/script>');
 			}
 		</script>
 
-		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js></script> -->
-		<script   src="<c:url value='/static/js/jquery-ui.min.js' />"    integrity="sha256-lnH4vnCtlKU2LmD0ZW1dU7ohTTKrcKP50WA9fa350cE="   crossorigin="anonymous"></script>
-		<script>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js></script> -->
+	<script src="<c:url value='/static/js/jquery-ui.min.js' />"
+		integrity="sha256-lnH4vnCtlKU2LmD0ZW1dU7ohTTKrcKP50WA9fa350cE="
+		crossorigin="anonymous"></script>
+	<script>
 			if (!window.jQuery.ui) {
 				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
 			}
 		</script>
 
-		<!-- IMPORTANT: APP CONFIG -->
-		<script src="<c:url value='/static/js/app.config.js' />"></script>
+	<!-- IMPORTANT: APP CONFIG -->
+	<script src="<c:url value='/static/js/app.config.js' />"></script>
 
-		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-		<script src="<c:url value='/static/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js' />"></script> 
+	<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+	<script
+		src="<c:url value='/static/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js' />"></script>
 
-		<!-- BOOTSTRAP JS -->
-		<script src="<c:url value='/static/js/bootstrap/bootstrap.min.js' />"></script>
+	<!-- BOOTSTRAP JS -->
+	<script src="<c:url value='/static/js/bootstrap/bootstrap.min.js' />"></script>
 
-		<!-- CUSTOM NOTIFICATION -->
-		<script src="<c:url value='/static/js/notification/SmartNotification.min.js' />"></script>
+	<!-- CUSTOM NOTIFICATION -->
+	<script
+		src="<c:url value='/static/js/notification/SmartNotification.min.js' />"></script>
 
-		<!-- JARVIS WIDGETS -->
-		<script src="<c:url value='/static/js/smartwidgets/jarvis.widget.min.js' />" ></script>
+	<!-- JARVIS WIDGETS -->
+	<script
+		src="<c:url value='/static/js/smartwidgets/jarvis.widget.min.js' />"></script>
 
-		<!-- EASY PIE CHARTS -->
-		<script src="<c:url value='/static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js' />" ></script>
+	<!-- EASY PIE CHARTS -->
+	<script
+		src="<c:url value='/static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js' />"></script>
 
-		<!-- SPARKLINES -->
-		<script src="<c:url value='/static/js/plugin/sparkline/jquery.sparkline.min.js' />" ></script>
+	<!-- SPARKLINES -->
+	<script
+		src="<c:url value='/static/js/plugin/sparkline/jquery.sparkline.min.js' />"></script>
 
-		<!-- JQUERY VALIDATE -->
-		<script src="<c:url value='/static/js/plugin/jquery-validate/jquery.validate.min.js' />" ></script>
+	<!-- JQUERY VALIDATE -->
+	<script
+		src="<c:url value='/static/js/plugin/jquery-validate/jquery.validate.min.js' />"></script>
 
-		<!-- JQUERY MASKED INPUT -->
-		<script src="<c:url value='/static/js/plugin/masked-input/jquery.maskedinput.min.js' />" ></script>
+	<!-- JQUERY MASKED INPUT -->
+	<script
+		src="<c:url value='/static/js/plugin/masked-input/jquery.maskedinput.min.js' />"></script>
 
-		<!-- JQUERY SELECT2 INPUT -->
-		<script src="<c:url value='/static/js/plugin/select2/select2.min.js' />" ></script>
+	<!-- JQUERY SELECT2 INPUT -->
+	<script
+		src="<c:url value='/static/js/plugin/select2/select2.min.js' />"></script>
 
-		<!-- JQUERY UI + Bootstrap Slider -->
-		<script src="<c:url value='/static/js/plugin/bootstrap-slider/bootstrap-slider.min.js' />" ></script>
+	<!-- JQUERY UI + Bootstrap Slider -->
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-slider/bootstrap-slider.min.js' />"></script>
 
-		<!-- browser msie issue fix -->
-		<script src="<c:url value='/static/js/plugin/msie-fix/jquery.mb.browser.min.js' />" ></script>
+	<!-- browser msie issue fix -->
+	<script
+		src="<c:url value='/static/js/plugin/msie-fix/jquery.mb.browser.min.js' />"></script>
 
-		<!-- FastClick: For mobile devices -->
-		<script src="<c:url value='/static/js/plugin/fastclick/fastclick.min.js' />" ></script>
+	<!-- FastClick: For mobile devices -->
+	<script
+		src="<c:url value='/static/js/plugin/fastclick/fastclick.min.js' />"></script>
 
-		<!--[if IE 8]>
+	<!--[if IE 8]>
 
 		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 
 		<![endif]-->
 
-		<!-- Demo purpose only -->
-		<script src="<c:url value='/static/js/demo.min.js' />" ></script>
+	<!-- Demo purpose only -->
+	<script src="<c:url value='/static/js/demo.min.js' />"></script>
 
-		<!-- MAIN APP JS FILE -->
-		<script src="<c:url value='/static/js/app.min.js' />" ></script>
+	<!-- MAIN APP JS FILE -->
+	<script src="<c:url value='/static/js/app.min.js' />"></script>
 
-		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-		<!-- Voice command : plugin -->
-		<script src="<c:url value='/static/js/speech/voicecommand.min.js' />" ></script>
+	<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+	<!-- Voice command : plugin -->
+	<script src="<c:url value='/static/js/speech/voicecommand.min.js' />"></script>
 
-		<!-- SmartChat UI : plugin -->
-		<script src="<c:url value='/static/js/smart-chat-ui/smart.chat.ui.min.js' />" ></script>
-		<script src="<c:url value='/static/js/smart-chat-ui/smart.chat.manager.min.js' />" ></script>
+	<!-- SmartChat UI : plugin -->
+	<script
+		src="<c:url value='/static/js/smart-chat-ui/smart.chat.ui.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/smart-chat-ui/smart.chat.manager.min.js' />"></script>
 
-		<!-- PAGE RELATED PLUGIN(S) -->
-		<script src="<c:url value='/static/js/plugin/maxlength/bootstrap-maxlength.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/clockpicker/clockpicker.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/ion-slider/ion.rangeSlider.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js' />" ></script>		
-		<script src="<c:url value='/static/js/plugin/colorpicker/bootstrap-colorpicker.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/knob/jquery.knob.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/x-editable/moment.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/x-editable/jquery.mockjax.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/x-editable/x-editable.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/typeahead/typeahead.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/typeahead/typeaheadjs.min.js' />" ></script>
-		<script src="<c:url value='/static/js/bootstrap-datepicker.js' />" ></script>
+	<!-- PAGE RELATED PLUGIN(S) -->
+	<script
+		src="<c:url value='/static/js/plugin/maxlength/bootstrap-maxlength.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/clockpicker/clockpicker.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/ion-slider/ion.rangeSlider.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/colorpicker/bootstrap-colorpicker.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/knob/jquery.knob.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/x-editable/moment.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/x-editable/jquery.mockjax.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/x-editable/x-editable.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/typeahead/typeahead.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/typeahead/typeaheadjs.min.js' />"></script>
+	<script src="<c:url value='/static/js/bootstrap-datepicker.js' />"></script>
 
-		<script type="text/javascript">
+	<script type="text/javascript">
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 
@@ -1424,8 +1506,8 @@
 
 		</script>
 
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
+	<!-- Your GOOGLE ANALYTICS CODE Below -->
+	<script type="text/javascript">
 			var _gaq = _gaq || [];
 				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
 				_gaq.push(['_trackPageview']);
@@ -1441,8 +1523,7 @@
 
 		</script>
 
-	</body>
+</body>
 
 </html>
 <html>
-

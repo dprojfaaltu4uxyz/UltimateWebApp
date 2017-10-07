@@ -1,43 +1,58 @@
 <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-                  <li>
-                      <a class="active" href="${pageContext.request.contextPath}/dashboard">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
-                  </li>
+	<div id="sidebar" class="nav-collapse ">
+		<!-- sidebar menu start-->
+		<ul class="sidebar-menu" id="nav-accordion">
+			<li><a class="active"
+				href="${pageContext.request.contextPath}/dashboard"> <i
+					class="fa fa-dashboard"></i> <span>Dashboard</span>
+			</a></li>
 
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-laptop"></i>
-                          <span>Masters</span>
-                      </a>
-                      <ul class="sub">
-                      	  <li><a  href="${pageContext.request.contextPath}/newparty">Party Master</a></li>
-						  <li><a  href="${pageContext.request.contextPath}/newagent">Agent Master</a></li>	
-                          <li><a  href="${pageContext.request.contextPath}/newdepositbank">Deposit Bank Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newairagent">Air Agent Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newcha">CHA Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newcarrier">Carrier Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newcharges">Charges Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newservicetaxcode">Charges Service Tax A/C Code</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newcity">City Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newcoloader">Co Loader Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newcustomer">Customer Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newlocalfees">Local Fees</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newlocation">Location Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newpackages">Packages Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newvendor">Vendor Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newvessel">Vessel Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newvoyage">Voyage Master</a></li>
-                          <li><a  href="${pageContext.request.contextPath}/newjobcard">Job Card Consolidation New</a></li>
-                          
-                      </ul>
-                  </li>
+			<li class="sub-menu"><a href="javascript:;"> <i
+					class="fa fa-laptop"></i> <span>Masters</span>
+			</a>
+				<ul class="sub">
+					<li><a href="${pageContext.request.contextPath}/newparty">Party
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newagent">Agent
+							Master</a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/newdepositbank">Deposit
+							Bank Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newairagent">Air
+							Agent Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newcha">CHA
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newcarrier">Carrier
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newcharges">Charges
+							Master</a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/newservicetaxcode">Charges
+							Service Tax A/C Code</a></li>
+					<li><a href="${pageContext.request.contextPath}/newcity">City
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newcoloader">Co
+							Loader Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newcustomer">Customer
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newlocalfees">Local
+							Fees</a></li>
+					<li><a href="${pageContext.request.contextPath}/newlocation">Location
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newpackages">Packages
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newvendor">Vendor
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newvessel">Vessel
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newvoyage">Voyage
+							Master</a></li>
+					<li><a href="${pageContext.request.contextPath}/newjobcard">Job
+							Card Consolidation New</a></li>
 
-                  <!-- <li class="sub-menu">
+				</ul></li>
+
+			<!-- <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-book"></i>
                           <span>UI Elements</span>
@@ -54,7 +69,7 @@
                       </ul>
                   </li> -->
 
-                 <!-- <li class="sub-menu">
+			<!-- <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-cogs"></i>
                           <span>Components</span>
@@ -172,10 +187,10 @@
                           <i class="fa fa-user"></i>
                           <span>Login Page</span>
                       </a>
-                  </li> --> 
+                  </li> -->
 
-                  <!--multi level menu start-->
-                 <!-- <li class="sub-menu">
+			<!--multi level menu start-->
+			<!-- <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-sitemap"></i>
                           <span>Multi level Menu</span>
@@ -196,10 +211,10 @@
                               </ul>
                           </li>
                       </ul>
-                  </li> --> 
-                  <!--multi level menu end-->
+                  </li> -->
+			<!--multi level menu end-->
 
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+		</ul>
+		<!-- sidebar menu end-->
+	</div>
+</aside>

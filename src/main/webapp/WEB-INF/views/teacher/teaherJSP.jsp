@@ -1,32 +1,42 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="Smacventure, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<link rel="shortcut icon" href="img/favicon.png">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mosaddek">
+<meta name="keyword"
+	content="Smacventure, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Teacher</title>
+<title>Teacher</title>
 
-     <!-- Bootstrap core CSS -->
-    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"/>
-    <link href="<c:url value='/static/css/bootstrap-reset.css' />" rel="stylesheet"/>
-    <!--external css-->
-    <link href="<c:url value='/static/assets/font-awesome/css/font-awesome.css' />" rel="stylesheet" />
-	
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-datepicker/css/datepicker.css' />" />
-    
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-daterangepicker/daterangepicker-bs3.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-datetimepicker/css/datetimepicker.css' />" />
+<!-- Bootstrap core CSS -->
+<link href="<c:url value='/static/css/bootstrap.min.css' />"
+	rel="stylesheet" />
+<link href="<c:url value='/static/css/bootstrap-reset.css' />"
+	rel="stylesheet" />
+<!--external css-->
+<link
+	href="<c:url value='/static/assets/font-awesome/css/font-awesome.css' />"
+	rel="stylesheet" />
 
-    <!--bootstrap switcher-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-datepicker/css/datepicker.css' />" />
+
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-daterangepicker/daterangepicker-bs3.css' />" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-datetimepicker/css/datetimepicker.css' />" />
+
+<!--bootstrap switcher-->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" />
 
     <!-- switchery-->
     <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/switchery/switchery.css" />

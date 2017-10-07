@@ -7,6 +7,7 @@ import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 import com.webapp.project.framework.dao.AbstractDao;
+import com.webapp.project.modules.masters.dao.CityDao;
 import com.webapp.project.modules.masters.model.City;
 
 @Repository("cityDao")

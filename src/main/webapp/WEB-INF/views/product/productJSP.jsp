@@ -1,473 +1,566 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="Smacventure, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<link rel="shortcut icon" href="img/favicon.png">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mosaddek">
+<meta name="keyword"
+	content="Smacventure, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Invoice</title>
+<title>Invoice</title>
 
-     <!-- Bootstrap core CSS -->
-    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"/>
-    <link href="<c:url value='/static/css/bootstrap-reset.css' />" rel="stylesheet"/>
-    <!--external css-->
-    <link href="<c:url value='/static/assets/font-awesome/css/font-awesome.css' />" rel="stylesheet" />
-	
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-datepicker/css/datepicker.css' />" />
-    
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-daterangepicker/daterangepicker-bs3.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-datetimepicker/css/datetimepicker.css' />" />
+<!-- Bootstrap core CSS -->
+<link href="<c:url value='/static/css/bootstrap.min.css' />"
+	rel="stylesheet" />
+<link href="<c:url value='/static/css/bootstrap-reset.css' />"
+	rel="stylesheet" />
+<!--external css-->
+<link
+	href="<c:url value='/static/assets/font-awesome/css/font-awesome.css' />"
+	rel="stylesheet" />
 
-    <!--bootstrap switcher-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css'/>"/>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-datepicker/css/datepicker.css' />" />
 
-    <!-- switchery-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/switchery/switchery.css'/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-daterangepicker/daterangepicker-bs3.css' />" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-datetimepicker/css/datetimepicker.css' />" />
 
-    <!--select 2-->
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/assets/select2/css/select2.min.css'/>"/>
+<!--bootstrap switcher-->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css'/>" />
 
-	
-      <!--right slidebar-->
-    <link href="<c:url value='/static/css/slidebars.css' />" rel="stylesheet"/>
+<!-- switchery-->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/switchery/switchery.css'/>" />
 
-	
-	
-    <!-- Custom styles for this template -->
+<!--select 2-->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/static/assets/select2/css/select2.min.css'/>" />
 
-    <link href="<c:url value='/static/css/style.css' />" rel="stylesheet">
-    <link href="<c:url value='/static/css/style-responsive.css' />" rel="stylesheet" />
 
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
+<!--right slidebar-->
+<link href="<c:url value='/static/css/slidebars.css' />"
+	rel="stylesheet" />
+
+
+
+<!-- Custom styles for this template -->
+
+<link href="<c:url value='/static/css/style.css' />" rel="stylesheet">
+<link href="<c:url value='/static/css/style-responsive.css' />"
+	rel="stylesheet" />
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+<!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-  .side{
-  position:fixed;
+<style type="text/css">
+.side {
+	position: fixed;
 }
 
-.scroll-area{
-  width:100%;
-  height:calc(100% - 200px);
-  margin-top:100px;
-  float:left;
-  overflow-y:scroll;
+.scroll-area {
+	width: 100%;
+	height: calc(100% - 200px);
+	margin-top: 100px;
+	float: left;
+	overflow-y: scroll;
 }
-    </style>
-    <script>
+</style>
+<script>
 	$(".form-control").css({'height': '21px!important' });
 	$(".form-control").css({'width': '23%!important' });
 
 </script>
-  </head>
+</head>
 
-  <body  class="full-width">
-  
-  <section id="container">
-      <!--header start-->
-      
-      <!--header end-->
-      <!--sidebar start-->
-      
-		  <section id="main-content">
-		  
-		  	<section class="wrapper">
-		  	   <div class="row">
-                  <div class="col-lg-12">
-                      <section class="panel">
-                          <header class="panel-heading">
-                            Add Invoice Details Below
-                          </header>
-                          <div class="panel-body" style="padding: 60px;  padding-top: 0px;  padding-left: 10px; padding-bottom: 0px; padding-right: 10px;">
-                          <div class="table-responsive">
-                          <table id="productDetailTable" class="table table-striped">
-											<thead>
-												<tr data-row='data-row'>
-													<th>Product Name</th>
-													<th>Description</th>
-													<th>Accessories</th>
-													<th>Package Details</th>
-													<th>RITC No</th>
-													<th>Scheme code</th>
-													<th>Category</th>
-													<th>Invoice No</th>
-													<th>Date</th>
-													<th>Quantity</th>
-													<th>Unit</th>
-													<th>Item Rate</th>
-													<th>Per</th>
-													<th>Goods Value</th>
-													<th>PMV</th>
-													<th>Unit</th>
-													<th>Gross Weight</th>
-													<th>Net Weight</th>
-													<th>Unit</th>
-													<th>No. Of Packages</th>
-													<th>Unit</th>
-													<th></th>
-													<th>DBK Sr.No</th>
-													<th>DBK on WT</th>
-													<th>Unit</th>
-													<th>DBK on FOB</th>
-													<th>DBK on Quantity</th>
-													<th>Unit</th>
-													<th>State FOB %</th>
-													<th>State FOB Quantity</th>
-													<th>State FOB On WT</th>
-													<th>State Amount</th>
-													<th>Item Code (STR)</th>
-													<th>Item Code (MEIS)</th>
-													<th>End Use</th>
-													<th>Accessory status</th>
-													<th>HAWB No</th>
-													<th>Total Package</th>
-													<th>IGST Payment Status</th>
-													<th>Taxable Value</th>
-													<th>IGST Amount</th>
-												</tr>
-											</thead>
-											<tbody>
-											</tbody>
-										</table>
+<body class="full-width">
+
+	<section id="container">
+		<!--header start-->
+
+		<!--header end-->
+		<!--sidebar start-->
+
+		<section id="main-content">
+
+			<section class="wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<section class="panel">
+							<header class="panel-heading"> Add Invoice Details Below
+							</header>
+							<div class="panel-body"
+								style="padding: 60px; padding-top: 0px; padding-left: 10px; padding-bottom: 0px; padding-right: 10px;">
+								<div class="table-responsive">
+									<table id="productDetailTable" class="table table-striped">
+										<thead>
+											<tr data-row='data-row'>
+												<th>Product Name</th>
+												<th>Description</th>
+												<th>Accessories</th>
+												<th>Package Details</th>
+												<th>RITC No</th>
+												<th>Scheme code</th>
+												<th>Category</th>
+												<th>Invoice No</th>
+												<th>Date</th>
+												<th>Quantity</th>
+												<th>Unit</th>
+												<th>Item Rate</th>
+												<th>Per</th>
+												<th>Goods Value</th>
+												<th>PMV</th>
+												<th>Unit</th>
+												<th>Gross Weight</th>
+												<th>Net Weight</th>
+												<th>Unit</th>
+												<th>No. Of Packages</th>
+												<th>Unit</th>
+												<th></th>
+												<th>DBK Sr.No</th>
+												<th>DBK on WT</th>
+												<th>Unit</th>
+												<th>DBK on FOB</th>
+												<th>DBK on Quantity</th>
+												<th>Unit</th>
+												<th>State FOB %</th>
+												<th>State FOB Quantity</th>
+												<th>State FOB On WT</th>
+												<th>State Amount</th>
+												<th>Item Code (STR)</th>
+												<th>Item Code (MEIS)</th>
+												<th>End Use</th>
+												<th>Accessory status</th>
+												<th>HAWB No</th>
+												<th>Total Package</th>
+												<th>IGST Payment Status</th>
+												<th>Taxable Value</th>
+												<th>IGST Amount</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-lg-12">
+						<section class="panel">
+							<header class="panel-heading"> Product Details </header>
+							<div class="panel-body">
+								<!-- Select Basic -->
+								<div class="form-group">
+									<label class="col-md-1 " for="productName">Product Name
+									</label>
+									<div class="col-md-7">
+										<input id="productName" path="productName" type="text"
+											placeholder="Product Name" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="desc">Description </label>
+									<div class="col-md-7">
+										<input id="desc" path="desc" type="text"
+											placeholder="Description" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="accessories">Accessories
+									</label>
+									<div class="col-md-5">
+										<input id="accessories" path="accessories" type="text"
+											placeholder="Accessories" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="pkgDetails">Pkg. Details</label>
+									<div class="col-md-3">
+										<input id="pkgDetails" path="pkgDetails" type="text"
+											placeholder="Pkg. Details" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="ritcNo">RITC No</label>
+									<div class="col-md-3">
+										<input id="ritcNo" path="ritcNo" type="text"
+											placeholder="RITC No" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="schemeCode">Scheme Code </label>
+									<div class="col-md-3">
+										<input id="schemeCode" path="schemeCode" type="text"
+											placeholder="Scheme Code" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="category">Category, If
+										NFEI</label>
+									<div class="col-md-3">
+										<input id="category" path="category" type="text"
+											placeholder="Category" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="amount">Invoice No </label>
+									<div class="col-md-3">
+										<input id="invoiceNo" path="invoiceNo" type="text"
+											placeholder="Invoice No" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="invDate">Date </label>
+									<div class="col-md-3">
+										<input id="invDate" path="invDate" type="text"
+											placeholder="Date" class="form-control input-md date">
+									</div>
+									<label class="col-md-1 " for="qty">Quantity </label>
+									<div class="col-md-3">
+										<input id="qty" path="qty" type="text" placeholder="Quantity"
+											class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="unit">Unit</label>
+									<div class="col-md-3">
+										<input id="unit" path="unit" type="text" placeholder="Unit"
+											class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="itemRate">Item Rate</label>
+									<div class="col-md-3">
+										<input id="itemRate" path="itemRate" type="text"
+											placeholder="Item Rate" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="per">Per </label>
+									<div class="col-md-3">
+										<input id="per" path="per" type="text" placeholder="Per"
+											class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="goodsValue">Goods Value </label>
+									<div class="col-md-3">
+										<input id="goodsValue" path="goodsValue" type="text"
+											placeholder="Goods Value" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="pmvValue">PMV </label>
+									<div class="col-md-3">
+										<input id="pmvValue" path="pmvValue" type="text"
+											placeholder="PMV" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="pmvUnit">Unit </label>
+									<div class="col-md-3">
+										<input id="pmvUnit" path="pmvUnit" type="text"
+											placeholder="Unit" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="grossWeight">Gross Weight
+									</label>
+									<div class="col-md-3">
+										<input id="grossWeight" path="grossWeight" type="text"
+											placeholder="Gross Weight" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="netWeight">Net Weight </label>
+									<div class="col-md-3">
+										<input id="netWeight" path="netWeight" type="text"
+											placeholder="Net Weight" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="perUnit">/Unit </label>
+									<div class="col-md-3">
+										<input id="perUnit" path="perUnit" type="text"
+											placeholder="/ Unit" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="noOfPackages">No. Of
+										Packages </label>
+									<div class="col-md-5">
+										<input id="noOfPackages" path="noOfPackages" type="text"
+											placeholder="No. of Packages" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="noOfPackPerUnit">/Unit </label>
+									<div class="col-md-3">
+										<input id="noOfPackPerUnit" path="noOfPackPerUnit" type="text"
+											placeholder="/Unit" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="epcg">EPCG </label>
+									<div class="col-md-5">
+										<a href="#myModal" data-toggle="modal"
+											class="btn btn-xs btn-success"> EPCG Licence Details </a>
+									</div>
+									<label class="col-md-1 " for="epcg">DEEC </label>
+									<div class="col-md-5">
+										<a href="#myModal" data-toggle="modal"
+											class="btn btn-xs btn-success"> DEEC Licence Details </a>
+									</div>
+									<label class="col-md-1 " for="fobValue">FOB Value</label>
+									<div class="col-md-3">
+										<input id="fobValue" path="fobValue" type="text"
+											placeholder="FOB Value" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="dbkSrNo">Drawback Sr.No</label>
+									<div class="col-md-3">
+										<input id="dbkSrNo" path="dbkSrNo" type="text"
+											placeholder="Drawback Sr.No" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="onWt">On WT </label>
+									<div class="col-md-3">
+										<input id="onWt" path="onWt" type="text" placeholder="On WT"
+											class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="dbkPerUnit">/Unit </label>
+									<div class="col-md-3">
+										<input id="dbkPerUnit" path="dbkPerUnit" type="text"
+											placeholder="/Unit" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="onFOB">On FOB</label>
+									<div class="col-md-3">
+										<input id="onFOB" path="onFOB" type="text"
+											placeholder="On FOB" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="dbkQuantity">Drawback
+										Quantity </label>
+									<div class="col-md-3">
+										<input id="dbkQuantity" path="dbkQuantity" type="text"
+											placeholder="Drawback Quantity" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="dbkQtyPerUnit">/Unit </label>
+									<div class="col-md-3">
+										<input id="dbkQtyPerUnit" path="dbkQtyPerUnit" type="text"
+											placeholder="/Unit" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="stateFOB">State FOB %</label>
+									<div class="col-md-3">
+										<input id="stateFOB" path="stateFOB" type="text"
+											placeholder="State FOB %" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="statePerQty">/ Quantity</label>
+									<div class="col-md-3">
+										<input id="statePerQty" path="statePerQty" type="text"
+											placeholder="/ Quantity" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="stateWt">State FOB % on
+										WT </label>
+									<div class="col-md-3">
+										<input id="stateWt" path="stateWt" type="text"
+											placeholder="State FOB % on WT "
+											class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="stateAmt">State Amount</label>
+									<div class="col-md-5">
+										<input id="stateAmt" path="stateAmt" type="text"
+											placeholder="State Amount" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="epcg">DFIA </label>
+									<div class="col-md-3">
+										<a href="#myModal" data-toggle="modal"
+											class="btn btn-xs btn-success"> DFIA Details </a>
+									</div>
+									<label class="col-md-1 " for="epcg">Job Work Details </label>
+									<div class="col-md-3">
+										<a href="#myModal" data-toggle="modal"
+											class="btn btn-xs btn-success"> Job Work Details </a>
+									</div>
+									<label class="col-md-1 " for="jobNotificationNo">Job
+										Notification No.</label>
+									<div class="col-md-3">
+										<input id="jobNotificationNo" path="jobNotificationNo"
+											type="text" placeholder="Job Notification No."
+											class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="itemCodeStr">Item Code as
+										Per Str Directory</label>
+									<div class="col-md-3">
+										<input id="itemCodeStr" path="itemCodeStr" type="text"
+											placeholder="Item Code as Per Str Directory"
+											class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="itemCodeReward">Item Code
+										as Per Reward Directory (MEIS)</label>
+									<div class="col-md-3">
+										<input id="itemCodeReward" path="itemCodeReward" type="text"
+											placeholder="Item Code as Per Reward Directory (MEIS)"
+											class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="stateFOBWt">State FOB %
+										on WT </label>
+									<div class="col-md-3">
+										<input id="stateFOBWt" path="stateFOBWt" type="text"
+											placeholder="State FOB % on WT "
+											class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="endUse">End Use</label>
+									<div class="col-md-3">
+										<input id="endUse" path="endUse" type="text"
+											placeholder="End Use" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="accessoryState">Accessory
+										Status</label>
+									<div class="col-md-3">
+										<input id="accessoryState" path="accessoryState" type="text"
+											placeholder="Accessory Status" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="hawbNo">HAWB No </label>
+									<div class="col-md-3">
+										<input id="hawbNo" path="hawbNo" type="text"
+											placeholder="HAWB No" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for="totalPackage">Total
+										Package</label>
+									<div class="col-md-3">
+										<input id="totalPackage" path="totalPackage" type="text"
+											placeholder="Total Package" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="igstPaymentStatus">IGST
+										Payment Status</label>
+									<div class="col-md-3">
+										<input id="igstPaymentStatus" path="igstPaymentStatus"
+											type="text" placeholder="IGST Payment Status"
+											class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="taxableValue">Taxable
+										Value </label>
+									<div class="col-md-3">
+										<input id="taxableValue" path="taxableValue" type="text"
+											placeholder="Taxable Value" class="form-control input-md">
+									</div>
+									<label class="col-md-1 " for="igstAmount">IGST Amount</label>
+									<div class="col-md-3">
+										<input id="igstAmount" path="igstAmount" type="text"
+											placeholder="IGST Amount" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 " for=productDetails>Product
+										Details </label>
+									<div class="col-md-5">
+										<textarea class="form-control custom-control" rows="1"
+											name="productDetails" id="productDetails"
+											style="height: 80px"></textarea>
+									</div>
+								</div>
+								<input type="hidden" id="rowId" value=""></input>
+								<div class="stepy-tab">
+									<ul id="default-titles" class="stepy-titles clearfix">
+										<li id="default-title-0" class="current-step">
+											<div>Step 1</div>
+										</li>
+										<li id="default-title-1" class="">
+											<div>Step 2</div>
+										</li>
+										<li id="default-title-2" class="">
+											<div>Step 3</div>
+										</li>
+
+									</ul>
+								</div>
+
+								<fieldset title="Additional Details" class="step"
+									id="default-step-2">
+									<legend> </legend>
+									<!-- Select Basic -->
+									<div class="form-group">
+										<label class="col-md-1 " for="consignee">Consignee (*)</label>
+										<div class="col-md-3">
+											<input id="consignee" name="consignee" type="text"
+												placeholder="Consignee" class="form-control input-md">
 										</div>
-                          </div>
-		  	   </section>
-                  </div>
-                  </div>
-                  
-                  
-               <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Product Details
-                            </header>
-                            <div class="panel-body">                   
-                                     <!-- Select Basic -->
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="productName">Product Name </label>
-                                        <div class="col-md-7">
-                                            <input id="productName" path="productName" type="text" placeholder="Product Name" class="form-control input-md" >
-                                        </div>    
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="desc">Description </label>
-                                        <div class="col-md-7">
-                                            <input id="desc" path="desc" type="text" placeholder="Description" class="form-control input-md" >
-                                        </div>  
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="accessories">Accessories </label>
-                                        <div class="col-md-5">
-                                            <input id="accessories" path="accessories" type="text" placeholder="Accessories" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="pkgDetails">Pkg. Details</label>
-                                        <div class="col-md-3">
-                                            <input id="pkgDetails" path="pkgDetails" type="text" placeholder="Pkg. Details" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                     <label class="col-md-1 " for="ritcNo">RITC No</label>
-                                        <div class="col-md-3">
-                                            <input id="ritcNo" path="ritcNo" type="text" placeholder="RITC No" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="schemeCode">Scheme Code </label>
-                                        <div class="col-md-3">
-                                            <input id="schemeCode" path="schemeCode" type="text" placeholder="Scheme Code" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="category">Category, If NFEI</label>
-                                        <div class="col-md-3">
-                                            <input id="category" path="category" type="text" placeholder="Category" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <label class="col-md-1 " for="amount">Invoice No </label>
-                                        <div class="col-md-3">
-                                            <input id="invoiceNo" path="invoiceNo" type="text" placeholder="Invoice No" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="invDate">Date </label>
-                                        <div class="col-md-3">
-                                            <input id="invDate" path="invDate" type="text" placeholder="Date" class="form-control input-md date" >
-                                        </div>
-                                        <label class="col-md-1 " for="qty">Quantity </label>
-                                        <div class="col-md-3">
-                                            <input id="qty" path="qty" type="text" placeholder="Quantity" class="form-control input-md" >
-                                        </div>
-                                    </div>    
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="unit">Unit</label>
-                                        <div class="col-md-3">
-                                            <input id="unit" path="unit" type="text" placeholder="Unit" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="itemRate">Item Rate</label>
-                                        <div class="col-md-3">
-                                            <input id="itemRate" path="itemRate" type="text" placeholder="Item Rate" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="per">Per </label>
-                                        <div class="col-md-3">
-                                            <input id="per" path="per" type="text" placeholder="Per" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="goodsValue">Goods Value </label>
-                                        <div class="col-md-3">
-                                            <input id="goodsValue" path="goodsValue" type="text" placeholder="Goods Value" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="pmvValue">PMV </label>
-                                        <div class="col-md-3">
-                                            <input id="pmvValue" path="pmvValue" type="text" placeholder="PMV" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="pmvUnit">Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="pmvUnit" path="pmvUnit" type="text" placeholder="Unit" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                         <label class="col-md-1 " for="grossWeight">Gross Weight </label>
-                                        <div class="col-md-3">
-                                            <input id="grossWeight" path="grossWeight" type="text" placeholder="Gross Weight" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="netWeight">Net Weight </label>
-                                        <div class="col-md-3">
-                                            <input id="netWeight" path="netWeight" type="text" placeholder="Net Weight" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="perUnit">/Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="perUnit" path="perUnit" type="text" placeholder="/ Unit" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="noOfPackages">No. Of Packages </label>
-                                        <div class="col-md-5">
-                                            <input id="noOfPackages" path="noOfPackages" type="text" placeholder="No. of Packages" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="noOfPackPerUnit">/Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="noOfPackPerUnit" path="noOfPackPerUnit" type="text" placeholder="/Unit" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                     <div class="form-group">
-                                        <label class="col-md-1 " for="epcg">EPCG </label>
-                                        <div class="col-md-5">
-                                             <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
-	                                               EPCG Licence Details
-	                                            </a>
-                                        </div>
-                                         <label class="col-md-1 " for="epcg">DEEC </label>
-                                        <div class="col-md-5">
-	                                            <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
-	                                               DEEC Licence Details
-	                                            </a>
-                                        </div>
-                                        <label class="col-md-1 " for="fobValue">FOB Value</label>
-                                        <div class="col-md-3">
-                                              <input id="fobValue" path="fobValue" type="text" placeholder="FOB Value" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="dbkSrNo">Drawback Sr.No</label>
-                                        <div class="col-md-3">
-                                            <input id="dbkSrNo" path="dbkSrNo" type="text" placeholder="Drawback Sr.No" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="onWt">On WT </label>
-                                        <div class="col-md-3">
-                                            <input id="onWt" path="onWt" type="text" placeholder="On WT" class="form-control input-md" >
-                                        </div>
-                                       <label class="col-md-1 " for="dbkPerUnit">/Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="dbkPerUnit" path="dbkPerUnit" type="text" placeholder="/Unit" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="onFOB">On FOB</label>
-                                        <div class="col-md-3">
-                                            <input id="onFOB" path="onFOB" type="text" placeholder="On FOB" class="form-control input-md" >
-                                        </div>
-                                       <label class="col-md-1 " for="dbkQuantity">Drawback Quantity </label>
-                                        <div class="col-md-3">
-                                            <input id="dbkQuantity" path="dbkQuantity" type="text" placeholder="Drawback Quantity" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="dbkQtyPerUnit">/Unit </label>
-                                        <div class="col-md-3">
-                                            <input id="dbkQtyPerUnit" path="dbkQtyPerUnit" type="text" placeholder="/Unit" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="stateFOB">State FOB %</label>
-                                        <div class="col-md-3">
-                                            <input id="stateFOB" path="stateFOB" type="text" placeholder="State FOB %" class="form-control input-md" >
-                                        </div>
-                                       <label class="col-md-1 " for="statePerQty">/ Quantity</label>
-                                        <div class="col-md-3">
-                                            <input id="statePerQty" path="statePerQty" type="text" placeholder="/ Quantity" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="stateWt">State FOB % on WT </label>
-                                        <div class="col-md-3">
-                                            <input id="stateWt" path="stateWt" type="text" placeholder="State FOB % on WT " class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="stateAmt">State Amount</label>
-                                        <div class="col-md-5">
-                                            <input id="stateAmt" path="stateAmt" type="text" placeholder="State Amount" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="epcg">DFIA </label>
-                                        <div class="col-md-3">
-                                             <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
-	                                               DFIA Details
-	                                            </a>
-                                        </div>
-                                         <label class="col-md-1 " for="epcg">Job Work Details </label>
-                                        <div class="col-md-3">
-	                                            <a href="#myModal" data-toggle="modal" class="btn btn-xs btn-success">
-	                                               Job Work Details
-	                                            </a>
-                                        </div>
-                                        <label class="col-md-1 " for="jobNotificationNo">Job Notification No.</label>
-                                        <div class="col-md-3">
-                                              <input id="jobNotificationNo" path="jobNotificationNo" type="text" placeholder="Job Notification No." class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 " for="itemCodeStr">Item Code as Per Str Directory</label>
-                                        <div class="col-md-3">
-                                            <input id="itemCodeStr" path="itemCodeStr" type="text" placeholder="Item Code as Per Str Directory" class="form-control input-md" >
-                                        </div>
-                                       <label class="col-md-1 " for="itemCodeReward">Item Code as Per Reward Directory (MEIS)</label>
-                                        <div class="col-md-3">
-                                            <input id="itemCodeReward" path="itemCodeReward" type="text" placeholder="Item Code as Per Reward Directory (MEIS)" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="stateFOBWt">State FOB % on WT </label>
-                                        <div class="col-md-3">
-                                            <input id="stateFOBWt" path="stateFOBWt" type="text" placeholder="State FOB % on WT " class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                     <div class="form-group">
-                                        <label class="col-md-1 " for="endUse">End Use</label>
-                                        <div class="col-md-3">
-                                            <input id="endUse" path="endUse" type="text" placeholder="End Use" class="form-control input-md" >
-                                        </div>
-                                       <label class="col-md-1 " for="accessoryState">Accessory Status</label>
-                                        <div class="col-md-3">
-                                            <input id="accessoryState" path="accessoryState" type="text" placeholder="Accessory Status" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="hawbNo">HAWB No </label>
-                                        <div class="col-md-3">
-                                            <input id="hawbNo" path="hawbNo" type="text" placeholder="HAWB No" class="form-control input-md" >
-                                        </div>
-                                    </div>
-                                     <div class="form-group">
-                                        <label class="col-md-1 " for="totalPackage">Total Package</label>
-                                        <div class="col-md-3">
-                                            <input id="totalPackage" path="totalPackage" type="text" placeholder="Total Package" class="form-control input-md" >
-                                        </div>
-                                       <label class="col-md-1 " for="igstPaymentStatus">IGST Payment Status</label>
-                                        <div class="col-md-3">
-                                            <input id="igstPaymentStatus" path="igstPaymentStatus" type="text" placeholder="IGST Payment Status" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="taxableValue">Taxable Value </label>
-                                        <div class="col-md-3">
-                                            <input id="taxableValue" path="taxableValue" type="text" placeholder="Taxable Value" class="form-control input-md" >
-                                        </div>
-                                        <label class="col-md-1 " for="igstAmount">IGST Amount</label>
-                                        <div class="col-md-3">
-                                            <input id="igstAmount" path="igstAmount" type="text" placeholder="IGST Amount" class="form-control input-md">
-                                        </div>
-                                    </div>                                 
-                                    <div class="form-group">                                        
-                                        <label class="col-md-1 " for=productDetails>Product Details </label>
-                                        <div class="col-md-5">
-                                             <textarea class="form-control custom-control" rows="1" name="productDetails"  id = "productDetails" style="height:80px"></textarea>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" id="rowId" value=""></input>
-                                    <div class="stepy-tab">
-                                        <ul id="default-titles" class="stepy-titles clearfix">
-                                            <li id="default-title-0" class="current-step">
-                                                <div>Step 1</div>
-                                            </li>
-                                            <li id="default-title-1" class="">
-                                                <div>Step 2</div>
-                                            </li>
-                                            <li id="default-title-2" class="">
-                                                <div>Step 3</div>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-
-                                    <fieldset title="Additional Details" class="step" id="default-step-2">
-                                        <legend> </legend>
-                                        <!-- Select Basic -->
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="consignee">Consignee (*)</label>
-                                            <div class="col-md-3">
-                                                <input id="consignee" name="consignee" type="text" placeholder="Consignee" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="consigneeAddress">Address (*)</label>
-                                            <div class="col-md-7">
-                                                <input id="consigneeAddress" name="consigneeAddress" type="text" placeholder="Address" class="form-control input-md">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="country">Country (*)</label>
-                                            <div class="col-md-7">
-                                                <input id="country" name="country" type="text" placeholder="Country" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 label_check" for="consigneeBuyerSame">(*) Is Consignee & Buyer Same?</label>
-                                            <div class="col-md-3">
-                                                <div class="checkboxes">
-                                                    <input name="consigneeBuyerSame" id="consigneeBuyerSame" value="1" type="checkbox" >                                                    Is Consignee & Buyer Same?
-                                                </div>
-                                            </div>
-                                        </div>
+										<label class="col-md-1 " for="consigneeAddress">Address
+											(*)</label>
+										<div class="col-md-7">
+											<input id="consigneeAddress" name="consigneeAddress"
+												type="text" placeholder="Address"
+												class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="country">Country (*)</label>
+										<div class="col-md-7">
+											<input id="country" name="country" type="text"
+												placeholder="Country" class="form-control input-md">
+										</div>
+										<label class="col-md-1 label_check" for="consigneeBuyerSame">(*)
+											Is Consignee & Buyer Same?</label>
+										<div class="col-md-3">
+											<div class="checkboxes">
+												<input name="consigneeBuyerSame" id="consigneeBuyerSame"
+													value="1" type="checkbox"> Is Consignee & Buyer
+												Same?
+											</div>
+										</div>
+									</div>
 
 
-                                        <!-- Select Basic -->
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="buyer">Buyer (*)</label>
-                                            <div class="col-md-3">
-                                                <input id="buyer" name="buyer" type="text" placeholder="Buyer" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="buyerAddress">Address (*)</label>
-                                            <div class="col-md-7">
-                                                <input id="buyerAddress" name="buyerAddress" type="text" placeholder="Address" class="form-control input-md">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="buyerCountry">Country (*)</label>
-                                            <div class="col-md-7">
-                                                <input id="buyerCountry" name="buyerCountry" type="text" placeholder="Country" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 label_check" for="pmvRequired">(*) Shall itemwise PMV required?</label>
-                                            <div class="col-md-3">
-                                                <div class="checkboxes">
-                                                    <input name="pmvRequired" id="pmvRequired" value="1" type="checkbox" >                                                    Shall itemwise PMV required?
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="productHead">Product Head</label>
-                                            <div class="col-md-7">
-                                                <input id="productHead" name="productHead" type="text" placeholder="Product Head" class="form-control input-md">
-                                            </div>
+									<!-- Select Basic -->
+									<div class="form-group">
+										<label class="col-md-1 " for="buyer">Buyer (*)</label>
+										<div class="col-md-3">
+											<input id="buyer" name="buyer" type="text"
+												placeholder="Buyer" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="buyerAddress">Address
+											(*)</label>
+										<div class="col-md-7">
+											<input id="buyerAddress" name="buyerAddress" type="text"
+												placeholder="Address" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="buyerCountry">Country
+											(*)</label>
+										<div class="col-md-7">
+											<input id="buyerCountry" name="buyerCountry" type="text"
+												placeholder="Country" class="form-control input-md">
+										</div>
+										<label class="col-md-1 label_check" for="pmvRequired">(*)
+											Shall itemwise PMV required?</label>
+										<div class="col-md-3">
+											<div class="checkboxes">
+												<input name="pmvRequired" id="pmvRequired" value="1"
+													type="checkbox"> Shall itemwise PMV required?
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="productHead">Product
+											Head</label>
+										<div class="col-md-7">
+											<input id="productHead" name="productHead" type="text"
+												placeholder="Product Head" class="form-control input-md">
+										</div>
 
-                                        </div>
-                                        <!-- Textarea -->
+									</div>
+									<!-- Textarea -->
 
 
-                                        <!-- Button (Double)
+									<!-- Button (Double)
                                 <div class="form-group">
                                 <label class="col-md-3 " for="button1id"></label>
                                 <div class="col-md-8">
@@ -477,179 +570,87 @@
                                 </div> -->
 
 
-                                    </fieldset>
-                                    <fieldset title="Doc And Agency Details" class="step" id="default-step-1">
-                                        <legend> </legend>
+								</fieldset>
+								<fieldset title="Doc And Agency Details" class="step"
+									id="default-step-1">
+									<legend> </legend>
 
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="accountPartyName">Account/Party Name (*)</label>
-                                            <div class="col-md-3">
-                                                <input id="accountPartyName" name="accountPartyName" type="text" placeholder="Account/Party Name" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="service">Service </label>
-                                            <div class="col-md-3">
-                                                <input id="service" name="service" type="text" placeholder="Service" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="organization">Organization (*)</label>
-                                            <div class="col-md-3">
-                                                <input id="Organization" name="organization" type="text" placeholder="Organization" class="form-control input-md">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="partyAddress">Address (*)</label>
-                                            <div class="col-md-7">
-                                                <input id="partyAddress" name="partyAddress" type="text" placeholder="partyAddress" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="grBank">GR Bank </label>
-                                            <div class="col-md-3">
-                                                <input id="grBank" name="grBank" type="text" placeholder="GR Bank" class="form-control input-md">
-                                            </div>
-                                        </div>
+									<div class="form-group">
+										<label class="col-md-1 " for="accountPartyName">Account/Party
+											Name (*)</label>
+										<div class="col-md-3">
+											<input id="accountPartyName" name="accountPartyName"
+												type="text" placeholder="Account/Party Name"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="service">Service </label>
+										<div class="col-md-3">
+											<input id="service" name="service" type="text"
+												placeholder="Service" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="organization">Organization
+											(*)</label>
+										<div class="col-md-3">
+											<input id="Organization" name="organization" type="text"
+												placeholder="Organization" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="partyAddress">Address
+											(*)</label>
+										<div class="col-md-7">
+											<input id="partyAddress" name="partyAddress" type="text"
+												placeholder="partyAddress" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="grBank">GR Bank </label>
+										<div class="col-md-3">
+											<input id="grBank" name="grBank" type="text"
+												placeholder="GR Bank" class="form-control input-md">
+										</div>
+									</div>
 
-                                        <!-- Select Basic -->
-                                        <div class="form-group">
-                                            <label class="col-md-1" for="stateOfOriginOfGoods">State of Origin of Goods</label>
-                                            <div class="col-md-7">
-                                                <input id="stateOfOriginOfGoods" name="stateOfOriginOfGoods" type="text" placeholder="State of Origin of Goods" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="branchNo">Branch No</label>
-                                            <div class="col-md-1">
-                                                <input id="branchNo" name="branchNo" type="text" placeholder="Branch No" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="itemCode">Item code as per Reward Directory (MEIS)</label>
-                                            <div class="col-md-1">
-                                                <input id="itemCode" name="itemCode" type="text" placeholder="Item Code" class="form-control input-md">
-                                            </div>
-                                        </div>
-
-
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="iecCodeNo">IEC Code No</label>
-                                            <div class="col-md-3">
-                                                <input id="iecCodeNo" name="iecCodeNo" type="text" placeholder="IEC Code No" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="panNo">PAN No</label>
-                                            <div class="col-md-3">
-                                                <input id="panNo" name="panNo" type="text" placeholder="PAN No" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="category">Category</label>
-                                            <div class="col-md-3">
-                                                <input id="category" name="category" type="text" placeholder="Category" class="form-control input-md">
-                                            </div>
-
-                                            <!-- Multiple Radios (inline) 
-
-                                    <label class="col-md-1 " for="radios">Inline Radios</label>
-                                    <div class="col-md-3"> 
-                                        <label class="radio-inline" for="radios-0">
-                                        <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
-                                        Yes
-                                        </label> 
-                                        <label class="radio-inline" for="radios-1">
-                                        <input type="radio" name="radios" id="radios-1" value="2">
-                                        No
-                                        </label> 
-                                    </div>-->
-
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="exporterClass">Exporter Class</label>
-                                            <div class="col-md-3">
-                                                <input id="exporterClass" name="exporterClass" type="text" placeholder="Exporter Class" class="form-control input-md">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="natureOfPayment">Nature Of Payment</label>
-                                            <div class="col-md-3">
-                                                <input id="natureOfPayment" name="natureOfPayment" type="text" placeholder="Nature Of Payment" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="bankName">Bank Name</label>
-                                            <div class="col-md-3">
-                                                <input id="bankName" name="bankName" type="text" placeholder="Bank Name" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="periodPfPaymentInDays">Period Of Payment In Days</label>
-                                            <div class="col-md-3">
-                                                <input id="periodPfPaymentInDays" name="periodPfPaymentInDays" type="text" placeholder="Period Of Payment In Days" class="form-control input-md">
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                            <label class="col-md-1 " for="exportContactNo">Export Contact No.</label>
-                                            <div class="col-md-3">
-                                                <input id="exportContactNo" name="exportContactNo" type="text" placeholder="Export Contact No" class="form-control input-md">
-                                            </div>
-
-                                            <label class="col-md-1 " for="drawbackBankAccount">Drawback Bank Account</label>
-                                            <div class="col-md-3">
-                                                <input id="drawbackBankAccount" name="drawbackBankAccount" type="text" placeholder="Drawback Bank Account" class="form-control input-md">
-                                            </div>
-
-                                        </div>
-                                    </fieldset>
-                                    <fieldset title="Re-Export" class="step" id="default-step-2">
-                                        <legend> </legend>
-
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="accountPartyName">Account/Party Name (*)</label>
-                                            <div class="col-md-3">
-                                                <input id="accountPartyName" name="accountPartyName" type="text" placeholder="Account/Party Name" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="service">Service </label>
-                                            <div class="col-md-3">
-                                                <input id="service" name="service" type="text" placeholder="Service" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="organization">Organization (*)</label>
-                                            <div class="col-md-3">
-                                                <input id="Organization" name="organization" type="text" placeholder="Organization" class="form-control input-md">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="partyAddress">Address (*)</label>
-                                            <div class="col-md-7">
-                                                <input id="partyAddress" name="partyAddress" type="text" placeholder="partyAddress" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="grBank">GR Bank </label>
-                                            <div class="col-md-3">
-                                                <input id="grBank" name="grBank" type="text" placeholder="GR Bank" class="form-control input-md">
-                                            </div>
-                                        </div>
-
-                                        <!-- Select Basic -->
-                                        <div class="form-group">
-                                            <label class="col-md-1" for="stateOfOriginOfGoods">State of Origin of Goods</label>
-                                            <div class="col-md-7">
-                                                <input id="stateOfOriginOfGoods" name="stateOfOriginOfGoods" type="text" placeholder="State of Origin of Goods" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="branchNo">Branch No</label>
-                                            <div class="col-md-1">
-                                                <input id="branchNo" name="branchNo" type="text" placeholder="Branch No" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="itemCode">Item code as per Reward Directory (MEIS)</label>
-                                            <div class="col-md-1">
-                                                <input id="itemCode" name="itemCode" type="text" placeholder="Item Code" class="form-control input-md">
-                                            </div>
-                                        </div>
+									<!-- Select Basic -->
+									<div class="form-group">
+										<label class="col-md-1" for="stateOfOriginOfGoods">State
+											of Origin of Goods</label>
+										<div class="col-md-7">
+											<input id="stateOfOriginOfGoods" name="stateOfOriginOfGoods"
+												type="text" placeholder="State of Origin of Goods"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="branchNo">Branch No</label>
+										<div class="col-md-1">
+											<input id="branchNo" name="branchNo" type="text"
+												placeholder="Branch No" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="itemCode">Item code as
+											per Reward Directory (MEIS)</label>
+										<div class="col-md-1">
+											<input id="itemCode" name="itemCode" type="text"
+												placeholder="Item Code" class="form-control input-md">
+										</div>
+									</div>
 
 
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="iecCodeNo">IEC Code No</label>
-                                            <div class="col-md-3">
-                                                <input id="iecCodeNo" name="iecCodeNo" type="text" placeholder="IEC Code No" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="panNo">PAN No</label>
-                                            <div class="col-md-3">
-                                                <input id="panNo" name="panNo" type="text" placeholder="PAN No" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="category">Category</label>
-                                            <div class="col-md-3">
-                                                <input id="category" name="category" type="text" placeholder="Category" class="form-control input-md">
-                                            </div>
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-1 " for="iecCodeNo">IEC Code No</label>
+										<div class="col-md-3">
+											<input id="iecCodeNo" name="iecCodeNo" type="text"
+												placeholder="IEC Code No" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="panNo">PAN No</label>
+										<div class="col-md-3">
+											<input id="panNo" name="panNo" type="text"
+												placeholder="PAN No" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="category">Category</label>
+										<div class="col-md-3">
+											<input id="category" name="category" type="text"
+												placeholder="Category" class="form-control input-md">
+										</div>
 
-                                            <!-- Multiple Radios (inline) 
+										<!-- Multiple Radios (inline) 
 
                                     <label class="col-md-1 " for="radios">Inline Radios</label>
                                     <div class="col-md-3"> 
@@ -663,57 +664,220 @@
                                         </label> 
                                     </div>-->
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="exporterClass">Exporter Class</label>
-                                            <div class="col-md-3">
-                                                <input id="exporterClass" name="exporterClass" type="text" placeholder="Exporter Class" class="form-control input-md">
-                                            </div>
-                                        </div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="exporterClass">Exporter
+											Class</label>
+										<div class="col-md-3">
+											<input id="exporterClass" name="exporterClass" type="text"
+												placeholder="Exporter Class" class="form-control input-md">
+										</div>
+									</div>
 
-                                        <div class="form-group">
-                                            <label class="col-md-1 " for="natureOfPayment">Nature Of Payment</label>
-                                            <div class="col-md-3">
-                                                <input id="natureOfPayment" name="natureOfPayment" type="text" placeholder="Nature Of Payment" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="bankName">Bank Name</label>
-                                            <div class="col-md-3">
-                                                <input id="bankName" name="bankName" type="text" placeholder="Bank Name" class="form-control input-md">
-                                            </div>
-                                            <label class="col-md-1 " for="periodPfPaymentInDays">Period Of Payment In Days</label>
-                                            <div class="col-md-3">
-                                                <input id="periodPfPaymentInDays" name="periodPfPaymentInDays" type="text" placeholder="Period Of Payment In Days" class="form-control input-md">
-                                            </div>
+									<div class="form-group">
+										<label class="col-md-1 " for="natureOfPayment">Nature
+											Of Payment</label>
+										<div class="col-md-3">
+											<input id="natureOfPayment" name="natureOfPayment"
+												type="text" placeholder="Nature Of Payment"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="bankName">Bank Name</label>
+										<div class="col-md-3">
+											<input id="bankName" name="bankName" type="text"
+												placeholder="Bank Name" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="periodPfPaymentInDays">Period
+											Of Payment In Days</label>
+										<div class="col-md-3">
+											<input id="periodPfPaymentInDays"
+												name="periodPfPaymentInDays" type="text"
+												placeholder="Period Of Payment In Days"
+												class="form-control input-md">
+										</div>
 
-                                        </div>
-                                        <div class="form-group">
+									</div>
+									<div class="form-group">
 
-                                            <label class="col-md-1 " for="exportContactNo">Export Contact No.</label>
-                                            <div class="col-md-3">
-                                                <input id="exportContactNo" name="exportContactNo" type="text" placeholder="Export Contact No" class="form-control input-md">
-                                            </div>
+										<label class="col-md-1 " for="exportContactNo">Export
+											Contact No.</label>
+										<div class="col-md-3">
+											<input id="exportContactNo" name="exportContactNo"
+												type="text" placeholder="Export Contact No"
+												class="form-control input-md">
+										</div>
 
-                                            <label class="col-md-1 " for="drawbackBankAccount">Drawback Bank Account</label>
-                                            <div class="col-md-3">
-                                                <input id="drawbackBankAccount" name="drawbackBankAccount" type="text" placeholder="Drawback Bank Account" class="form-control input-md">
-                                            </div>
+										<label class="col-md-1 " for="drawbackBankAccount">Drawback
+											Bank Account</label>
+										<div class="col-md-3">
+											<input id="drawbackBankAccount" name="drawbackBankAccount"
+												type="text" placeholder="Drawback Bank Account"
+												class="form-control input-md">
+										</div>
 
-                                        </div>
-                                    </fieldset>
-                                     <div class="form-group">
-                                    	<div class="col-lg-offset-2 col-md-6">
-                                    	<button id="addBttn1" class="btn btn-danger" style="float: right" onclick="saveRows();" type="button">Save</button>
-                                        <button id="editBttn1" class="btn btn-danger" style="float: right" onclick="updateRows();" type="button">Update</button>                                    	
-                                      </div>
-                                    </div>
-                                    
-                            </div>
-                       
-                        </section>
-                    </div>
-                </div>   
-                  
-		  	 <!--   <div class="row">
+									</div>
+								</fieldset>
+								<fieldset title="Re-Export" class="step" id="default-step-2">
+									<legend> </legend>
+
+									<div class="form-group">
+										<label class="col-md-1 " for="accountPartyName">Account/Party
+											Name (*)</label>
+										<div class="col-md-3">
+											<input id="accountPartyName" name="accountPartyName"
+												type="text" placeholder="Account/Party Name"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="service">Service </label>
+										<div class="col-md-3">
+											<input id="service" name="service" type="text"
+												placeholder="Service" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="organization">Organization
+											(*)</label>
+										<div class="col-md-3">
+											<input id="Organization" name="organization" type="text"
+												placeholder="Organization" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="partyAddress">Address
+											(*)</label>
+										<div class="col-md-7">
+											<input id="partyAddress" name="partyAddress" type="text"
+												placeholder="partyAddress" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="grBank">GR Bank </label>
+										<div class="col-md-3">
+											<input id="grBank" name="grBank" type="text"
+												placeholder="GR Bank" class="form-control input-md">
+										</div>
+									</div>
+
+									<!-- Select Basic -->
+									<div class="form-group">
+										<label class="col-md-1" for="stateOfOriginOfGoods">State
+											of Origin of Goods</label>
+										<div class="col-md-7">
+											<input id="stateOfOriginOfGoods" name="stateOfOriginOfGoods"
+												type="text" placeholder="State of Origin of Goods"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="branchNo">Branch No</label>
+										<div class="col-md-1">
+											<input id="branchNo" name="branchNo" type="text"
+												placeholder="Branch No" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="itemCode">Item code as
+											per Reward Directory (MEIS)</label>
+										<div class="col-md-1">
+											<input id="itemCode" name="itemCode" type="text"
+												placeholder="Item Code" class="form-control input-md">
+										</div>
+									</div>
+
+
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-1 " for="iecCodeNo">IEC Code No</label>
+										<div class="col-md-3">
+											<input id="iecCodeNo" name="iecCodeNo" type="text"
+												placeholder="IEC Code No" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="panNo">PAN No</label>
+										<div class="col-md-3">
+											<input id="panNo" name="panNo" type="text"
+												placeholder="PAN No" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="category">Category</label>
+										<div class="col-md-3">
+											<input id="category" name="category" type="text"
+												placeholder="Category" class="form-control input-md">
+										</div>
+
+										<!-- Multiple Radios (inline) 
+
+                                    <label class="col-md-1 " for="radios">Inline Radios</label>
+                                    <div class="col-md-3"> 
+                                        <label class="radio-inline" for="radios-0">
+                                        <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                                        Yes
+                                        </label> 
+                                        <label class="radio-inline" for="radios-1">
+                                        <input type="radio" name="radios" id="radios-1" value="2">
+                                        No
+                                        </label> 
+                                    </div>-->
+
+									</div>
+									<div class="form-group">
+										<label class="col-md-1 " for="exporterClass">Exporter
+											Class</label>
+										<div class="col-md-3">
+											<input id="exporterClass" name="exporterClass" type="text"
+												placeholder="Exporter Class" class="form-control input-md">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-1 " for="natureOfPayment">Nature
+											Of Payment</label>
+										<div class="col-md-3">
+											<input id="natureOfPayment" name="natureOfPayment"
+												type="text" placeholder="Nature Of Payment"
+												class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="bankName">Bank Name</label>
+										<div class="col-md-3">
+											<input id="bankName" name="bankName" type="text"
+												placeholder="Bank Name" class="form-control input-md">
+										</div>
+										<label class="col-md-1 " for="periodPfPaymentInDays">Period
+											Of Payment In Days</label>
+										<div class="col-md-3">
+											<input id="periodPfPaymentInDays"
+												name="periodPfPaymentInDays" type="text"
+												placeholder="Period Of Payment In Days"
+												class="form-control input-md">
+										</div>
+
+									</div>
+									<div class="form-group">
+
+										<label class="col-md-1 " for="exportContactNo">Export
+											Contact No.</label>
+										<div class="col-md-3">
+											<input id="exportContactNo" name="exportContactNo"
+												type="text" placeholder="Export Contact No"
+												class="form-control input-md">
+										</div>
+
+										<label class="col-md-1 " for="drawbackBankAccount">Drawback
+											Bank Account</label>
+										<div class="col-md-3">
+											<input id="drawbackBankAccount" name="drawbackBankAccount"
+												type="text" placeholder="Drawback Bank Account"
+												class="form-control input-md">
+										</div>
+
+									</div>
+								</fieldset>
+								<div class="form-group">
+									<div class="col-lg-offset-2 col-md-6">
+										<button id="addBttn1" class="btn btn-danger"
+											style="float: right" onclick="saveRows();" type="button">Save</button>
+										<button id="editBttn1" class="btn btn-danger"
+											style="float: right" onclick="updateRows();" type="button">Update</button>
+									</div>
+								</div>
+
+							</div>
+
+						</section>
+					</div>
+				</div>
+
+				<!--   <div class="row">
                   <div class="col-lg-12">
                       <section class="panel">
                           <div class="panel-body" style="padding: 60px;  padding-top: 0px;  padding-left: 10px; padding-bottom: 0px; padding-right: 10px;">
@@ -767,54 +931,57 @@
                       </section>
                   </div>
                   </div> -->
-		  	</section>
-		  
-		  </section>   
-	 <!--main content end-->
+			</section>
 
-      <!-- Right Slidebar start -->
-      <%@include file="../pagetemplate/rightSidePanelJSP.jsp" %>
-      <!-- Right Slidebar end -->
+		</section>
+		<!--main content end-->
 
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2013 &copy; FlatLab by VectorLab.
-              <a href="#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end--> 
-      </section>
-  
-  
-  
-  
-   <!-- js placed at the end of the document so the pages load faster -->
-    <script src="<c:url value='/static/js/jquery.js' />"></script>
-    <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
-    <script class="include" type="text/javascript" src="<c:url value='/static/js/jquery.dcjqaccordion.2.7.js' />"></script>
-    <script src="<c:url value='/static/js/jquery.scrollTo.min.js' />"></script>
-    <script src="<c:url value='/static/js/jquery.nicescroll.js" type="text/javascript' />"></script>
-      <script type="text/javascript" src="<c:url value='/static/js/jquery.validate.min.js'/>"></script>
-    <script src="<c:url value='/static/js/respond.min.js' />" ></script>
-  
-   
-<!--right slidebar-->
-  <script src="<c:url value='/static/js/slidebars.min.js'/>"></script>
+		<!-- Right Slidebar start -->
+		<%@include file="../pagetemplate/rightSidePanelJSP.jsp"%>
+		<!-- Right Slidebar end -->
 
-    
-  <!--common script for all pages-->
-  <script src="<c:url value='/static/js/common-scripts.js' />"></script>
-  
-<!--script for this page-->
-    <script src="<c:url value='/static/js/form-validation-script.js'/>" ></script>
-    
-    <script type="text/javascript" src="<c:url value='/static/assets/bootstrap-datepicker/js/bootstrap-datepicker.js'/>" ></script>
-  
-   <!--select2-->
-<script>
+		<!--footer start-->
+		<footer class="site-footer">
+			<div class="text-center">
+				2013 &copy; FlatLab by VectorLab. <a href="#" class="go-top"> <i
+					class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!--footer end-->
+	</section>
+
+
+
+
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="<c:url value='/static/js/jquery.js' />"></script>
+	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+	<script class="include" type="text/javascript"
+		src="<c:url value='/static/js/jquery.dcjqaccordion.2.7.js' />"></script>
+	<script src="<c:url value='/static/js/jquery.scrollTo.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/jquery.nicescroll.js" type="text/javascript' />"></script>
+	<script type="text/javascript"
+		src="<c:url value='/static/js/jquery.validate.min.js'/>"></script>
+	<script src="<c:url value='/static/js/respond.min.js' />"></script>
+
+
+	<!--right slidebar-->
+	<script src="<c:url value='/static/js/slidebars.min.js'/>"></script>
+
+
+	<!--common script for all pages-->
+	<script src="<c:url value='/static/js/common-scripts.js' />"></script>
+
+	<!--script for this page-->
+	<script src="<c:url value='/static/js/form-validation-script.js'/>"></script>
+
+	<script type="text/javascript"
+		src="<c:url value='/static/assets/bootstrap-datepicker/js/bootstrap-datepicker.js'/>"></script>
+
+	<!--select2-->
+	<script>
 
 $('.invDate').datepicker({
     autoclose: true
@@ -905,25 +1072,25 @@ function saveRows() {
 
 <script type="text/javascript" src="<c:url value='/static/assets/bootstrap-datepicker/js/bootstrap-datepicker.js'/>"></script>
 
-<!--right slidebar-->
-<script src="<c:url value='/static/js/slidebars.min.js' />"></script>
+	<!--right slidebar-->
+	<script src="<c:url value='/static/js/slidebars.min.js' />"></script>
 
-<!--script for this page-->
-<script src="<c:url value='/static/js/jquery.stepy.js' />"></script>
+	<!--script for this page-->
+	<script src="<c:url value='/static/js/jquery.stepy.js' />"></script>
 
-<!--common script for all pages-->
-<script src="<c:url value='/static/js/common-scripts.js' />"></script>
+	<!--common script for all pages-->
+	<script src="<c:url value='/static/js/common-scripts.js' />"></script>
 
 
-<!--toastr-->
-<script src="<c:url value='/static/assets/toastr-master/toastr.js'/>" ></script>
+	<!--toastr-->
+	<script src="<c:url value='/static/assets/toastr-master/toastr.js'/>"></script>
 
-<script src="<c:url value='/static/js/bootstrap3-typeahead.min.js'/>" ></script>
-<script src="<c:url value='/static/js/jquery.easy-autocomplete.js'/>" ></script>
+	<script src="<c:url value='/static/js/bootstrap3-typeahead.min.js'/>"></script>
+	<script src="<c:url value='/static/js/jquery.easy-autocomplete.js'/>"></script>
 
-<script src="<c:url value='/static/js/masters/party.js'/>" ></script>
+	<script src="<c:url value='/static/js/masters/party.js'/>"></script>
 
-<script>
+	<script>
 
 //step wizard
     $(function () {
@@ -936,7 +1103,7 @@ function saveRows() {
         });
     });
 </script>
-</script>
+	</script>
 
-  </body>
+</body>
 </html>

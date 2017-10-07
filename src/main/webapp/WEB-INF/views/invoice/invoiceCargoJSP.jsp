@@ -1,30 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
 <html lang="en-us">
-	<head>
-		<meta charset="utf-8">
-		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+<head>
+<meta charset="utf-8">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-		<title> SmartAdmin </title>
-		<meta name="description" content="">
-		<meta name="author" content="">
-			
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SmartAdmin</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-		<%@include file="../pagetemplate/commonCSSJSP.jsp" %> 
-	<link rel="stylesheet" type="text/css" media="screen" href="<c:url value='/static/css/datepicker.css'/>" >
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<link rel='stylesheet' type='text/css' href="<c:url value='/static/css/style.css'/>" />
-	<link rel='stylesheet' type='text/css' href="<c:url value='/static/css/print.css'/>" media="print" />
-	
-	</head>
-	
-	<!--
+<%@include file="../pagetemplate/commonCSSJSP.jsp"%>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="<c:url value='/static/css/datepicker.css'/>">
+
+<link rel='stylesheet' type='text/css'
+	href="<c:url value='/static/css/style.css'/>" />
+<link rel='stylesheet' type='text/css'
+	href="<c:url value='/static/css/print.css'/>" media="print" />
+
+</head>
+
+<!--
 
 	TABLE OF CONTENTS.
 	
@@ -53,9 +58,9 @@
 	===================================================================
 	
 	-->
-	
-	<!-- #BODY -->
-	<!-- Possible Classes
+
+<!-- #BODY -->
+<!-- Possible Classes
 
 		* 'smart-style-{SKIN#}'
 		* 'smart-rtl'         - Switch theme mode to RTL
@@ -70,56 +75,61 @@
 	
 	// for material put this in body : desktop-detected pace-done smart-style-6
 	-->
-	<body class="fixed-page-footer">
+<body class="fixed-page-footer">
 
-		<!-- HEADER -->
-		<%@include file="../pagetemplate/topPanelJSP.jsp" %>
-		<!-- END HEADER -->
+	<!-- HEADER -->
+	<%@include file="../pagetemplate/topPanelJSP.jsp"%>
+	<!-- END HEADER -->
 
-		<!-- Left panel : Navigation area -->
-		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-		<%@include file="../pagetemplate/sidePanelJSP.jsp" %>
+	<!-- Left panel : Navigation area -->
+	<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+	<%@include file="../pagetemplate/sidePanelJSP.jsp"%>
 
-		<!-- MAIN PANEL -->
-		<div id="main" role="main">
+	<!-- MAIN PANEL -->
+	<div id="main" role="main">
 
-			<!-- RIBBON -->
-			<div id="ribbon">
+		<!-- RIBBON -->
+		<div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
+			<span class="ribbon-button-alignment"> <span id="refresh"
+				class="btn btn-ribbon" data-action="resetWidgets"
+				data-title="refresh" rel="tooltip" data-placement="bottom"
+				data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings."
+				data-html="true"> <i class="fa fa-refresh"></i>
+			</span>
+			</span>
 
-				<!-- breadcrumb -->
-				<ol class="breadcrumb">
-					<li>Home</li><li>Tables</li><li>Data Tables</li>
-				</ol>
-				
+			<!-- breadcrumb -->
+			<ol class="breadcrumb">
+				<li>Home</li>
+				<li>Tables</li>
+				<li>Data Tables</li>
+			</ol>
 
-			</div>
-			<!-- END RIBBON -->
 
-			<!-- MAIN CONTENT -->
-			<div id="content">
+		</div>
+		<!-- END RIBBON -->
 
-				
-				
-				
-				<!-- widget grid -->
-				<section id="widget-grid" class="">
-				
-				
-				
-					<div class="row">
-				
-						<!-- NEW COL START -->
-						<article class="col-sm-12 col-md-12 col-lg-12">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget " id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
-								<!-- widget options:
+		<!-- MAIN CONTENT -->
+		<div id="content">
+
+
+
+
+			<!-- widget grid -->
+			<section id="widget-grid" class="">
+
+
+
+				<div class="row">
+
+					<!-- NEW COL START -->
+					<article class="col-sm-12 col-md-12 col-lg-12">
+
+						<!-- Widget ID (each widget will need unique ID)-->
+						<div class="jarviswidget " id="wid-id-3"
+							data-widget-editbutton="false" data-widget-custombutton="false">
+							<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
 								data-widget-colorbutton="false"
@@ -132,289 +142,345 @@
 								data-widget-sortable="false"
 				
 								-->
-								 
-				 
-								<!-- widget div-->
-								<div id="page-wrap">
 
-		<textarea id="headers">INVOICE</textarea>
-		
-		<div id="identity">
-		
-            <textarea id="address">Chris Coyier
+
+							<!-- widget div-->
+							<div id="page-wrap">
+
+								<textarea id="headers">INVOICE</textarea>
+
+								<div id="identity">
+
+									<textarea id="address">Chris Coyier
 123 Appleseed Street
 Appleville, WI 53719
 
 Phone: (555) 555-5555</textarea>
 
-            <div id="logos">
+									<div id="logos">
 
-              <div id="logoctr">
-                <a href="javascript:;" id="change-logo" title="Change logo">Change Logo</a>
-                <a href="javascript:;" id="save-logo" title="Save changes">Save</a>
-                |
-                <a href="javascript:;" id="delete-logo" title="Delete logo">Delete Logo</a>
-                <a href="javascript:;" id="cancel-logo" title="Cancel changes">Cancel</a>
-              </div>
+										<div id="logoctr">
+											<a href="javascript:;" id="change-logo" title="Change logo">Change
+												Logo</a> <a href="javascript:;" id="save-logo"
+												title="Save changes">Save</a> | <a href="javascript:;"
+												id="delete-logo" title="Delete logo">Delete Logo</a> <a
+												href="javascript:;" id="cancel-logo" title="Cancel changes">Cancel</a>
+										</div>
 
-              <div id="logohelp">
-                <input id="imageloc" type="text" size="50" value="" /><br />
-                (max width: 540px, max height: 100px)
-              </div>
-              <img id="image" src="<c:url value='/static/img/logos.png'/>" alt="logo" />
-            </div>
-		
-		</div>
-		
-		<div style="clear:both"></div>
-		
-		<div id="customer">
+										<div id="logohelp">
+											<input id="imageloc" type="text" size="50" value="" /><br />
+											(max width: 540px, max height: 100px)
+										</div>
+										<img id="image" src="<c:url value='/static/img/logos.png'/>"
+											alt="logo" />
+									</div>
 
-            <textarea id="customer-title">Widget Corp.
+								</div>
+
+								<div style="clear: both"></div>
+
+								<div id="customer">
+
+									<textarea id="customer-title">Widget Corp.
 c/o Steve Widget</textarea>
 
-            <table id="meta">
-                <tr>
-                    <td class="meta-head">Invoice #</td>
-                    <td><textarea>000123</textarea></td>
-                </tr>
-                <tr>
+									<table id="meta">
+										<tr>
+											<td class="meta-head">Invoice #</td>
+											<td><textarea>000123</textarea></td>
+										</tr>
+										<tr>
 
-                    <td class="meta-head">Date</td>
-                    <td><textarea id="date">December 15, 2009</textarea></td>
-                </tr>
-                <tr>
-                    <td class="meta-head">Amount Due</td>
-                    <td><div class="due">$875.00</div></td>
-                </tr>
+											<td class="meta-head">Date</td>
+											<td><textarea id="date">December 15, 2009</textarea></td>
+										</tr>
+										<tr>
+											<td class="meta-head">Amount Due</td>
+											<td><div class="due">$875.00</div></td>
+										</tr>
 
-            </table>
-		
+									</table>
+
+								</div>
+
+								<table id="items">
+
+									<tr>
+										<th>Item</th>
+										<th>Description</th>
+										<th>Unit Cost</th>
+										<th>Quantity</th>
+										<th>Price</th>
+									</tr>
+
+									<tr class="item-row">
+										<td class="item-name"><div class="delete-wpr">
+												<textarea>Web Updates</textarea>
+												<a class="delete" href="javascript:;" title="Remove row">X</a>
+											</div></td>
+										<td class="description"><textarea>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</textarea></td>
+										<td><textarea class="cost">$650.00</textarea></td>
+										<td><textarea class="qty">1</textarea></td>
+										<td><span class="price">$650.00</span></td>
+									</tr>
+
+									<tr class="item-row">
+										<td class="item-name"><div class="delete-wpr">
+												<textarea>SSL Renewals</textarea>
+												<a class="delete" href="javascript:;" title="Remove row">X</a>
+											</div></td>
+
+										<td class="description"><textarea>Yearly renewals of SSL certificates on main domain and several subdomains</textarea></td>
+										<td><textarea class="cost">$75.00</textarea></td>
+										<td><textarea class="qty">3</textarea></td>
+										<td><span class="price">$225.00</span></td>
+									</tr>
+
+									<tr id="hiderow">
+										<td colspan="5"><a id="addrow" href="javascript:;"
+											title="Add a row">Add a row</a></td>
+									</tr>
+
+									<tr>
+										<td colspan="2" class="blank"></td>
+										<td colspan="2" class="total-line">Subtotal</td>
+										<td class="total-value"><div id="subtotal">$875.00</div></td>
+									</tr>
+									<tr>
+
+										<td colspan="2" class="blank"></td>
+										<td colspan="2" class="total-line">Total</td>
+										<td class="total-value"><div id="total">$875.00</div></td>
+									</tr>
+									<tr>
+										<td colspan="2" class="blank"></td>
+										<td colspan="2" class="total-line">Amount Paid</td>
+
+										<td class="total-value"><textarea id="paid">$0.00</textarea></td>
+									</tr>
+									<tr>
+										<td colspan="2" class="blank"></td>
+										<td colspan="2" class="total-line balance">Balance Due</td>
+										<td class="total-value balance"><div class="due">$875.00</div></td>
+									</tr>
+
+								</table>
+
+								<div id="terms">
+									<h5>Terms</h5>
+									<textarea>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</textarea>
+								</div>
+
+							</div>
+							<!-- end widget div -->
+
+						</div>
+						<!-- end widget -->
+
+					</article>
+					<!-- END COL -->
+
+
+				</div>
+
+				<!-- end row -->
+
+				<!-- row -->
+
+				<!-- end row -->
+
+				<!-- row -->
+
+				<!-- end row -->
+
+
+			</section>
+			<!-- end widget grid -->
+
 		</div>
-		
-		<table id="items">
-		
-		  <tr>
-		      <th>Item</th>
-		      <th>Description</th>
-		      <th>Unit Cost</th>
-		      <th>Quantity</th>
-		      <th>Price</th>
-		  </tr>
-		  
-		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><textarea>Web Updates</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
-		      <td class="description"><textarea>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</textarea></td>
-		      <td><textarea class="cost">$650.00</textarea></td>
-		      <td><textarea class="qty">1</textarea></td>
-		      <td><span class="price">$650.00</span></td>
-		  </tr>
-		  
-		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><textarea>SSL Renewals</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+		<!-- END MAIN CONTENT -->
 
-		      <td class="description"><textarea>Yearly renewals of SSL certificates on main domain and several subdomains</textarea></td>
-		      <td><textarea class="cost">$75.00</textarea></td>
-		      <td><textarea class="qty">3</textarea></td>
-		      <td><span class="price">$225.00</span></td>
-		  </tr>
-		  
-		  <tr id="hiderow">
-		    <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
-		  </tr>
-		  
-		  <tr>
-		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line">Subtotal</td>
-		      <td class="total-value"><div id="subtotal">$875.00</div></td>
-		  </tr>
-		  <tr>
-
-		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line">Total</td>
-		      <td class="total-value"><div id="total">$875.00</div></td>
-		  </tr>
-		  <tr>
-		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line">Amount Paid</td>
-
-		      <td class="total-value"><textarea id="paid">$0.00</textarea></td>
-		  </tr>
-		  <tr>
-		      <td colspan="2" class="blank"> </td>
-		      <td colspan="2" class="total-line balance">Balance Due</td>
-		      <td class="total-value balance"><div class="due">$875.00</div></td>
-		  </tr>
-		
-		</table>
-		
-		<div id="terms">
-		  <h5>Terms</h5>
-		  <textarea>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</textarea>
-		</div>
-	
 	</div>
-								<!-- end widget div -->
-				
-							</div> 
-							<!-- end widget -->
-				
-						</article>
-						<!-- END COL -->
-				
-				
-					</div>
-				
-					<!-- end row -->
-				
-					<!-- row -->
-					
-					<!-- end row -->
-				
-					<!-- row -->
-					
-					<!-- end row -->		
-				
-				
-				</section>
-				<!-- end widget grid -->
+	<!-- END MAIN PANEL -->
 
-			</div>
-			<!-- END MAIN CONTENT -->
+	<!-- PAGE FOOTER -->
+	<!-- END PAGE FOOTER -->
 
-		</div>
-		<!-- END MAIN PANEL -->
-
-		<!-- PAGE FOOTER -->
-		<!-- END PAGE FOOTER -->
-
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+	<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,
 		you can add as many as you like
 		-->
-		<div id="shortcut">
-			<ul>
-				<li>
-					<a href="inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
-				</li>
-				<li>
-					<a href="gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
-				</li>
-				<li>
-					<a href="invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
-				</li>
-				<li>
-					<a href="profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
-				</li>
-			</ul>
-		</div>
-		<!-- END SHORTCUT AREA -->
+	<div id="shortcut">
+		<ul>
+			<li><a href="inbox.html"
+				class="jarvismetro-tile big-cubes bg-color-blue"> <span
+					class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail
+							<span class="label pull-right bg-color-darken">14</span>
+					</span>
+				</span>
+			</a></li>
+			<li><a href="calendar.html"
+				class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span
+					class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span>
+				</span>
+			</a></li>
+			<li><a href="gmap-xml.html"
+				class="jarvismetro-tile big-cubes bg-color-purple"> <span
+					class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span>
+				</span>
+			</a></li>
+			<li><a href="invoice.html"
+				class="jarvismetro-tile big-cubes bg-color-blueDark"> <span
+					class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice
+							<span class="label pull-right bg-color-darken">99</span>
+					</span>
+				</span>
+			</a></li>
+			<li><a href="gallery.html"
+				class="jarvismetro-tile big-cubes bg-color-greenLight"> <span
+					class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery
+					</span>
+				</span>
+			</a></li>
+			<li><a href="profile.html"
+				class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span
+					class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My
+							Profile </span>
+				</span>
+			</a></li>
+		</ul>
+	</div>
+	<!-- END SHORTCUT AREA -->
 
-		<!--================================================== -->
+	<!--================================================== -->
 
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="<c:url value='/static/js/plugin/pace/pace.min.js' />" ></script>
+	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+	<script data-pace-options='{ "restartOnRequestAfter": true }'
+		src="<c:url value='/static/js/plugin/pace/pace.min.js' />"></script>
 
-		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-		<script src="<c:url value='/static/js/jquery.min.js' />" ></script>
-		<script>
+	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+	<script src="<c:url value='/static/js/jquery.min.js' />"></script>
+	<script>
 			if (!window.jQuery) {
 				document.write('<script src="/static/js/libs/jquery-2.1.1.min.js"><\/script>');
 			}
 		</script>
 
-		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js></script> -->
-		<script   src="<c:url value='/static/js/jquery-ui.min.js' />"    integrity="sha256-lnH4vnCtlKU2LmD0ZW1dU7ohTTKrcKP50WA9fa350cE="   crossorigin="anonymous"></script>
-		<script>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js></script> -->
+	<script src="<c:url value='/static/js/jquery-ui.min.js' />"
+		integrity="sha256-lnH4vnCtlKU2LmD0ZW1dU7ohTTKrcKP50WA9fa350cE="
+		crossorigin="anonymous"></script>
+	<script>
 			if (!window.jQuery.ui) {
 				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
 			}
 		</script>
-		
-		<script type='text/javascript' src="<c:url value='/static/js/example.js'/>"></script>
 
-		<!-- IMPORTANT: APP CONFIG -->
-		<script src="<c:url value='/static/js/app.config.js' />"></script>
+	<script type='text/javascript'
+		src="<c:url value='/static/js/example.js'/>"></script>
 
-		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-		<script src="<c:url value='/static/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js' />"></script> 
+	<!-- IMPORTANT: APP CONFIG -->
+	<script src="<c:url value='/static/js/app.config.js' />"></script>
 
-		<!-- BOOTSTRAP JS -->
-		<script src="<c:url value='/static/js/bootstrap/bootstrap.min.js' />"></script>
+	<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+	<script
+		src="<c:url value='/static/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js' />"></script>
 
-		<!-- CUSTOM NOTIFICATION -->
-		<script src="<c:url value='/static/js/notification/SmartNotification.min.js' />"></script>
+	<!-- BOOTSTRAP JS -->
+	<script src="<c:url value='/static/js/bootstrap/bootstrap.min.js' />"></script>
 
-		<!-- JARVIS WIDGETS -->
-		<script src="<c:url value='/static/js/smartwidgets/jarvis.widget.min.js' />" ></script>
+	<!-- CUSTOM NOTIFICATION -->
+	<script
+		src="<c:url value='/static/js/notification/SmartNotification.min.js' />"></script>
 
-		<!-- EASY PIE CHARTS -->
-		<script src="<c:url value='/static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js' />" ></script>
+	<!-- JARVIS WIDGETS -->
+	<script
+		src="<c:url value='/static/js/smartwidgets/jarvis.widget.min.js' />"></script>
 
-		<!-- SPARKLINES -->
-		<script src="<c:url value='/static/js/plugin/sparkline/jquery.sparkline.min.js' />" ></script>
+	<!-- EASY PIE CHARTS -->
+	<script
+		src="<c:url value='/static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js' />"></script>
 
-		<!-- JQUERY VALIDATE -->
-		<script src="<c:url value='/static/js/plugin/jquery-validate/jquery.validate.min.js' />" ></script>
+	<!-- SPARKLINES -->
+	<script
+		src="<c:url value='/static/js/plugin/sparkline/jquery.sparkline.min.js' />"></script>
 
-		<!-- JQUERY MASKED INPUT -->
-		<script src="<c:url value='/static/js/plugin/masked-input/jquery.maskedinput.min.js' />" ></script>
+	<!-- JQUERY VALIDATE -->
+	<script
+		src="<c:url value='/static/js/plugin/jquery-validate/jquery.validate.min.js' />"></script>
 
-		<!-- JQUERY SELECT2 INPUT -->
-		<script src="<c:url value='/static/js/plugin/select2/select2.min.js' />" ></script>
+	<!-- JQUERY MASKED INPUT -->
+	<script
+		src="<c:url value='/static/js/plugin/masked-input/jquery.maskedinput.min.js' />"></script>
 
-		<!-- JQUERY UI + Bootstrap Slider -->
-		<script src="<c:url value='/static/js/plugin/bootstrap-slider/bootstrap-slider.min.js' />" ></script>
+	<!-- JQUERY SELECT2 INPUT -->
+	<script
+		src="<c:url value='/static/js/plugin/select2/select2.min.js' />"></script>
 
-		<!-- browser msie issue fix -->
-		<script src="<c:url value='/static/js/plugin/msie-fix/jquery.mb.browser.min.js' />" ></script>
+	<!-- JQUERY UI + Bootstrap Slider -->
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-slider/bootstrap-slider.min.js' />"></script>
 
-		<!-- FastClick: For mobile devices -->
-		<script src="<c:url value='/static/js/plugin/fastclick/fastclick.min.js' />" ></script>
+	<!-- browser msie issue fix -->
+	<script
+		src="<c:url value='/static/js/plugin/msie-fix/jquery.mb.browser.min.js' />"></script>
 
-		<!--[if IE 8]>
+	<!-- FastClick: For mobile devices -->
+	<script
+		src="<c:url value='/static/js/plugin/fastclick/fastclick.min.js' />"></script>
+
+	<!--[if IE 8]>
 
 		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 
 		<![endif]-->
 
-		<!-- Demo purpose only -->
-		<script src="<c:url value='/static/js/demo.min.js' />" ></script>
+	<!-- Demo purpose only -->
+	<script src="<c:url value='/static/js/demo.min.js' />"></script>
 
-		<!-- MAIN APP JS FILE -->
-		<script src="<c:url value='/static/js/app.min.js' />" ></script>
+	<!-- MAIN APP JS FILE -->
+	<script src="<c:url value='/static/js/app.min.js' />"></script>
 
-		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-		<!-- Voice command : plugin -->
-		<script src="<c:url value='/static/js/speech/voicecommand.min.js' />" ></script>
+	<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+	<!-- Voice command : plugin -->
+	<script src="<c:url value='/static/js/speech/voicecommand.min.js' />"></script>
 
-		<!-- SmartChat UI : plugin -->
-		<script src="<c:url value='/static/js/smart-chat-ui/smart.chat.ui.min.js' />" ></script>
-		<script src="<c:url value='/static/js/smart-chat-ui/smart.chat.manager.min.js' />" ></script>
+	<!-- SmartChat UI : plugin -->
+	<script
+		src="<c:url value='/static/js/smart-chat-ui/smart.chat.ui.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/smart-chat-ui/smart.chat.manager.min.js' />"></script>
 
-		<!-- PAGE RELATED PLUGIN(S) -->
-		<script src="<c:url value='/static/js/plugin/maxlength/bootstrap-maxlength.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/clockpicker/clockpicker.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/ion-slider/ion.rangeSlider.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js' />" ></script>		
-		<script src="<c:url value='/static/js/plugin/colorpicker/bootstrap-colorpicker.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/knob/jquery.knob.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/x-editable/moment.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/x-editable/jquery.mockjax.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/x-editable/x-editable.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/typeahead/typeahead.min.js' />" ></script>
-		<script src="<c:url value='/static/js/plugin/typeahead/typeaheadjs.min.js' />" ></script>
-		<script src="<c:url value='/static/js/bootstrap-datepicker.js' />" ></script>
+	<!-- PAGE RELATED PLUGIN(S) -->
+	<script
+		src="<c:url value='/static/js/plugin/maxlength/bootstrap-maxlength.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/clockpicker/clockpicker.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/ion-slider/ion.rangeSlider.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/colorpicker/bootstrap-colorpicker.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/knob/jquery.knob.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/x-editable/moment.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/x-editable/jquery.mockjax.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/x-editable/x-editable.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/typeahead/typeahead.min.js' />"></script>
+	<script
+		src="<c:url value='/static/js/plugin/typeahead/typeaheadjs.min.js' />"></script>
+	<script src="<c:url value='/static/js/bootstrap-datepicker.js' />"></script>
 
-		<script type="text/javascript">
+	<script type="text/javascript">
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 
@@ -1314,8 +1380,8 @@ c/o Steve Widget</textarea>
 
 		</script>
 
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
+	<!-- Your GOOGLE ANALYTICS CODE Below -->
+	<script type="text/javascript">
 			var _gaq = _gaq || [];
 				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
 				_gaq.push(['_trackPageview']);
@@ -1331,8 +1397,7 @@ c/o Steve Widget</textarea>
 
 		</script>
 
-	</body>
+</body>
 
 </html>
 <html>
-

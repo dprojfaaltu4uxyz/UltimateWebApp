@@ -231,8 +231,8 @@
 													<div class="form-group">
 														<label>Class Numeric:</label>
 														<div class="input-group">
-															<form:input type="text" path="classesNumeric" id="classesNumeric"
-																class="form-control" />
+															<form:input type="text" path="classesNumeric"
+																id="classesNumeric" class="form-control" />
 															<span class="input-group-addon"><i
 																class="fa fa-envelope"></i></span>
 															<div class="has-error">
@@ -241,14 +241,14 @@
 														</div>
 													</div>
 													<div class="form-group">
-													<label>Teacher Name</label>
-													<form:select path="teacher" items="${teacherList}"
-																multiple="false" style="width: 100%" class="select2" />
-															<div class="has-error">
-																<form:errors path="teacher" class="help-inline" />
-															</div>
+														<label>Teacher Name</label>
+														<form:select path="teacher" items="${teacherList}"
+															multiple="false" style="width: 100%" class="select2" />
+														<div class="has-error">
+															<form:errors path="teacher" class="help-inline" />
+														</div>
 													</div>
-												 
+
 													<div class="form-group">
 														<label>Note:</label>
 														<div class="input-group">
@@ -261,8 +261,8 @@
 															</div>
 														</div>
 													</div>
-													
-													
+
+
 												</div>
 											</div>
 
