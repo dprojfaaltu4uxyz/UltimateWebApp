@@ -367,6 +367,21 @@ Party.validation = function(){
     	 $(document).on('click', '.yamm .dropdown-menu', function(e) {
              e.stopPropagation()
          })
+         
+        $("#partyDetailsForm").validate();
+    	$("#city").val($("#selectedCityId").val());
+    	$("#state").val($("#selectedStateId").val());
+    	$("#city").select2();
+    	$("#state").select2();
+    	if($("#certificateDate").val() != undefined && $("#certificateDate").val() != ''){
+    		var certificateDate = new Date($("#certificateDate").val());
+    		$("#certificateDate").val(certificateDate.getDate() + '/' + (certificateDate.getMonth() + 1) + '/' +  certificateDate.getFullYear()) ;
+    	}
+    	
+    	if($("#validUptoDate").val() != undefined && $("#validUptoDate").val() != ''){
+    		var validUptoDate = new Date($("#validUptoDate").val());
+    		$("#validUptoDate").val(validUptoDate.getDate() + '/' + (validUptoDate.getMonth() + 1) + '/' +  validUptoDate.getFullYear()) ;
+    	}
     	
         // validate the comment form when it is submitted
     	//$("#jobCardForm").validate();

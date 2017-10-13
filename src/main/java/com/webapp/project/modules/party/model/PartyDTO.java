@@ -16,6 +16,7 @@ import com.webapp.project.modules.masters.model.State;
 public class PartyDTO extends BaseDTO{
 
 	private long partyId;
+	private String partyCode; 
 	private AppUser appUser;
 	private Date createDate;
 	private Date modifiedDate;
@@ -493,6 +494,12 @@ public class PartyDTO extends BaseDTO{
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getPartyCode() {
+		return partyCode;
+	}
+	public void setPartyCode(String partyCode) {
+		this.partyCode = partyCode;
 	}
 	
 }

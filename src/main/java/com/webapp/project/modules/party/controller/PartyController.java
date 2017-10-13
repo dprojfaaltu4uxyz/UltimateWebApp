@@ -94,7 +94,7 @@ public class PartyController {
 	}
 	
 	@RequestMapping(value={"/newparty"},method = RequestMethod.POST)
-	public String SaveJobCard(@Valid PartyDTO partyDTO,BindingResult result,
+	public String SaveParty(@Valid PartyDTO partyDTO,BindingResult result,
 			ModelMap model){
 		
 		Party party = new Party();
@@ -108,9 +108,10 @@ public class PartyController {
 			model.addAttribute("cityList", cityList);
 			model.addAttribute("party",partyDTO);
 			model.addAttribute("loggedinuser", getPrincipal());
-			return "masters/partyDetailsJSP";
+			return "masters/partyDetailsJSP";	
 		}
 		setDTOToEntity(partyDTO,party);
+		party.setPartyCode(partyDTO.getAccountPartyName()+"-"+partyDTO.getIecCodeNo());
 		//Teacher teacher = new Teacher();
 		//System.out.println(party.getPortmasterByPortDischargeId());
 		
@@ -120,8 +121,8 @@ public class PartyController {
 		if(status.equalsIgnoreCase("success")){
 			partyDTO = new PartyDTO();
 			model.addAttribute("party", partyDTO);
-			model.addAttribute("success", "Job " + party.getShortName() + " "+ party.getShortName() + " created successfully");
-			partyDTO.setMessage("Job " + party.getShortName() + " "+ party.getShortName() + " created successfully");
+			model.addAttribute("success", "Party " + party.getShortName() + " "+ party.getShortName() + " created successfully");
+			partyDTO.setMessage("Party " + party.getShortName() + " "+ party.getShortName() + " created successfully");
 		}else{
 			partyDTO.setSelectedCityId(party.getCity().getCityId());
 			partyDTO.setSelectedStateId(party.getState().getStateId());
@@ -143,7 +144,7 @@ public class PartyController {
 	 * This method will provide the medium to update an existing party.
 	 */
 	@RequestMapping(value = { "/edit-party-{id}" }, method = RequestMethod.GET)
-	public String editJobCard(@PathVariable Long id, ModelMap model) {
+	public String editParty(@PathVariable Long id, ModelMap model) {
 		Party party = partyService.findById(id);
 		PartyDTO  partyDTO = new PartyDTO();
 		setEntityToDTO(partyDTO, party); 
@@ -169,14 +170,14 @@ public class PartyController {
 	 * updating user in database. It also validates the user input
 	 */
 	@RequestMapping(value = { "/edit-party-{id}" }, method = RequestMethod.POST)
-	public String updateUser(@Valid PartyDTO partyDTO, BindingResult result,
+	public String updateParty(@Valid PartyDTO partyDTO, BindingResult result,
 			ModelMap model, @PathVariable Long id) {
 		Party party = new Party();
 		if (result.hasErrors()) {
 			//party = jobcardService.findById(id);
 			//partyDTO = new AgentDTO(party);
-			partyDTO.setSelectedCityId(party.getCity().getCityId());
-			partyDTO.setSelectedStateId(party.getState().getStateId());
+			//partyDTO.setSelectedCityId(party.getCity().getCityId());
+			//partyDTO.setSelectedStateId(party.getState().getStateId());
 			
 			List<City> cityList = cityService.findAllCities();
 			
@@ -198,13 +199,14 @@ public class PartyController {
 		}*/
 
 		setDTOToEntity(partyDTO,party);
+		party.setPartyCode(partyDTO.getPartyCode());
 		String status = partyService.updateParty(party);
 		
 		if(status.equalsIgnoreCase("success")){
 			partyDTO = new PartyDTO();
 			model.addAttribute("party", partyDTO);
-			model.addAttribute("success", "Job " + party.getShortName() + " "+ party.getShortName() + " created successfully");
-			partyDTO.setMessage("Job " + party.getShortName() + " "+ party.getShortName() + " created successfully");
+			model.addAttribute("success", "Party " + party.getShortName() + " "+ party.getShortName() + " created successfully");
+			partyDTO.setMessage("Party " + party.getShortName() + " "+ party.getShortName() + " created successfully");
 		}else{
 			//partyDTO = new AgentDTO(party);
 			partyDTO.setSelectedCityId(party.getCity().getCityId());
@@ -233,9 +235,9 @@ public class PartyController {
 		party.setPartyId(partyId);
 		String status = partyService.deleteParty(party);
 		if(status.equalsIgnoreCase("success")){
-			return "Job deleted successfully";
+			return "Party deleted successfully";
 		}else{
-			return "Error - Cannot delete Job";
+			return "Error - Cannot delete Party";
 		}
 		
 	}
@@ -256,6 +258,7 @@ public class PartyController {
 	//Important links - https://stackoverflow.com/questions/1667854/copy-all-values-from-fields-in-one-class-to-another-through-reflection
 	
 	public void setDTOToEntity(PartyDTO partyDTO,Party party){
+		party.setPartyId(partyDTO.getPartyId());
 		party.setAccountPartyName(partyDTO.getAccountPartyName());
 		party.setAppUser(partyDTO.getAppUser());
 		party.setCreateDate(partyDTO.getCreateDate());
@@ -322,10 +325,13 @@ public class PartyController {
 		party.setNameAddress(partyDTO.getNameAddress());
 		party.setExporterClass(partyDTO.getExporterClass());
 		party.setGrBank(partyDTO.getGrBank());
+		party.setCertificateNo(partyDTO.getCertificateNo());
 		
 	}
 	
 	public void setEntityToDTO(PartyDTO partyDTO,Party party){
+		partyDTO.setPartyId(party.getPartyId());
+		partyDTO.setPartyCode(party.getPartyCode());
 		partyDTO.setAccountPartyName(party.getAccountPartyName());
 		partyDTO.setAppUser(party.getAppUser());
 		partyDTO.setCreateDate(party.getCreateDate());
@@ -392,7 +398,8 @@ public class PartyController {
 		partyDTO.setNameAddress(party.getNameAddress());
 		partyDTO.setExporterClass(party.getExporterClass());
 		partyDTO.setGrBank(party.getGrBank());
-		
+		partyDTO.setCertificateNo(party.getCertificateNo());
+		partyDTO.setCertificateNo(party.getCertificateNo());
 	}
 	
 	public void setDTOToEntityUsingGson(AgentDTO partyDTO, Agent party){

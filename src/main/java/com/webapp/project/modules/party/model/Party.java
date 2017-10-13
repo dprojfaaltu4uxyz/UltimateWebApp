@@ -25,6 +25,7 @@ import com.webapp.project.modules.masters.model.State;
 public class Party implements java.io.Serializable {
 
 	private long partyId;
+	private String partyCode;
 	private AppUser appUser;
 	private Date createDate;
 	private Date modifiedDate;
@@ -47,7 +48,7 @@ public class Party implements java.io.Serializable {
 	private String manifestReportName;
 	private String binNo;
 	private String exporterHouse;
-	private Date certificateNo;
+	private String certificateNo;
 	private Date certificateDate;
 	private Date validUptoDate;
 	private String ifsCode;
@@ -124,7 +125,7 @@ public class Party implements java.io.Serializable {
 		this.appUser = appUser;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "stateId")
 	public State getState() {
 		return this.state;
@@ -134,7 +135,7 @@ public class Party implements java.io.Serializable {
 		this.state = state;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cityId")
 	public City getCity() {
 		return this.city;
@@ -145,9 +146,9 @@ public class Party implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createDate", nullable = false, length = 19)
+	@Column(name = "create_date", length = 19)
 	public Date getCreateDate() {
-		return createDate;
+		return this.createDate;
 	}
 
 	public void setCreateDate(Date createDate) {
@@ -155,36 +156,36 @@ public class Party implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "modifiedDate", nullable = false, length = 19)
+	@Column(name = "modified_date", nullable = false, length = 19)
 	public Date getModifiedDate() {
-		return modifiedDate;
+		return this.modifiedDate;
 	}
 
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 
-	@Column(name = "createUserId")
+	@Column(name = "create_userId")
 	public Integer getCreateUserId() {
-		return createUserId;
+		return this.createUserId;
 	}
 
 	public void setCreateUserId(Integer createUserId) {
 		this.createUserId = createUserId;
 	}
 
-	@Column(name = "createUsername")
+	@Column(name = "create_username", length = 65)
 	public String getCreateUsername() {
-		return createUsername;
+		return this.createUsername;
 	}
 
 	public void setCreateUsername(String createUsername) {
 		this.createUsername = createUsername;
 	}
 
-	@Column(name = "createUsertype")
+	@Column(name = "create_usertype", length = 20)
 	public String getCreateUsertype() {
-		return createUsertype;
+		return this.createUsertype;
 	}
 
 	public void setCreateUsertype(String createUsertype) {
@@ -489,7 +490,7 @@ public class Party implements java.io.Serializable {
 		this.division = division;
 	}
 
-	@Column(name = "range", length = 255)
+	@Column(name = "`range`", length = 255)
 	public String getRange() {
 		return range;
 	}
@@ -696,11 +697,11 @@ public class Party implements java.io.Serializable {
 	}
 
 	@Column(name = "certificateNo", length = 255)
-	public Date getCertificateNo() {
+	public String getCertificateNo() {
 		return certificateNo;
 	}
 
-	public void setCertificateNo(Date certificateNo) {
+	public void setCertificateNo(String certificateNo) {
 		this.certificateNo = certificateNo;
 	}
 
@@ -713,6 +714,14 @@ public class Party implements java.io.Serializable {
 		this.name = name;
 	}
 	
+	@Column(name = "partyCode", length = 255)
+	public String getPartyCode() {
+		return partyCode;
+	}
+
+	public void setPartyCode(String partyCode) {
+		this.partyCode = partyCode;
+	}
 	
 	
 }
