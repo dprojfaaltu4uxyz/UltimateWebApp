@@ -183,6 +183,8 @@ public class PartyController {
 			
 			List<State> stateList = stateService.findAllStates();
 			
+			party = partyService.findById(id);
+			
 			model.addAttribute("party", partyDTO);
 			model.addAttribute("stateList", stateList);
 			model.addAttribute("cityList", cityList);

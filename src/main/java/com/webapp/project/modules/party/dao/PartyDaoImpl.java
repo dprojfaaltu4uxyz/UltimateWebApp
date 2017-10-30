@@ -13,7 +13,7 @@ import com.webapp.project.modules.party.model.Party;
 public class PartyDaoImpl  extends AbstractDao<Integer, Party> implements PartyDao{
 
 	public Party findById(Long id) {
-		return findById(id);
+		return getByKey(id);
 	}
 
 	public String save(Party party) {
